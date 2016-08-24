@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using AccesoDatos;
+using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -12,7 +13,7 @@ namespace Negocio
 {
     public class NZona
     {
-        public static List<DZona> ListaPuesto()
+        public static DataTable ListaPuesto()
         {
             return AdZona.ListaPuesto();
         }
@@ -31,5 +32,14 @@ namespace Negocio
         {
             return AdZona.Eliminar(e);
         }
+
+        public static int Id()
+        {
+            return AdZona.Id();
+        }
+
+        
+
+
     }
 }

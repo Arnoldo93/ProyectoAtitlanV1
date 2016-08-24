@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using MySql.Data;
 using MySql.Data.MySqlClient;
@@ -22,22 +23,22 @@ namespace AccesoDatos
         }
 
         //Listar
-        public static List<DFamilia> ListaFamilia()
-        {
-            var lista = new List<DFamilia>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from familia";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadFamilia(dr));
-                }
-                return lista;
-            }
-        }
+        //public static List<DFamilia> ListaFamilia()
+        //{
+        //    var lista = new List<DFamilia>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from familia";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadFamilia(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         //agregar
 
@@ -93,6 +94,33 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@id", c.Id_Familia);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+        }
+
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Familia),0) from familia";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //Listar
+        public static DataTable ListaFamilia()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = " select * from familia";
+                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
+                cnn.Open();
+                DataTable dtDatos = new DataTable();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
             }
         }
     }

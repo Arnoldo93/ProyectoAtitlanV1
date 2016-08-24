@@ -165,32 +165,30 @@ namespace PROYECTO_PROATITLAN
 
         private void ListadoFamilias()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * from familia";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox2.DataSource = dtDatos;
-            comboBox2.DisplayMember = "Nombre";
-            comboBox2.ValueMember = "Id_Familia";
-            comboBox2.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NFamilia.ListadoFamilias();
+                comboBox2.DataSource = datos;
+                comboBox2.DisplayMember = "Nombre";
+                comboBox2.ValueMember = "Id_Familia";
+                comboBox2.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void idSubCategoria()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_SubCategoria),0) from subcategoria_desecho";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var val = new DSubcategoriaDesecho();
+                val.Id_SubCategoria = NSubcategoriaDesecho.id() + 1;
+                textBox1.Text = val.ToString();
+            }
         }
 
         private void SubCategoria_Desechos_Load(object sender, EventArgs e)

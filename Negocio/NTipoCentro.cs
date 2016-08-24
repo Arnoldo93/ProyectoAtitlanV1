@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using AccesoDatos;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
+
 namespace Negocio
 {
     public class NTipoCentro
     {
-        public static List<DTipoCentro> ListaPuesto()
-        {
-            return AdTipoCentro.ListaPuesto();
-        }
+        //public static List<DTipoCentro> ListaPuesto()
+        //{
+        //    return AdTipoCentro.ListaPuesto();
+        //}
 
         public static bool Agregar(DTipoCentro e)
         {
@@ -31,5 +33,18 @@ namespace Negocio
         {
             return AdTipoCentro.Eliminar(e);
         }
+
+        public static int Id()
+        {
+            return AdTipoCentro.Id();
+        }
+
+        public static DataTable ListadoTipoCentro()
+        {
+            return AdTipoCentro.ListaTipos();
+        }
+
+
+
     }
 }

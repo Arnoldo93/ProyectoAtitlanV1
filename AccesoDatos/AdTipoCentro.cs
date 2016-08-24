@@ -21,23 +21,23 @@ namespace AccesoDatos
             return e;
         }
 
-        //Listar
-        public static List<DTipoCentro> ListaPuesto()
-        {
-            var lista = new List<DTipoCentro>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from tipo_centro";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadTipoCentro(dr));
-                }
-                return lista;
-            }
-        }
+        ////Listar
+        //public static List<DTipoCentro> ListaPuesto()
+        //{
+        //    var lista = new List<DTipoCentro>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from tipo_centro";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadTipoCentro(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         //agregar
 
@@ -94,6 +94,32 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+        }
+
+
+        //Id ultimo ingresado
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Tipo),0) from tipo_centro";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //listado
+        public static DataTable ListaTipos()
+        {
+            string Consulta = "Select * From tipo_centro";
+            MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            cnn.Open();
+            DataTable dtDatos = new DataTable();
+            mdatos.Fill(dtDatos);
+            return dtDatos;
         }
     }
 }

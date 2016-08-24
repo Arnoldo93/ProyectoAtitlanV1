@@ -40,17 +40,7 @@ namespace AccesoDatos
             }
         }
 
-        public static DataTable ListaP()
-        {
-            string Consulta = "Select * From puesto";
-            MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            return dtDatos;
-        }
-
+        
         //agregar
 
         public static bool Agregar(Dpuesto c)
@@ -132,20 +122,6 @@ namespace AccesoDatos
             }
         }
 
-        //Id ultimo ingresado
-
-        public static int Id()
-        {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = "select IFNULL (max(Id_Puesto),0) from puesto";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                return Convert.ToInt32(cmd.ExecuteScalar());
-
-            }
-        }
-
         //Eliminar
 
         public static bool Eliminar(Dpuesto c)
@@ -158,6 +134,31 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+        }
+
+        //Id ultimo ingresado
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Puesto),0) from puesto";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //listado
+        public static DataTable ListaP()
+        {
+            string Consulta = "Select * From puesto";
+            MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            cnn.Open();
+            DataTable dtDatos = new DataTable();
+            mdatos.Fill(dtDatos);
+            return dtDatos;
         }
 
     }

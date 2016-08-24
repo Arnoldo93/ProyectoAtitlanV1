@@ -24,52 +24,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (textBox2.Text != "")
-            //    {
-            //        Conexion con = new Conexion();
-            //        string conexionbasededatos = con.Seconecto();
-            //        string Consulta = "INSERT INTO tipo_centro(Id_Tipo,Nombre) VALUES('" + Convert.ToInt32(textBox1.Text) + "','" + textBox2.Text + "')";
-            //        MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //        MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //        cnn.Open();
-            //        if (mc.ExecuteNonQuery() > 0)
-            //        { 
-            //        cnn.Close();
-            //        MessageBox.Show("Se Guardo correctamente.");
-            //        listartipocentro();
-            //            id_tipocentro();
-            //            limpiar();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error verifique sus datos.",
-            //         "Critical Warning",
-            //         MessageBoxButtons.OK,
-            //         MessageBoxIcon.Error,
-            //         MessageBoxDefaultButton.Button1,
-            //         MessageBoxOptions.RtlReading,
-            //         true);
-            //        }       
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //         "Critical Warning",
-            //         MessageBoxButtons.OK,
-            //         MessageBoxIcon.Error,
-            //         MessageBoxDefaultButton.Button1,
-            //         MessageBoxOptions.RtlReading,
-            //         true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 if (textBox2.Text != "")
@@ -106,40 +60,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-            //    string Consulta = "update tipo_centro set Id_Tipo='" + int.Parse(textBox1.Text) + "',Nombre='" + this.textBox2.Text + "' where Id_Tipo='" + int.Parse(textBox1.Text)+"';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Datos Actualizados");
-            //        id_tipocentro();
-            //        limpiar();
-            //        listartipocentro();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //       "Critical Warning",
-            //       MessageBoxButtons.OK,
-            //       MessageBoxIcon.Error,
-            //       MessageBoxDefaultButton.Button1,
-            //       MessageBoxOptions.RtlReading,
-            //       true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error, no se pudo actualizar ", ex.ToString());
-            //}
-
-
             try
             {
                 
@@ -169,42 +89,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-
-            //    string Consulta = "delete from tipo_centro where Id_Tipo='" + int.Parse(this.textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Se elimino correctamente.");
-            //        id_tipocentro();
-            //        limpiar();
-            //        listartipocentro();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //       "Critical Warning",
-            //       MessageBoxButtons.OK,
-            //       MessageBoxIcon.Error,
-            //       MessageBoxDefaultButton.Button1,
-            //       MessageBoxOptions.RtlReading,
-            //       true);
-            //    }
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error al eliminar", ex.ToString());
-            //}
-
-
             try
             {
                 
@@ -232,30 +116,31 @@ namespace PROYECTO_PROATITLAN
 
         private void listartipocentro()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From tipo_centro";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NTipoCentro.ListadoTipoCentro();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void id_tipocentro()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Tipo),0) from tipo_centro";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var val = new DTipoCentro();
+                val.Id_Tipocentro = NTipoCentro.Id() + 1;
+                textBox1.Text = val.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void limpiar()

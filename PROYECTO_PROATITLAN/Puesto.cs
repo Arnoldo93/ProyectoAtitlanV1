@@ -250,9 +250,9 @@ namespace PROYECTO_PROATITLAN
             //dataGridView1.DataSource = dtDatos;
             //dataGridView1.Refresh();
             //cnn.Close();
-            DataTable da = new DataTable();
-            da =Npuesto.ListaPuesto();
-            dataGridView1.DataSource = da;
+            DataTable datos = new DataTable();
+            datos =Npuesto.ListaPuesto();
+            dataGridView1.DataSource = datos;
             dataGridView1.Refresh();            
 
         }

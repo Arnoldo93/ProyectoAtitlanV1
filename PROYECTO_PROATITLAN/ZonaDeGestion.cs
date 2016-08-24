@@ -25,51 +25,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (textBox2.Text != "")
-            //    {
-            //        Conexion con = new Conexion();
-            //        string conexionbasededatos = con.Seconecto();
-            //        string Consulta = "INSERT INTO zona_gestiom(Id_Zona,Nombre) VALUES('" + Convert.ToInt32(textBox1.Text) + "','" + textBox2.Text + "')";
-
-            //        MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //        MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //        // MySqlDataReader MyReader2;
-
-            //        cnn.Open();
-
-            //        if (mc.ExecuteNonQuery() > 0)
-            //        {
-            //            MessageBox.Show("Se Guardo Correctamente.");
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error verifique sus datos.",
-            //         "Critical Warning",
-            //         MessageBoxButtons.OK,
-            //         MessageBoxIcon.Error,
-            //         MessageBoxDefaultButton.Button1,
-            //         MessageBoxOptions.RtlReading,
-            //         true);
-            //        }
-            //        limpiar();
-            //        id_zona();
-            //        listarZonas();
-            //        cnn.Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error, vefique que los datos sean correctos", ex.ToString());
-            //}
-
-
-            try
+           try
             {
                 if (textBox2.Text != "")
                 {
@@ -104,41 +60,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-            //    string Consulta = "update zona_gestiom set Id_Zona='" +Convert.ToInt32(textBox1.Text) + "', Nombre='" + this.textBox2.Text + "' where Id_Zona='" +int.Parse( textBox1.Text) + "';";
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        MessageBox.Show("Datos actualizados correctamente.");
-            //        limpiar();
-            //        id_zona();
-            //        listarZonas();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //         "Critical Warning",
-            //         MessageBoxButtons.OK,
-            //         MessageBoxIcon.Error,
-            //         MessageBoxDefaultButton.Button1,
-            //         MessageBoxOptions.RtlReading,
-            //         true);
-            //    }
-            //    cnn.Close();
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 if (textBox2.Text != "")
@@ -175,44 +96,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-
-            //    string Consulta = "delete from zona_gestiom where Id_Zona='" + int.Parse(this.textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        MessageBox.Show("Se elimino correctamente.");
-            //        limpiar();
-            //        id_zona();
-            //        listarZonas();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //         "Critical Warning",
-            //         MessageBoxButtons.OK,
-            //         MessageBoxIcon.Error,
-            //         MessageBoxDefaultButton.Button1,
-            //         MessageBoxOptions.RtlReading,
-            //         true);
-            //    }
-            //    cnn.Close();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error al eliminar", ex.ToString());
-            //}
-
-
-
-            try
+                       try
             {
                     var c = new DZona();
                     c.Id_zona = Convert.ToInt32(textBox1.Text);
@@ -238,30 +122,29 @@ namespace PROYECTO_PROATITLAN
 
         private void listarZonas()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From zona_gestiom";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NZona.ListaPuesto();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void id_zona()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Zona),0) from zona_gestiom";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val =Convert.ToInt32( mc.ExecuteScalar())+1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var c = new DZona();
+                c.Id_zona = NZona.Id() + 1;
+                textBox1.Text = c.Id_zona.ToString();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void limpiar()

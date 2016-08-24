@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using AccesoDatos;
 using MySql.Data;
@@ -12,10 +13,10 @@ namespace Negocio
 {
     public class NFamilia
     {
-        public static List<DFamilia> ListaFamilias()
-        {
-            return AdFamilia.ListaFamilia();
-        }
+        //public static List<DFamilia> ListaFamilias()
+        //{
+        //    return AdFamilia.ListaFamilia();
+        //}
 
         public static bool Agregar(DFamilia e)
         {
@@ -30,6 +31,15 @@ namespace Negocio
         public static bool Eliminar(DFamilia e)
         {
             return AdFamilia.Eliminar(e);
+        }
+        public static int id()
+        {
+            return AdFamilia.Id();
+        }
+
+        public static DataTable ListadoFamilias()
+        {
+            return AdFamilia.ListaFamilia();
         }
     }
 }
