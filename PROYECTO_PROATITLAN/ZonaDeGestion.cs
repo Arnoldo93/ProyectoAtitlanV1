@@ -125,7 +125,7 @@ namespace PROYECTO_PROATITLAN
             try
             {
                 DataTable datos = new DataTable();
-                datos = NZona.ListaPuesto();
+                datos = NZona.ListaZona();
                 dataGridView1.DataSource = datos;
                 dataGridView1.Refresh();
             }

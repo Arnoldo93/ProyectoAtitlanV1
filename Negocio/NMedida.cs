@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using AccesoDatos;
 
@@ -10,7 +11,7 @@ namespace Negocio
 {
     public class NMedida
     {
-        public static List<DMedida> ListaMedida()
+        public static DataTable ListaMedida()
         {
             return AdMedida.ListaMedida();
         }
@@ -28,6 +29,11 @@ namespace Negocio
         public static bool Eliminar(DMedida e)
         {
             return AdMedida.Eliminar(e);
+        }
+
+        public static int id()
+        {
+            return AdMedida.Id();
         }
     }
 }

@@ -22,23 +22,23 @@ namespace AccesoDatos
             return e;
         }
 
-        //Listar
-        public static List<Dpuesto> ListaPuesto()
-        {
-            var lista = new List<Dpuesto>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from puesto";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadPuesto(dr));
-                }
-                return lista;
-            }
-        }
+        ////Listar
+        //public static List<Dpuesto> ListaPuesto()
+        //{
+        //    var lista = new List<Dpuesto>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from puesto";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadPuesto(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         
         //agregar
@@ -150,7 +150,7 @@ namespace AccesoDatos
         }
 
         //listado
-        public static DataTable ListaP()
+        public static DataTable ListaPuesto()
         {
             string Consulta = "Select * From puesto";
             MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);

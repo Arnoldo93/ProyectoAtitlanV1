@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using MySql.Data;
 using MySql.Data.MySqlClient;
@@ -29,22 +30,24 @@ namespace AccesoDatos
         }
 
         //Listar
-        public static List<DEmpleado> ListaPuesto()
-        {
-            var lista = new List<DEmpleado>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from empleado";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadEmpleado(dr));
-                }
-                return lista;
-            }
-        }
+        //public static List<DEmpleado> ListaPuesto()
+        //{
+        //    var lista = new List<DEmpleado>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from empleado";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadEmpleado(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
+
+
 
         //agregar
 
@@ -94,9 +97,9 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "select ifnull(Id_Empleado,1) from puesto where Nombre_Empleado=@nombre";
+                var consulta = "select ifnull(Nombre_Empleado,1) from empleado where Nombre_Empleado=@nom";
                 var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@nombre", u.Nombre);
+                cmd.Parameters.AddWithValue("@nom", u.Nombre);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteScalar());
 
@@ -109,11 +112,39 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "delete from puesto where Id_Puesto=@id";
+                var consulta = "delete from empleado where Id_Empleado=@id";
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@id", c.Id_Empleado);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+        }
+
+        //id
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Empleado),0) from empleado";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //Listar
+        public static DataTable ListaEmpleado()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro;";
+                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
+                cnn.Open();
+                DataTable dtDatos = new DataTable();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
             }
         }
     }

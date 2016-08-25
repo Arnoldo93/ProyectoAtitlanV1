@@ -25,61 +25,6 @@ namespace PROYECTO_PROATITLAN
         string puesto="", centro="";
         private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (textBox2.Text != "")
-            //    {
-            //        if (checkBox1.Checked != false)
-            //        {
-            //            checkBox1.Checked = true;
-            //        }
-            //        else
-            //        {
-            //            checkBox1.Checked = false;
-            //        }
-            //        string conexionbasededatos = con.Seconecto();
-            //        string Consulta = "INSERT INTO empleado(Id_Empleado,Nombre_Empleado,Direccion,Telefono,Usuario,Contrase_a,Estado_Empleado,Id_Puesto,Id_centro) VALUES('" + Convert.ToInt32(textBox1.Text) + "','" + textBox2.Text + "','" + textBox3.Text + "','" + int.Parse(textBox4.Text) + "','" + textBox7.Text + "','" + textBox8.Text + "','" + Convert.ToByte(checkBox1.Checked) +
-            //            "','" + int.Parse(puesto) + "','" + int.Parse(centro) + "')";
-            //        MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //        MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //        cnn.Open();
-            //        if (mc.ExecuteNonQuery() > 0)
-            //        {
-            //            cnn.Close();
-            //            MessageBox.Show("Datos Guardatos");
-            //            id_centro();
-            //            limpiar();
-            //            Listacentros();
-            //            ListaEmpleados();
-            //            ListaPuestos();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error verifique sus datos.",
-            //           "Critical Warning",
-            //           MessageBoxButtons.OK,
-            //           MessageBoxIcon.Error,
-            //           MessageBoxDefaultButton.Button1,
-            //           MessageBoxOptions.RtlReading,
-            //           true);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //          "Critical Warning",
-            //          MessageBoxButtons.OK,
-            //          MessageBoxIcon.Error,
-            //          MessageBoxDefaultButton.Button1,
-            //          MessageBoxOptions.RtlReading,
-            //          true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
             try
             {
                 if (textBox2.Text != ""&&textBox7.Text!=""&&textBox8.Text!="")
@@ -132,40 +77,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string conexionbasededatos = con.Seconecto();
-            //    string Consulta = "update empleado set Id_Empleado='" + int.Parse(textBox1.Text) + "',Nombre_Empleado='" + this.textBox2.Text+ "',Direccion='" + this.textBox3.Text + "',Telefono='" +int.Parse( this.textBox4.Text) + "',Usuario='" +textBox7.Text + "',Contrase_a='" + textBox8.Text + "',Estado_Empleado='" +Convert.ToByte(checkBox1.Checked) + "',Id_Puesto='" + int.Parse(puesto) + "',Id_Centro='" + int.Parse(centro) + "'where Id_Empleado='" + int.Parse( this.textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Datos Actualizados");
-            //        id_centro();
-            //        limpiar();
-            //        Listacentros();
-            //        ListaEmpleados();
-            //        ListaPuestos();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //          "Critical Warning",
-            //          MessageBoxButtons.OK,
-            //          MessageBoxIcon.Error,
-            //          MessageBoxDefaultButton.Button1,
-            //          MessageBoxOptions.RtlReading,
-            //          true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
             try
             {
                 if (checkBox1.Checked != false)
@@ -212,41 +123,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string conexionbasededatos = con.Seconecto();
-
-            //    string Consulta = "delete from empleado where Id_Empleado='" +int.Parse( this.textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Se elimino correctamente.");
-            //        id_centro();
-            //        limpiar();
-            //        Listacentros();
-            //        ListaEmpleados();
-            //        ListaPuestos();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //          "Critical Warning",
-            //          MessageBoxButtons.OK,
-            //          MessageBoxIcon.Error,
-            //          MessageBoxDefaultButton.Button1,
-            //          MessageBoxOptions.RtlReading,
-            //          true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
             try
             {
                 if (textBox2.Text != "" && textBox7.Text != "" && textBox8.Text != "")
@@ -296,66 +172,67 @@ namespace PROYECTO_PROATITLAN
 
         private void ListaEmpleados()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro;";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            dataGridView1.Columns["Usuario"].Visible = false;
-            dataGridView1.Columns["Contrase_a"].Visible = false;
-            dataGridView1.Columns["Id_Puesto"].Visible = false;
-            dataGridView1.Columns["Id_Centro"].Visible = false;
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NEmpleado.ListaEmpleado();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+                dataGridView1.Columns["Usuario"].Visible = false;
+                dataGridView1.Columns["Contrase_a"].Visible = false;
+                dataGridView1.Columns["Id_Puesto"].Visible = false;
+                dataGridView1.Columns["Id_Centro"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListaPuestos()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From puesto";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox1.DataSource = dtDatos;
-            comboBox1.DisplayMember = "Nombre_Puesto";
-            comboBox1.ValueMember = "Id_Puesto";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = Npuesto.ListaPuesto();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre_Puesto";
+                comboBox1.ValueMember = "Id_Puesto";
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void Listacentros()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From centro";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox2.DataSource = dtDatos;
-            comboBox2.DisplayMember = "Nombre_centro";
-            comboBox2.ValueMember = "Id_Centro";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NDatosCentro.ListaDatosCentro();
+                comboBox2.DataSource = datos;
+                comboBox2.DisplayMember = "Nombre_centro";
+                comboBox2.ValueMember = "Id_Centro";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void idempleado()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Empleado),0) from empleado";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var i = new DEmpleado();
+                i.Id_Empleado = NEmpleado.id() + 1;
+                textBox1.Text = i.Id_Empleado.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void limpiar()
@@ -405,21 +282,21 @@ namespace PROYECTO_PROATITLAN
 
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
         { 
-                Conexion con = new Conexion();
-                string conexionbasededatos = con.Seconecto();
-                string Consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro and empleado.Nombre_Empleado like'" + textBox2.Text + "%';";
-                MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-                MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-                cnn.Open();
-                DataTable dtDatos = new DataTable();
-                mdatos.Fill(dtDatos);
-                dataGridView1.DataSource = dtDatos;
-                dataGridView1.Refresh();
-                dataGridView1.Columns["Usuario"].Visible = false;
-                dataGridView1.Columns["Contrase_a"].Visible = false;
-                dataGridView1.Columns["Id_Puesto"].Visible = false;
-                dataGridView1.Columns["Id_Centro"].Visible = false;
-            cnn.Close();
+            //    Conexion con = new Conexion();
+            //    string conexionbasededatos = con.Seconecto();
+            //    string Consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro and empleado.Nombre_Empleado like'" + textBox2.Text + "%';";
+            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
+            //    MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            //    cnn.Open();
+            //    DataTable dtDatos = new DataTable();
+            //    mdatos.Fill(dtDatos);
+            //    dataGridView1.DataSource = dtDatos;
+            //    dataGridView1.Refresh();
+            //    dataGridView1.Columns["Usuario"].Visible = false;
+            //    dataGridView1.Columns["Contrase_a"].Visible = false;
+            //    dataGridView1.Columns["Id_Puesto"].Visible = false;
+            //    dataGridView1.Columns["Id_Centro"].Visible = false;
+            //cnn.Close();
         }
 
         private void Empleado_Load(object sender, EventArgs e)

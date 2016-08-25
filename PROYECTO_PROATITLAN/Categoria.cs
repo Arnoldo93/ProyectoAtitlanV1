@@ -112,46 +112,48 @@ namespace PROYECTO_PROATITLAN
 
         private void ListaFamilias()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "SELECT * FROM proatitlan.familia";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox1.DataSource = dtDatos;
-            comboBox1.DisplayMember = "Nombre";
-            comboBox1.ValueMember = "Id_Familia";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NFamilia.ListadoFamilias();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Id_Familia";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListaCategorias()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "SELECT categoria_desecho.Id_Categoria,categoria_desecho.Nombre,categoria_desecho.Id_Familia,familia.Nombre FROM proatitlan.categoria_desecho,proatitlan.familia where categoria_desecho.Id_Familia=familia.Id_Familia;";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            cnn.Open();
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            dataGridView1.Columns["Id_Familia"].Visible = false;
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NCategoriaDesecho.ListadoCategoria();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+                dataGridView1.Columns["Id_Familia"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void id_categoria()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Categoria),0) from categoria_desecho";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var i = new DCategoriaDesecho();
+                i.Id_Categoria = NCategoriaDesecho.Id() + 1;
+                textBox1.Text = i.Id_Categoria.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void limpiar()

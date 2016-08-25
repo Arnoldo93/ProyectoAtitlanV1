@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using AccesoDatos;
 using MySql.Data;
@@ -12,10 +13,11 @@ namespace Negocio
 {
     public class NCategoriaDesecho
     {
-        public static List<DCategoriaDesecho> ListaCategoriasDesecho()
-        {
-            return AdCategoriaDesecho.ListaCategoriaDesecho();
-        }
+        //public static List<DCategoriaDesecho> ListaCategoriasDesecho()
+        //{
+        //    return AdCategoriaDesecho.ListaCategoriaDesecho();
+        //}
+
 
         public static bool Agregar(DCategoriaDesecho e)
         {
@@ -30,6 +32,16 @@ namespace Negocio
         public static bool Eliminar(DCategoriaDesecho e)
         {
             return AdCategoriaDesecho.Eliminar(e);
+        }
+
+        public static DataTable ListadoCategoria()
+        {
+            return AdCategoriaDesecho.ListaCategorias();
+        }
+
+        public static int Id()
+        {
+            return AdCategoriaDesecho.Id();
         }
     }
 }

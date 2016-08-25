@@ -23,22 +23,22 @@ namespace AccesoDatos
         }
 
         //Listar
-        public static List<DMunicipio> Listamunicipios()
-        {
-            var lista = new List<DMunicipio>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from municipio";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadMunicipio(dr));
-                }
-                return lista;
-            }
-        }
+        //public static List<DMunicipio> Listamunicipios()
+        //{
+        //    var lista = new List<DMunicipio>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from municipio";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadMunicipio(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         //agregar
 
@@ -97,6 +97,30 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+        }
+        //Id
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Municipio),0) from municipio";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //listado
+        public static DataTable ListaMunicipio()
+        {
+            string Consulta = "SELECT  municipio.Id_Municipio,municipio.Nombre as Municipio,municipio.Id_Zona,zona_gestiom.Nombre as Zona FROM municipio, zona_gestiom where municipio.Id_Zona = zona_gestiom.Id_Zona";
+            MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            cnn.Open();
+            DataTable dtDatos = new DataTable();
+            mdatos.Fill(dtDatos);
+            return dtDatos;
         }
     }
 }

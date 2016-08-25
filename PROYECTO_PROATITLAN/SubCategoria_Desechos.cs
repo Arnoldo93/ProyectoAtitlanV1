@@ -131,36 +131,36 @@ namespace PROYECTO_PROATITLAN
 
         private void ListaSubcategorias()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "SELECT subcategoria_desecho.Id_SubCategoria, subcategoria_desecho.Nombre as NombreSubcategoria,subcategoria_desecho.Id_Categoria,categoria_desecho.Nombre as NombreCategoria,subcategoria_desecho.Id_Familia, familia.Nombre as NombreFamilia FROM subcategoria_desecho,categoria_desecho,familia where subcategoria_desecho.Id_Categoria=categoria_desecho.Id_Categoria and subcategoria_desecho.Id_Familia=familia.Id_Familia";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            dataGridView1.Columns["Id_Categoria"].Visible = false;
-            dataGridView1.Columns["Id_Familia"].Visible = false;
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NSubcategoriaDesecho.ListadoSubcategoria();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+                dataGridView1.Columns["Id_Categoria"].Visible = false;
+                dataGridView1.Columns["Id_Familia"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListadoCategorias()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * from categoria_desecho";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox1.DataSource = dtDatos;
-            comboBox1.DisplayMember = "Nombre";
-            comboBox1.ValueMember = "Id_Categoria";
-            comboBox1.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NCategoriaDesecho.ListadoCategoria();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Id_Categoria";
+                comboBox1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListadoFamilias()
@@ -187,7 +187,11 @@ namespace PROYECTO_PROATITLAN
             {
                 var val = new DSubcategoriaDesecho();
                 val.Id_SubCategoria = NSubcategoriaDesecho.id() + 1;
-                textBox1.Text = val.ToString();
+                textBox1.Text = val.Id_SubCategoria.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

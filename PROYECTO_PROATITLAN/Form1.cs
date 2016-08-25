@@ -160,26 +160,6 @@ namespace PROYECTO_PROATITLAN
 
         private void buttonItem15_Click(object sender, EventArgs e)
         {
-            if (!this.MdiChildren.Contains(Tipoempleado))
-            {
-                Tipoempleado = new Puesto();
-                Tipoempleado.MdiParent = this;
-                Tipoempleado.Show();
-            }
-            else
-            {
-                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Tipoempleado.Focus();
-            }
-        }
-
-        private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void buttonItem14_Click(object sender, EventArgs e)
-        {
             if (!this.MdiChildren.Contains(Empleado))
             {
                 Empleado = new Empleado();
@@ -190,6 +170,26 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Empleado.Focus();
+            }
+        }
+
+        private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonItem14_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(Tipoempleado))
+            {
+                Tipoempleado = new Puesto();
+                Tipoempleado.MdiParent = this;
+                Tipoempleado.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Tipoempleado.Focus();
             }
         }
     }

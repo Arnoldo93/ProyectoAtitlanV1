@@ -15,7 +15,7 @@ namespace Negocio
     {
         public static DataTable ListaPuesto()
         {
-            return AdPuesto.ListaP();
+            return AdPuesto.ListaPuesto();
         }
 
         public static bool Agregar(Dpuesto e)

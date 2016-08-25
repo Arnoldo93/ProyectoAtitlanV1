@@ -13,9 +13,9 @@ namespace Negocio
 {
     public class NZona
     {
-        public static DataTable ListaPuesto()
+        public static DataTable ListaZona()
         {
-            return AdZona.ListaPuesto();
+            return AdZona.ListaZona();
         }
 
         public static bool Agregar(DZona e)

@@ -135,7 +135,7 @@ namespace PROYECTO_PROATITLAN
             {
                 var val = new DTipoCentro();
                 val.Id_Tipocentro = NTipoCentro.Id() + 1;
-                textBox1.Text = val.ToString();
+                textBox1.Text = val.Id_Tipocentro.ToString();
             }
             catch(Exception ex)
             {

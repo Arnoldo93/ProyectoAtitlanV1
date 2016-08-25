@@ -26,54 +26,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (textBox2.Text != "")
-            //    {
-            //        Conexion con = new Conexion();
-            //        string conexionbasededatos = con.Seconecto();
-            //        string Consulta = "INSERT INTO municipio(Id_Municipio,Nombre,Id_Zona) VALUES('" + Convert.ToInt32(textBox1.Text) + "','" + textBox2.Text + "','" + Convert.ToInt32(zona) + "')";
-            //        MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //        MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //        cnn.Open();
-            //        if (mc.ExecuteNonQuery() > 0)
-            //        {
-            //            cnn.Close();
-            //            MessageBox.Show("Se Guardo correctamente.");
-            //            id_municipio();
-            //            limpiar();
-            //            listarmunicipios();
-            //            listarZonas();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error verifique sus datos.",
-            //            "Critical Warning",
-            //            MessageBoxButtons.OK,
-            //            MessageBoxIcon.Error,
-            //            MessageBoxDefaultButton.Button1,
-            //            MessageBoxOptions.RtlReading,
-            //            true);
-            //            limpiar();
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //           "Critical Warning",
-            //           MessageBoxButtons.OK,
-            //           MessageBoxIcon.Error,
-            //           MessageBoxDefaultButton.Button1,
-            //           MessageBoxOptions.RtlReading,
-            //           true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 if (textBox2.Text != "")
@@ -111,41 +63,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-            //    string Consulta = "update municipio set Id_Municipio='" + int.Parse(textBox1.Text) + "',Nombre='" + this.textBox2.Text + "',Id_Zona='" + int.Parse(zona) + "' where Id_Municipio='" + int.Parse(textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Se actualizo Correctamente.");
-            //        id_municipio();
-            //        limpiar();
-            //        listarmunicipios();
-            //        listarZonas();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //        "Critical Warning",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error,
-            //        MessageBoxDefaultButton.Button1,
-            //        MessageBoxOptions.RtlReading,
-            //        true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 
@@ -177,43 +94,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-
-            //    string Consulta = "delete from municipio where Id_Zona='" + int.Parse(this.textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Se elimino correctamente.");
-            //        listarmunicipios();
-            //        id_municipio();
-            //        limpiar();
-            //        listarZonas();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //        "Critical Warning",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error,
-            //        MessageBoxDefaultButton.Button1,
-            //        MessageBoxOptions.RtlReading,
-            //        true);
-            //    }
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 
@@ -242,47 +122,48 @@ namespace PROYECTO_PROATITLAN
 
         private void listarmunicipios()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "SELECT  municipio.Id_Municipio,municipio.Nombre as Municipio,municipio.Id_Zona,zona_gestiom.Nombre as Zona FROM proatitlan.municipio, proatitlan.zona_gestiom where municipio.Id_Zona = zona_gestiom.Id_Zona";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            DataTable dtDatos = new DataTable();
-            cnn.Open();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            this.dataGridView1.Columns["Id_Zona"].Visible = false;
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NMunicipio.ListaMunicipios();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+                this.dataGridView1.Columns["Id_Zona"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void id_municipio()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Municipio),0) from municipio";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var val = new DMunicipio();
+                val.Id_Municipio = NMunicipio.Id() + 1;
+                textBox1.Text = val.Id_Municipio.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void listarZonas()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * from zona_gestiom";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox1.DataSource = dtDatos;
-            comboBox1.DisplayMember = "Nombre";
-            comboBox1.ValueMember = "Id_Zona";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NZona.ListaZona();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Id_Zona";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void limpiar()

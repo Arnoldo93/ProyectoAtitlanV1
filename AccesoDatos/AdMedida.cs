@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using MySql.Data;
 using MySql.Data.MySqlClient;
@@ -20,23 +21,23 @@ namespace AccesoDatos
             return e;
         }
 
-        //Listar
-        public static List<DMedida> ListaMedida()
-        {
-            var lista = new List<DMedida>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from medida";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadMedida(dr));
-                }
-                return lista;
-            }
-        }
+        ////Listar
+        //public static List<DMedida> ListaMedida()
+        //{
+        //    var lista = new List<DMedida>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from medida";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadMedida(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         //agregar
 
@@ -93,6 +94,31 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+        }
+
+        //Id ultimo ingresado
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Medida),0) from medida";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //listado
+        public static DataTable ListaMedida()
+        {
+            string Consulta = "Select * From medida";
+            MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            cnn.Open();
+            DataTable dtDatos = new DataTable();
+            mdatos.Fill(dtDatos);
+            return dtDatos;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using AccesoDatos;
 using MySql.Data;
@@ -12,9 +13,9 @@ namespace Negocio
 {
     public class NMunicipio
     {
-        public static List<DMunicipio> ListaPuesto()
+        public static DataTable ListaMunicipios()
         {
-            return AdMunicipio.Listamunicipios();
+            return AdMunicipio.ListaMunicipio();
         }
 
         public static bool Agregar(DMunicipio e)
@@ -30,6 +31,11 @@ namespace Negocio
         public static bool Eliminar(DMunicipio e)
         {
             return AdMunicipio.Eliminar(e);
+        }
+
+        public static int Id()
+        {
+            return AdMunicipio.Id();
         }
     }
 }

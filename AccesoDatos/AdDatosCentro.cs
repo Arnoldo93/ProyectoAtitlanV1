@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using MySql.Data;
 using MySql.Data.MySqlClient;
@@ -25,23 +26,23 @@ namespace AccesoDatos
             return e;
         }
 
-        //Listar
-        public static List<DDatosCentro> ListaDatosCentro()
-        {
-            var lista = new List<DDatosCentro>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from centro";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadDatosCentro(dr));
-                }
-                return lista;
-            }
-        }
+        ////Listar
+        //public static List<DDatosCentro> ListaDatosCentro()
+        //{
+        //    var lista = new List<DDatosCentro>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from centro";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadDatosCentro(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         //agregar
 
@@ -107,6 +108,34 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@id", c.Id_Centro);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+        }
+
+        //id
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Centro),0) from centro";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //Listar
+        public static DataTable ListaCentro()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "SELECT centro.Id_Centro, centro.Nombre_centro,centro.Id_Municipio,municipio.Nombre as Nombre_Municipio,centro.Id_Tipo,tipo_centro.Nombre as Nombre_Tipo,centro.Telefono,centro.Direccion,centro.Estado_centro FROM proatitlan.centro, proatitlan.municipio,proatitlan.tipo_centro where centro.Id_Municipio = municipio.Id_Municipio and centro.Id_Tipo = tipo_centro.Id_Tipo";
+                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
+                cnn.Open();
+                DataTable dtDatos = new DataTable();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
             }
         }
     }

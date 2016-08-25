@@ -24,63 +24,6 @@ namespace PROYECTO_PROATITLAN
         string municipio,tipo_centro;
         private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (textBox5.Text != "" || textBox6.Text != "" || textBox7.Text != "")
-            //    {
-            //        if (checkBox1.Checked != false)
-            //        {
-            //            checkBox1.Checked = true;
-            //        }
-            //        else
-            //        {
-            //            checkBox1.Checked = false;
-            //        }
-            //        Conexion con = new Conexion();
-            //        string conexionbasededatos = con.Seconecto();
-            //        string Consulta = "INSERT INTO centro(Id_Centro,Nombre_centro,Id_Municipio,Id_Tipo,Telefono,Direccion,Estado_centro) VALUES('" + Convert.ToInt32(textBox1.Text) + "','" + textBox5.Text + "','" +Convert.ToInt32( municipio) + "','" +Convert.ToInt32( tipo_centro) + "','" + int.Parse(textBox6.Text) + "','" + textBox7.Text + "','" + Convert.ToByte(checkBox1.Checked) + "')";
-            //        MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //        MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //        cnn.Open();
-            //        if (mc.ExecuteNonQuery() > 0)
-            //        {
-            //            cnn.Close();
-            //            MessageBox.Show("Se Guardo correctamente.");
-            //            ListaCentros();
-            //            ListaMunicipio();
-            //            ListaTipocentro();
-            //            id_centro();
-            //            limpiar();
-
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error verifique sus datos.",
-            //        "Critical Warning",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error,
-            //        MessageBoxDefaultButton.Button1,
-            //        MessageBoxOptions.RtlReading,
-            //        true);
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //        "Critical Warning",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error,
-            //        MessageBoxDefaultButton.Button1,
-            //        MessageBoxOptions.RtlReading,
-            //        true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
             try
             {
                 if (textBox5.Text != "")
@@ -131,42 +74,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-            //    string Consulta = "UPDATE centro SET Id_Centro ='"+int.Parse(textBox1.Text)+"',Nombre_centro = '"+textBox5.Text+"', Id_Municipio = '"+Convert.ToInt32( municipio)+"',Id_Tipo = '"+Convert.ToInt32( tipo_centro)+"',Telefono = '"+int.Parse(textBox6.Text)+"',Direccion = '"+textBox7.Text+"',Estado_centro = '"+Convert.ToByte(checkBox1.Checked)+"' WHERE Id_Centro ='"+int.Parse(textBox1.Text)+"';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Se actualizo Correctamente.");
-            //        id_centro();
-            //        limpiar();
-            //        ListaCentros();
-            //        ListaMunicipio();
-            //        ListaTipocentro();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //        "Critical Warning",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error,
-            //        MessageBoxDefaultButton.Button1,
-            //        MessageBoxOptions.RtlReading,
-            //        true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 if (checkBox1.Checked != false)
@@ -210,43 +117,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-
-            //    string Consulta = "DELETE FROM centro WHERE Id_Centro='" + int.Parse(this.textBox1.Text) + "';";
-
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            //    cnn.Open();
-            //    if (mc.ExecuteNonQuery() > 0)
-            //    {
-            //        cnn.Close();
-            //        MessageBox.Show("Se Elimino Correctamente.");
-            //        limpiar();
-            //        id_centro();
-            //        ListaCentros();
-            //        ListaMunicipio();
-            //        ListaTipocentro();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Error verifique sus datos.",
-            //     "Critical Warning",
-            //     MessageBoxButtons.OK,
-            //     MessageBoxIcon.Error,
-            //     MessageBoxDefaultButton.Button1,
-            //     MessageBoxOptions.RtlReading,
-            //     true);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
             try
             {
                 var c = new DDatosCentro();
@@ -304,7 +174,7 @@ namespace PROYECTO_PROATITLAN
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            municipio = comboBox2.SelectedValue.ToString(); 
+             
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -322,17 +192,7 @@ namespace PROYECTO_PROATITLAN
         private void button4_Click_1(object sender, EventArgs e)
         {
                      
-            //if (!MdiChildren.Contains(municipio))
-            //{
-            //    municipio = new Municipio();
-            //    municipio.MdiParent = this;
-            //    municipio.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    municipio.Focus();
-            //}
+            
         }
 
         private void button4_Click_2(object sender, EventArgs e)
@@ -356,53 +216,53 @@ namespace PROYECTO_PROATITLAN
 
         private void ListaCentros()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "SELECT centro.Id_Centro, centro.Nombre_centro,centro.Id_Municipio,municipio.Nombre as Nombre_Municipio,centro.Id_Tipo,tipo_centro.Nombre as Nombre_Tipo,centro.Telefono,centro.Direccion,centro.Estado_centro FROM proatitlan.centro, proatitlan.municipio,proatitlan.tipo_centro where centro.Id_Municipio = municipio.Id_Municipio and centro.Id_Tipo = tipo_centro.Id_Tipo";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            cnn.Open();
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            dataGridView1.Columns["Id_Municipio"].Visible = false;
-            dataGridView1.Columns["Id_Tipo"].Visible = false;
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NDatosCentro.ListaDatosCentro();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+                dataGridView1.Columns["Id_Municipio"].Visible = false;
+                dataGridView1.Columns["Id_Tipo"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListaTipocentro()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From tipo_centro";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            cnn.Open();
-            comboBox1.DataSource = dtDatos;
-            comboBox1.DisplayMember = "Nombre";
-            comboBox1.ValueMember = "Id_Tipo";
-            comboBox1.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NTipoCentro.ListadoTipoCentro();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Id_Tipo";
+                comboBox1.Refresh();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListaMunicipio()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From municipio";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox2.DataSource = dtDatos;
-            comboBox2.DisplayMember = "Nombre";
-            comboBox2.ValueMember = "Id_Municipio";
-            comboBox2.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NMunicipio.ListaMunicipios();
+                comboBox2.DataSource = datos;
+                comboBox2.DisplayMember = "Municipio";
+                comboBox2.ValueMember = "Id_Municipio";
+                comboBox2.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void limpiar()
@@ -413,17 +273,23 @@ namespace PROYECTO_PROATITLAN
             checkBox1.Checked = false;
         }
 
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            municipio = comboBox2.SelectedValue.ToString();
+        }
+
         private void id_centro()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Centro),0) from centro";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var i = new DDatosCentro();
+                i.Id_Centro = NDatosCentro.Id()+1;
+                textBox1.Text = i.Id_Centro.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

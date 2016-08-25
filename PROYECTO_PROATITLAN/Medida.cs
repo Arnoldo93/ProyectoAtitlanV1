@@ -117,30 +117,31 @@ namespace PROYECTO_PROATITLAN
 
         private void ListaMedida()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From medida";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NMedida.ListaMedida();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void id_medida()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Medida),0) from medida";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var i = new DMedida();
+                i.Id_medida = NMedida.id() + 1;
+                textBox1.Text = i.Id_medida.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Medida_Load(object sender, EventArgs e)

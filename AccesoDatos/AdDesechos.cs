@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Entidades;
 using MySql.Data;
 using MySql.Data.MySqlClient;
@@ -29,23 +30,23 @@ namespace AccesoDatos
             return e;
         }
 
-        //Listar
-        public static List<DDesechos> ListaDesechos()
-        {
-            var lista = new List<DDesechos>();
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = " select * from desechos";
-                var cmd = new MySqlCommand(consulta, cn);
-                cn.Open();
-                var dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(EntidadDesecho(dr));
-                }
-                return lista;
-            }
-        }
+        ////Listar
+        //public static List<DDesechos> ListaDesechos()
+        //{
+        //    var lista = new List<DDesechos>();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = " select * from desechos";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cn.Open();
+        //        var dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            lista.Add(EntidadDesecho(dr));
+        //        }
+        //        return lista;
+        //    }
+        //}
 
         //agregar
 
@@ -119,6 +120,34 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+        }
+
+        //id
+        public static int Id()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select IFNULL (max(Id_Desecho),0) from desechos";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        //Listar
+        public static DataTable ListaDesecho()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "select desechos.Id_Desecho,desechos.Nombre as Desecho,desechos.Id_Familia,familia.Nombre as Familia,desechos.Id_Categoria,categoria_desecho.Nombre as Categoria, desechos.Id_SubCategoria,subcategoria_desecho.Nombre as Subcategoria,desechos.Cantidad_Peso, desechos.Id_Medida,medida.Medida,desechos.Volumen,desechos.Precio_Costo,desechos.Precio_Venta,desechos.Estado_desechos FROM desechos,familia,categoria_desecho,subcategoria_desecho,medida WHERE desechos.Id_Familia = familia.Id_Familia and desechos.Id_Categoria = categoria_desecho.Id_Categoria and desechos.Id_SubCategoria = subcategoria_desecho.Id_SubCategoria and desechos.Id_Medida = medida.Id_Medida";
+                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
+                cnn.Open();
+                DataTable dtDatos = new DataTable();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
             }
         }
     }

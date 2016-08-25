@@ -183,98 +183,99 @@ namespace PROYECTO_PROATITLAN
 
         private void IdDesecho()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select IFNULL (max(Id_Desecho),1) from desechos";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlCommand mc = new MySqlCommand(Consulta, cnn);
-            cnn.Open();
-            int val = Convert.ToInt32(mc.ExecuteScalar()) + 1;
-            textBox1.Text = val.ToString();
-            cnn.Close();
+            try
+            {
+                var i = new DDesechos();
+                i.Id_desecho = NDesechos.Id() + 1;
+                textBox1.Text = i.Id_desecho.ToString(); ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Listadodesecho()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "select desechos.Id_Desecho,desechos.Nombre as Desecho,desechos.Id_Familia,familia.Nombre as Familia,desechos.Id_Categoria,categoria_desecho.Nombre as Categoria, desechos.Id_SubCategoria,subcategoria_desecho.Nombre as Subcategoria,desechos.Cantidad_Peso, desechos.Id_Medida,medida.Medida,desechos.Volumen,desechos.Precio_Costo,desechos.Precio_Venta,desechos.Estado_desechos FROM desechos,familia,categoria_desecho,subcategoria_desecho,medida WHERE desechos.Id_Familia = familia.Id_Familia and desechos.Id_Categoria = categoria_desecho.Id_Categoria and desechos.Id_SubCategoria = subcategoria_desecho.Id_SubCategoria and desechos.Id_Medida = medida.Id_Medida";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            dataGridView1.DataSource = dtDatos;
-            dataGridView1.Refresh();
-            dataGridView1.Columns["Id_Familia"].Visible = false;
-            dataGridView1.Columns["Id_Categoria"].Visible = false;
-            dataGridView1.Columns["Id_SubCategoria"].Visible = false;
-            dataGridView1.Columns["Id_Medida"].Visible = false;
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NDesechos.ListaDesechos();
+                dataGridView1.DataSource = datos;
+                dataGridView1.Refresh();
+                dataGridView1.Columns["Id_Familia"].Visible = false;
+                dataGridView1.Columns["Id_Categoria"].Visible = false;
+                dataGridView1.Columns["Id_SubCategoria"].Visible = false;
+                dataGridView1.Columns["Id_Medida"].Visible = false;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListadoFamilia()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From familia";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox1.DataSource = dtDatos;
-            comboBox1.DisplayMember = "Nombre";
-            comboBox1.ValueMember = "Id_Familia";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NFamilia.ListadoFamilias();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre";
+                comboBox1.ValueMember = "Id_Familia";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListadoCategoria()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From categoria_desecho";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox2.DataSource = dtDatos;
-            comboBox2.DisplayMember = "Nombre";
-            comboBox2.ValueMember = "Id_Categoria";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NCategoriaDesecho.ListadoCategoria();
+                comboBox2.DataSource = datos;
+                comboBox2.DisplayMember = "Nombre";
+                comboBox2.ValueMember = "Id_Categoria";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListadoSubCategoria()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From subcategoria_desecho";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox4.DataSource = dtDatos;
-            comboBox4.DisplayMember = "Nombre";
-            comboBox4.ValueMember = "Id_SubCategoria";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NSubcategoriaDesecho.ListadoSubcategoria();
+                comboBox4.DataSource = datos;
+                comboBox4.DisplayMember = "Nombre";
+                comboBox4.ValueMember = "Id_SubCategoria";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListadoMedida()
         {
-            Conexion con = new Conexion();
-            string conexionbasededatos = con.Seconecto();
-            string Consulta = "Select * From medida";
-            MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            cnn.Open();
-            DataTable dtDatos = new DataTable();
-            mdatos.Fill(dtDatos);
-            comboBox3.DataSource = dtDatos;
-            comboBox3.DisplayMember = "Medida";
-            comboBox3.ValueMember = "Id_Medida";
-            cnn.Close();
+            try
+            {
+                DataTable datos = new DataTable();
+                datos = NMedida.ListaMedida();
+                comboBox3.DataSource = datos;
+                comboBox3.DisplayMember = "Medida";
+                comboBox3.ValueMember = "Id_Medida";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void limpiar()

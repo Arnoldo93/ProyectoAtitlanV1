@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using AccesoDatos;
 using Entidades;
 
@@ -10,9 +11,9 @@ namespace Negocio
 {
     public class NDatosCentro
     {
-        public static List<DDatosCentro> ListaDatosCentro()
+        public static DataTable ListaDatosCentro()
         {
-            return AdDatosCentro.ListaDatosCentro();
+            return AdDatosCentro.ListaCentro();
         }
 
         public static bool Agregar(DDatosCentro e)
@@ -28,6 +29,11 @@ namespace Negocio
         public static bool Eliminar(DDatosCentro e)
         {
             return AdDatosCentro.Eliminar(e);
+        }
+
+        public static int Id()
+        {
+            return AdDatosCentro.Id();
         }
     }
 }

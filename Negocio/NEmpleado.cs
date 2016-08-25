@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using AccesoDatos;
 using Entidades;
 
@@ -10,9 +11,9 @@ namespace Negocio
 {
     public class NEmpleado
     {
-        public static List<DEmpleado> ListaPuesto()
+        public static DataTable ListaEmpleado()
         {
-            return AdEmpleado.ListaPuesto();
+            return AdEmpleado.ListaEmpleado();
         }
 
         public static bool Agregar(DEmpleado e)
@@ -28,6 +29,11 @@ namespace Negocio
         public static bool Eliminar(DEmpleado e)
         {
             return AdEmpleado.Eliminar(e);
+        }
+
+        public static int id()
+        {
+            return AdEmpleado.Id();
         }
     }
 }

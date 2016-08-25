@@ -96,7 +96,7 @@ namespace AccesoDatos
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
         }
-
+        //id
         public static int Id()
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))

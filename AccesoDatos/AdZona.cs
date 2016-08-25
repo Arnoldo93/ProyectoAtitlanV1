@@ -109,7 +109,7 @@ namespace AccesoDatos
         }
 
         //Listar
-        public static DataTable ListaPuesto()
+        public static DataTable ListaZona()
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
