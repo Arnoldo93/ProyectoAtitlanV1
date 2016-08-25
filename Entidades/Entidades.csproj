@@ -55,7 +55,9 @@
     <Compile Include="DCategoriaDesecho.cs" />
     <Compile Include="DDatosCentro.cs" />
     <Compile Include="DDesechos.cs" />
+    <Compile Include="DDetalleIngreso.cs" />
     <Compile Include="DEmpleado.cs" />
+    <Compile Include="DEncabezadoDesecho.cs" />
     <Compile Include="DFamilia.cs" />
     <Compile Include="DMedida.cs" />
     <Compile Include="DMunicipio.cs" />

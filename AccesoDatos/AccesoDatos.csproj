@@ -56,6 +56,7 @@
     <Compile Include="AdDatosCentro.cs" />
     <Compile Include="AdDesechos.cs" />
     <Compile Include="AdEmpleado.cs" />
+    <Compile Include="AdEncabezadoDesecho.cs" />
     <Compile Include="AdFamilia.cs" />
     <Compile Include="AdMedida.cs" />
     <Compile Include="AdMunicipio.cs" />
