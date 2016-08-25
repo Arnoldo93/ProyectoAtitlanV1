@@ -147,5 +147,19 @@ namespace AccesoDatos
                 return dtDatos;
             }
         }
+
+        //Login
+        public static int loguin(DEmpleado c)
+        {
+           using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+                {
+                    var consulta = "Select count(Id_Empleado) from empleado where Usuario like @usu and Contrase_a like @pasw";
+                    var cmd = new MySqlCommand(consulta,cn);
+                    cmd.Parameters.AddWithValue("@usu", c.Usuario);
+                    cmd.Parameters.AddWithValue("@pasw", c.Contrase_a);
+                    cn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+        }
     }
 }

@@ -31,6 +31,11 @@ namespace Negocio
             return AdEmpleado.Eliminar(e);
         }
 
+        public static int loguin(DEmpleado e)
+        {
+            return AdEmpleado.loguin(e);
+        }
+
         public static int id()
         {
             return AdEmpleado.Id();

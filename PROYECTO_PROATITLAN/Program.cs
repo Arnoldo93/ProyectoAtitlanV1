@@ -12,12 +12,15 @@ namespace PROYECTO_PROATITLAN
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
+        /// 
+        public static String usuario ="";
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new log());
         }
     }
 }

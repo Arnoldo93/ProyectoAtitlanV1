@@ -18,6 +18,12 @@ namespace PROYECTO_PROATITLAN
         }
         Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos;
 
+        private void usuario()
+        {
+            log l = new log();
+            toolStripStatusLabel1.Text = Program.usuario;
+        }
+        
         private void buttonItem19_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(centro))
@@ -61,6 +67,16 @@ namespace PROYECTO_PROATITLAN
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 categoria.Focus();
             }
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            usuario();
         }
 
         private void buttonItem24_Click(object sender, EventArgs e)
