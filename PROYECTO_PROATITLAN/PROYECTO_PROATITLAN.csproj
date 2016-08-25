@@ -169,6 +169,12 @@
     <Compile Include="Tipo Centro.Designer.cs">
       <DependentUpon>Tipo Centro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehiculo.Designer.cs">
+      <DependentUpon>Vehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ZonaDeGestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tipo Centro.resx">
       <DependentUpon>Tipo Centro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehiculo.resx">
+      <DependentUpon>Vehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZonaDeGestion.resx">
       <DependentUpon>ZonaDeGestion.cs</DependentUpon>

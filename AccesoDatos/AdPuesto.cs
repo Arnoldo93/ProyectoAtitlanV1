@@ -22,44 +22,6 @@ namespace AccesoDatos
             return e;
         }
 
-        ////Listar
-        //public static List<Dpuesto> ListaPuesto()
-        //{
-        //    var lista = new List<Dpuesto>();
-        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-        //    {
-        //        var consulta = " select * from puesto";
-        //        var cmd = new MySqlCommand(consulta, cn);
-        //        cn.Open();
-        //        var dr = cmd.ExecuteReader();
-        //        while (dr.Read())
-        //        {
-        //            lista.Add(EntidadPuesto(dr));
-        //        }
-        //        return lista;
-        //    }
-        //}
-
-        
-        //agregar
-
-        //public static bool Agregar(Dpuesto c)
-        //{
- 
-        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-        //    {
-        //            var consulta = "insert into puesto values(@id,@nombre)";
-        //            //var consulta = "ProcedimientoInsertar";
-        //            var cmd = new MySqlCommand(consulta, cn);
-        //            cmd.CommandType = CommandType.StoredProcedure;
-        //            cmd.Parameters.AddWithValue("@id", c.Id_puesto);
-        //            cmd.Parameters.AddWithValue("@nombre", c.Nombre_puesto);
-        //            cn.Open();
-
-        //        return Convert.ToBoolean( cmd.ExecuteNonQuery());
-        //    }
-        //}
-
         public static bool Guardar(Dpuesto g)
         {
             try
@@ -126,39 +88,6 @@ namespace AccesoDatos
             }
 
         }
-
-        //metodo para verificar si existe
-        //public static bool Existe(Dpuesto u)
-        //{
-        //    MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
-        //    using (MySqlCommand cmd = new MySqlCommand())
-        //    {
-        //        try
-        //        {
-        //            // setear parametros del command
-        //            cmd.CommandType = CommandType.StoredProcedure;
-        //            cmd.Connection = cn;
-        //            cmd.CommandText = "EliminarPue";
-        //            //asignar paramentros
-        //            cmd.Parameters.AddWithValue("@id", g.Id_puesto);
-        //            cmd.Parameters.AddWithValue("@nom", g.Nombre_puesto);
-
-        //            //abrir la conexion
-        //            cn.Open();
-
-        //            //ejecutar el query
-        //            return Convert.ToBoolean(cmd.ExecuteNonQuery());
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw ex;
-        //        }
-        //        finally
-        //        {
-
-        //        } // end try
-        //    }
-        //}
 
         //Eliminar
 
