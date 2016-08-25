@@ -11,6 +11,6 @@ namespace AccesoDatos
 {
     public class AdEncabezadoDesecho
     {
-        public static DEncabezadoDesecho
+        public static DEncabezadoDesecho 
     }
 }
