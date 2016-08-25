@@ -28,7 +28,7 @@ namespace PROYECTO_PROATITLAN
                 {
                     var c = new DMedida();
                     c.Id_medida = Convert.ToInt32(textBox1.Text);
-                    c.Nombre =Convert.ToChar(textBox2.Text);
+                    c.Nombre =Convert.ToString(textBox2.Text);
 
                     if (NMedida.Agregar(c))
                     {
@@ -60,7 +60,7 @@ namespace PROYECTO_PROATITLAN
             { 
                     var c = new DMedida();
                     c.Id_medida = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = Convert.ToChar(textBox2.Text);
+                    c.Nombre = Convert.ToString(textBox2.Text);
 
                     if (NMedida.Actualizar(c))
                     {

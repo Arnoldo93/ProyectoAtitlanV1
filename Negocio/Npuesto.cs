@@ -18,10 +18,10 @@ namespace Negocio
             return AdPuesto.ListaPuesto();
         }
 
-        public static bool Agregar(Dpuesto e)
-        {
-            return AdPuesto.Agregar(e);
-        }
+        //public static bool Agregar(Dpuesto e)
+        //{
+        //    return AdPuesto.Guardar(e);
+        //}
 
         public static bool Guardar(Dpuesto e)
         {

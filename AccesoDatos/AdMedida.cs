@@ -17,7 +17,7 @@ namespace AccesoDatos
         {
             var e = new DMedida();
             e.Id_medida = Convert.ToInt32(entidad["Id_Medida"]);
-            e.Nombre = Convert.ToChar(entidad["Medida"]);
+            e.Nombre = Convert.ToString(entidad["Medida"]);
             return e;
         }
 

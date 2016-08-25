@@ -43,24 +43,58 @@ namespace AccesoDatos
         
         //agregar
 
-        public static bool Agregar(Dpuesto c)
-        {
+        //public static bool Agregar(Dpuesto c)
+        //{
  
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                    var consulta = "insert into puesto values(@id,@nombre)";
-                    //var consulta = "ProcedimientoInsertar";
-                    var cmd = new MySqlCommand(consulta, cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id", c.Id_puesto);
-                    cmd.Parameters.AddWithValue("@nombre", c.Nombre_puesto);
-                    cn.Open();
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //            var consulta = "insert into puesto values(@id,@nombre)";
+        //            //var consulta = "ProcedimientoInsertar";
+        //            var cmd = new MySqlCommand(consulta, cn);
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.Parameters.AddWithValue("@id", c.Id_puesto);
+        //            cmd.Parameters.AddWithValue("@nombre", c.Nombre_puesto);
+        //            cn.Open();
 
-                return Convert.ToBoolean( cmd.ExecuteNonQuery());
-            }
-        }
+        //        return Convert.ToBoolean( cmd.ExecuteNonQuery());
+        //    }
+        //}
 
         public static bool Guardar(Dpuesto g)
+        {
+            try
+            {
+
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                MySqlCommand cmd = new MySqlCommand();
+                
+                   // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = cn;
+                    cmd.CommandText = "insertarPue";
+                    //asignar paramentros
+                    cmd.Parameters.AddWithValue("@id", g.Id_puesto);
+                    cmd.Parameters.AddWithValue("@nom", g.Nombre_puesto);
+
+                    //abrir la conexion
+                    cn.Open();
+
+                    //ejecutar el query
+                    return Convert.ToBoolean(cmd.ExecuteNonQuery());
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            } // end try
+            
+        }
+
+        public static bool Actualizar(Dpuesto c)
         {
             MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
             using (MySqlCommand cmd = new MySqlCommand())
@@ -70,16 +104,16 @@ namespace AccesoDatos
                     // setear parametros del command
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Connection = cn;
-                    cmd.CommandText = "ProcedimientoInsertar";
+                    cmd.CommandText = "ActualizarPue";
                     //asignar paramentros
-                    cmd.Parameters.AddWithValue("@id",g.Id_puesto);
-                    cmd.Parameters.AddWithValue("@nom",g.Nombre_puesto);
+                    cmd.Parameters.AddWithValue("@id", c.Id_puesto);
+                    cmd.Parameters.AddWithValue("@nom", c.Nombre_puesto);
 
                     //abrir la conexion
                     cn.Open();
 
                     //ejecutar el query
-                   return Convert.ToBoolean(cmd.ExecuteNonQuery());
+                    return Convert.ToBoolean(cmd.ExecuteNonQuery());
                 }
                 catch (Exception ex)
                 {
@@ -87,52 +121,75 @@ namespace AccesoDatos
                 }
                 finally
                 {
-                    
-                } // end try
-            }
-        }
 
-        public static bool Actualizar(Dpuesto c)
-        {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = "update puesto set Id_Puesto=@id, Nombre_Puesto=@nombre where Id_Puesto=@id";
-                var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@id", c.Id_puesto);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre_puesto);
-                cn.Open();
-                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+                } // end try
             }
 
         }
 
         //metodo para verificar si existe
-        public static bool Existe(Dpuesto u)
-        {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
+        //public static bool Existe(Dpuesto u)
+        //{
+        //    MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+        //    using (MySqlCommand cmd = new MySqlCommand())
+        //    {
+        //        try
+        //        {
+        //            // setear parametros del command
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.Connection = cn;
+        //            cmd.CommandText = "EliminarPue";
+        //            //asignar paramentros
+        //            cmd.Parameters.AddWithValue("@id", g.Id_puesto);
+        //            cmd.Parameters.AddWithValue("@nom", g.Nombre_puesto);
 
-                var consulta = "select ifnull(Nombre_Puesto,1) from puesto where Nombre_Puesto=@nombre";
-                var cmd = new MySqlCommand(consulta, cn);
+        //            //abrir la conexion
+        //            cn.Open();
 
-                cmd.Parameters.AddWithValue("@nombre", u.Nombre_puesto);
-                cn.Open();
-                return Convert.ToBoolean(cmd.ExecuteScalar());
+        //            //ejecutar el query
+        //            return Convert.ToBoolean(cmd.ExecuteNonQuery());
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw ex;
+        //        }
+        //        finally
+        //        {
 
-            }
-        }
+        //        } // end try
+        //    }
+        //}
 
         //Eliminar
 
         public static bool Eliminar(Dpuesto c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+            using (MySqlCommand cmd = new MySqlCommand())
             {
-                var consulta = "delete from puesto where Id_Puesto=@id";
-                var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@id", c.Id_puesto);
-                cn.Open();
-                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+                try
+                {
+                    // setear parametros del command
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = cn;
+                    cmd.CommandText = "EliminarPue";
+                    //asignar paramentros
+                    cmd.Parameters.AddWithValue("@id", c.Id_puesto);
+                    //abrir la conexion
+                    cn.Open();
+
+                    //ejecutar el query
+                    return Convert.ToBoolean(cmd.ExecuteNonQuery());
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+
+                } // end try
             }
         }
 

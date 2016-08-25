@@ -201,7 +201,7 @@ namespace PROYECTO_PROATITLAN
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 

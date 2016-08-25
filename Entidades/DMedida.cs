@@ -13,7 +13,7 @@ namespace Entidades
             get; set;
         }
 
-        public char Nombre
+        public string Nombre
         {
             get; set;
         }

@@ -30,16 +30,21 @@ namespace PROYECTO_PROATITLAN
                     c.Nombre_puesto = textBox2.Text;
                     if (Npuesto.Guardar(c))
                     {
-                        MessageBox.Show("Datos Guardados Correctamente");
+
+                        MessageBox.Show("Se Agrego con exito.","Aviso");
                         id_puesto();
                         limpiar();
                         ListaPuestos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya existe el valor que desea ingresar.");
                     }
                 }
 
                 else
                 {
-                    MessageBox.Show("Error", "Aviso");
+                    MessageBox.Show("Error, Ingresa el nombre", "Aviso");
                 }
             }
             catch (Exception ex)
@@ -54,20 +59,19 @@ namespace PROYECTO_PROATITLAN
         {
             try
             {
-                    var c = new Dpuesto();
-                    c.Id_puesto = Convert.ToInt32(textBox1.Text);
-                    c.Nombre_puesto = textBox2.Text;
-
+                var c = new Dpuesto();
+                c.Id_puesto = Convert.ToInt32(textBox1.Text);
+                c.Nombre_puesto = textBox2.Text;
                 if (Npuesto.Actualizar(c))
                 {
-                    MessageBox.Show("Datos guardados correctamente", "Aviso");
+                    MessageBox.Show("Se actualizo correctamento.");
                     id_puesto();
                     limpiar();
                     ListaPuestos();
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Aviso");
+                    MessageBox.Show("Error, vefique que exista.","Aviso");
                 }
 
             }
@@ -88,14 +92,14 @@ namespace PROYECTO_PROATITLAN
 
                 if (Npuesto.Eliminar(c))
                 {
-                    MessageBox.Show("Datos guardados correctamente", "Aviso");
+                    MessageBox.Show("Datos guardados correctamente");
                     id_puesto();
                     limpiar();
                     ListaPuestos();
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Aviso");
+                    MessageBox.Show("Error, verifique que el dato existe", "Aviso");
                 }
 
             }
