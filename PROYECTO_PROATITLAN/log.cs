@@ -48,8 +48,8 @@ namespace PROYECTO_PROATITLAN
             dataGridView1.DataSource = datos;
             dataGridView1.Refresh();
             string Id = datos.Rows[0][0].ToString();
-            string nombre = datos.Rows[0][0].ToString();
-            string puesto = datos.Rows[0][1].ToString();
+            string nombre = datos.Rows[0][1].ToString();
+            string puesto = datos.Rows[0][2].ToString();
             label1.Text = nombre;
 
             if (puesto == "Administrador")
