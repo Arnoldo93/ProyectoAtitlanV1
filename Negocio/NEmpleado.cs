@@ -31,9 +31,9 @@ namespace Negocio
             return AdEmpleado.Eliminar(e);
         }
 
-        public static DataTable logueo(string usu,string pas)
+        public static DataTable logueo(string usua,string pasw)
         {
-            return AdEmpleado.Listalog(usu,pas);
+            return AdEmpleado.Listalog(usua,pasw);
         }
 
         public static int id()

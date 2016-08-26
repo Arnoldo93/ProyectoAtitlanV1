@@ -148,7 +148,7 @@ namespace AccesoDatos
         }
 
         ////Login
-        //    public static int loguin(DEmpleado c)
+        //public static int loguin(DEmpleado c)
         //{
         //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
         //    {
@@ -162,14 +162,14 @@ namespace AccesoDatos
         //}
 
         //Listar
-        public static DataTable Listalog(string usu, string pas)
+        public static DataTable Listalog(string usua, string pasw)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "Select Id_Empleado ,Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usu and Contrase_a=@pasw and empleado.Id_Puesto=puesto.Id_Puesto";
+                var consulta = "Select Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usu and Contrase_a=@pas and empleado.Id_Puesto=puesto.Id_Puesto;";
                 var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@usu", usu);
-                cmd.Parameters.AddWithValue("@pasw",pas);
+                cmd.Parameters.AddWithValue("@usu", usua);
+                cmd.Parameters.AddWithValue("@pas",pasw);
                 MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta,cn);
                 DataTable dtDatos = new DataTable();
                 cn.Open();

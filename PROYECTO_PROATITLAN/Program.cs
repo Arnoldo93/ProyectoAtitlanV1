@@ -13,7 +13,6 @@ namespace PROYECTO_PROATITLAN
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         /// 
-        public static string idempleado = "";
         public static string puesto = "";
         public static String usuario ="";
 

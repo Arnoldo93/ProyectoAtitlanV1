@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using MySql.Data.MySqlClient;
 using Entidades;
 using Negocio;
@@ -46,16 +45,17 @@ namespace PROYECTO_PROATITLAN
 
             DataTable datos = new DataTable();
             datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
-            string id =datos.Rows[0][0].ToString();
-            string nombre = datos.Rows[0][1].ToString();
-            string puesto = datos.Rows[0][2].ToString();
+            dataGridView1.DataSource = datos;
+            dataGridView1.Refresh();
+            //string Id = datos.Rows[0][0].ToString();
+            string nombre = datos.Rows[0][0].ToString();
+            string puesto = datos.Rows[0][1].ToString();
             label1.Text = nombre;
 
             if (puesto == "Administrador")
             {
-                MessageBox.Show("Bienvenido al Sistema"+id, "Aviso.");
+                MessageBox.Show("Bienvenido al Sistema", "Aviso.");
                 Form1 f = new Form1();
-                Program.idempleado = id;
                 Program.puesto = puesto;
                 Program.usuario = nombre;
                 f.Show();
