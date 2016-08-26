@@ -166,7 +166,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "Select Id_Empleado,Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usu and Contrase_a=@pasw and empleado.Id_Puesto=puesto.Id_Puesto";
+                var consulta = "Select Id_Empleado ,Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usu and Contrase_a=@pasw and empleado.Id_Puesto=puesto.Id_Puesto";
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@usu", usu);
                 cmd.Parameters.AddWithValue("@pasw",pas);
