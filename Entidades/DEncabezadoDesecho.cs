@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Entidades
 {
-    class DEncabezadoDesecho
+    public class DEncabezadoDesecho
     {
         //encabezadoingreso
         public int Idencabezado { get; set; }

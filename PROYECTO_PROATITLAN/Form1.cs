@@ -16,14 +16,20 @@ namespace PROYECTO_PROATITLAN
         {
             InitializeComponent();
         }
-        Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo;
+        Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos;
 
         private void usuario()
         {
             log l = new log();
+            toolStripStatusLabel1.Text=Program.puesto+": ";
             toolStripStatusLabel3.Text = Program.usuario;
         }
         
+        private void cerrar()
+        {
+            
+        }
+
         private void buttonItem19_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(centro))
@@ -92,6 +98,21 @@ namespace PROYECTO_PROATITLAN
         private void toolStripStatusLabel3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonItem26_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(ingresodesechos))
+            {
+                ingresodesechos = new IngresoDesechos();
+                ingresodesechos.MdiParent = this;
+                ingresodesechos.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ingresodesechos.Focus();
+            }
         }
 
         private void buttonItem25_Click(object sender, EventArgs e)

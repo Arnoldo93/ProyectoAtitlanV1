@@ -56,6 +56,7 @@
     <Compile Include="NDatosCentro.cs" />
     <Compile Include="NDesechos.cs" />
     <Compile Include="NEmpleado.cs" />
+    <Compile Include="NEncabezadoDesechos.cs" />
     <Compile Include="NFamilia.cs" />
     <Compile Include="NMedida.cs" />
     <Compile Include="NMunicipio.cs" />

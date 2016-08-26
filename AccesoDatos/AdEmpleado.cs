@@ -139,27 +139,44 @@ namespace AccesoDatos
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
                 var consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro;";
-                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
-                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
-                cnn.Open();
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cn);
+                cn.Open();
                 DataTable dtDatos = new DataTable();
                 mdatos.Fill(dtDatos);
                 return dtDatos;
             }
         }
 
-        //Login
-        public static int loguin(DEmpleado c)
+        ////Login
+        //    public static int loguin(DEmpleado c)
+        //{
+        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+        //    {
+        //        var consulta = "Select count(*) from empleado where Usuario=@usu and Contrase_a=@pasw ";
+        //        var cmd = new MySqlCommand(consulta, cn);
+        //        cmd.Parameters.AddWithValue("@usu", c.Usuario);
+        //        cmd.Parameters.AddWithValue("@pasw", c.Contrase_a);
+        //        cn.Open();
+        //        return Convert.ToInt32(cmd.ExecuteNonQuery());
+        //    }
+        //}
+
+        //Listar
+        public static DataTable Listalog(string usu, string pas)
         {
-           using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-                {
-                    var consulta = "Select count(Id_Empleado) from empleado where Usuario like @usu and Contrase_a like @pasw";
-                    var cmd = new MySqlCommand(consulta,cn);
-                    cmd.Parameters.AddWithValue("@usu", c.Usuario);
-                    cmd.Parameters.AddWithValue("@pasw", c.Contrase_a);
-                    cn.Open();
-                    return Convert.ToInt32(cmd.ExecuteScalar());
-                }
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select Id_Empleado,Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usu and Contrase_a=@pasw and empleado.Id_Puesto=puesto.Id_Puesto";
+                var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@usu", usu);
+                cmd.Parameters.AddWithValue("@pasw",pas);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta,cn);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+               
+            }
         }
     }
 }
