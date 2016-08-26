@@ -162,20 +162,20 @@ namespace AccesoDatos
         //}
 
         //Listar
-        public static DataTable Listalog(string usua, string pasw)
+        public static DataTable Logueo(string usu, string pasw)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "Select Id_Empleado,Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usu and Contrase_a=@pas and empleado.Id_Puesto=puesto.Id_Puesto";
-                var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@usu", usua);
-                cmd.Parameters.AddWithValue("@pas", pasw);
-                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta,cn);
+                var consulta = "Select Id_Empleado,Nombre_Empleado,Nombre_Puesto from empleado, puesto where Usuario=@usua and Contrase_a=@con and empleado.Id_Puesto=puesto.Id_Puesto;";
+                var cmdd = new MySqlCommand(consulta,cn);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmdd);
                 DataTable dtDatos = new DataTable();
+                cmdd.Parameters.AddWithValue("@usua", usu);
+                cmdd.Parameters.AddWithValue("@con", pasw);
                 cn.Open();
                 mdatos.Fill(dtDatos);
                 return dtDatos;
-               
+
             }
         }
     }

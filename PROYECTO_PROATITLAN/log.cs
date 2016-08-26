@@ -45,8 +45,6 @@ namespace PROYECTO_PROATITLAN
 
             DataTable datos = new DataTable();
             datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
-            dataGridView1.DataSource = datos;
-            dataGridView1.Refresh();
             string Id = datos.Rows[0][0].ToString();
             string nombre = datos.Rows[0][1].ToString();
             string puesto = datos.Rows[0][2].ToString();
