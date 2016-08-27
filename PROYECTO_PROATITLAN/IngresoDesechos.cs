@@ -96,6 +96,7 @@ namespace PROYECTO_PROATITLAN
                     var d = new DDetalleIngreso();
                     d.iddesecho = (int)i.Cells[0].Value;
                     d.cantidad = (int)i.Cells[2].Value;
+                    lista.Add(d);
                 }
 
             }
