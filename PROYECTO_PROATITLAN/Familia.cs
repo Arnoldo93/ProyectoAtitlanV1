@@ -146,6 +146,7 @@ namespace PROYECTO_PROATITLAN
         private void limpiar()
         {
             textBox2.Clear();
+            textBox2.Focus();
         }
 
         private void Familia_Load(object sender, EventArgs e)

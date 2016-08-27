@@ -111,7 +111,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 15;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Lista de Vechiculos Existentes";
             // 
             // dataGridView1
@@ -168,7 +168,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 14;
+            this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Opciones";
             // 
             // button4
@@ -260,7 +260,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 13;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos del vehiculo";
             // 
             // label5
@@ -277,7 +277,7 @@
             this.textBox3.Location = new System.Drawing.Point(108, 88);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(47, 20);
-            this.textBox3.TabIndex = 2;
+            this.textBox3.TabIndex = 1;
             // 
             // label4
             // 
@@ -293,7 +293,7 @@
             this.textBox2.Location = new System.Drawing.Point(108, 55);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 0;
             // 
             // label2
             // 

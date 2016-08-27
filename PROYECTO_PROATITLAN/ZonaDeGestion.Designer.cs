@@ -153,7 +153,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 18;
+            this.groupPanel1.TabIndex = 1;
             this.groupPanel1.Text = "Seleccionar Zona";
             // 
             // button11
@@ -287,7 +287,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 23;
+            this.groupPanel2.TabIndex = 3;
             this.groupPanel2.Text = "Lista de Zonas Existentes";
             // 
             // dataGridView1
@@ -347,7 +347,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 20;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Opciones";
             // 
             // button12
@@ -403,7 +403,7 @@
             // 
             this.groupPanel4.StyleMouseOver.Class = "";
             this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel4.TabIndex = 21;
+            this.groupPanel4.TabIndex = 0;
             this.groupPanel4.Text = "Datos de la zona";
             // 
             // textBox2
@@ -411,7 +411,7 @@
             this.textBox2.Location = new System.Drawing.Point(152, 47);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 17;
+            this.textBox2.TabIndex = 1;
             // 
             // label3
             // 
@@ -419,7 +419,7 @@
             this.label3.Location = new System.Drawing.Point(68, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 16;
+            this.label3.TabIndex = 1;
             this.label3.Text = "Nombre zona";
             // 
             // textBox1
@@ -436,7 +436,7 @@
             this.label2.Location = new System.Drawing.Point(68, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 14;
+            this.label2.TabIndex = 0;
             this.label2.Text = "CODIGO";
             // 
             // ribbonControl1

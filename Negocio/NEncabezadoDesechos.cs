@@ -22,9 +22,14 @@ namespace Negocio
             return AdEncabezadoDesecho.Agregar(e);
         }
 
-        public static int id()
+        public static int idencabezado()
         {
-            return AdEncabezadoDesecho.Id();
+            return AdEncabezadoDesecho.Idencabezado();
+        }
+
+        public static int iddetalle()
+        {
+            return AdEncabezadoDesecho.Iddetalle();
         }
 
         public static DataTable ListadoDetalleDesechos()

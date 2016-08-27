@@ -115,6 +115,7 @@ namespace PROYECTO_PROATITLAN
         {
             ListaPuestos();
             id_puesto();
+
         }
 
         private void ListaPuestos()
@@ -149,6 +150,7 @@ namespace PROYECTO_PROATITLAN
         private void limpiar()
         {
             textBox2.Clear();
+            textBox2.Focus();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

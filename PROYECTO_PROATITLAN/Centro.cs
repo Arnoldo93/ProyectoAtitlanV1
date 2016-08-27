@@ -271,6 +271,7 @@ namespace PROYECTO_PROATITLAN
             textBox6.Clear();
             textBox7.Clear();
             checkBox1.Checked = false;
+            textBox5.Focus();
         }
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)

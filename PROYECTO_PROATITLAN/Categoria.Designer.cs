@@ -123,7 +123,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 40;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Listado de Zonas Existentes";
             // 
             // dataGridView1
@@ -181,7 +181,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 39;
+            this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Opciones";
             // 
             // button1
@@ -271,7 +271,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 38;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos de Municipio";
             // 
             // comboBox1
@@ -280,7 +280,7 @@
             this.comboBox1.Location = new System.Drawing.Point(105, 107);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2
@@ -288,7 +288,7 @@
             this.textBox2.Location = new System.Drawing.Point(126, 67);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 31;
+            this.textBox2.TabIndex = 0;
             // 
             // label2
             // 

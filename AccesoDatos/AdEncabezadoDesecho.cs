@@ -46,6 +46,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
+                //insertar encabezado
                 var consulta = "insert into encabezado_ingreso values(@iden,@fecha,@idem,@idcen)";
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@iden", c.Idencabezado);
@@ -54,19 +55,21 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@idcen", c.idcentro);
                 cn.Open();
                 var r1= Convert.ToBoolean(cmd.ExecuteNonQuery());
-                consulta = "Select isnull(max(Id_Encabezado),0) from encabezado_ingreso";
-                cmd = new MySqlCommand(consulta,cn);
-                var maxid =Convert.ToInt32(cmd.ExecuteScalar());
-                //obtenemos el id del ultimo ingreso para guardar el detalle del ingreso 
 
-                consulta = "insert into detalle_ingreso values(@iden,@idde,@idve,@idde,@can)";
+                //obtenemos el id del ultimo ingreso para guardar el detalle del ingreso 
+                var consultamax = "Select ifnull(max(Id_Encabezado),0) from encabezado_ingreso";
+                cmd = new MySqlCommand(consultamax,cn);
+                var maxid =Convert.ToInt32(cmd.ExecuteScalar());
+
+                //insertar detalle
+                var consultadetalle = "insert into detalle_ingreso values(@iden,@idde,@idve,@idd,@can)";
                 foreach(DDetalleIngreso lista in c.listardetalle)
                 {
-                    cmd = new MySqlCommand(consulta, cn);
+                    cmd = new MySqlCommand(consultadetalle, cn);
                     cmd.Parameters.AddWithValue("@iden", maxid);
                     cmd.Parameters.AddWithValue("@idde", lista.iddetalle);
                     cmd.Parameters.AddWithValue("@idve", lista.idVehiculo);
-                    cmd.Parameters.AddWithValue("@idde", lista.iddesecho);
+                    cmd.Parameters.AddWithValue("@idd", lista.iddesecho);
                     cmd.Parameters.AddWithValue("@can", lista.cantidad);
                     r1 = r1 && Convert.ToBoolean(cmd.ExecuteNonQuery()); 
                 }
@@ -76,7 +79,7 @@ namespace AccesoDatos
             }
         }
 
-        public static int Id()
+        public static int Idencabezado()
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
@@ -87,6 +90,21 @@ namespace AccesoDatos
 
             }
         }
+
+        public static int Iddetalle()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                //iddetalle
+                var iddetalle = "Select ifnull(max(Id_Detalle),0) from detalle_ingreso";
+                var cmd = new MySqlCommand(iddetalle, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
+        
 
         public static DataTable ListaDeDechosDetalle ()
         {

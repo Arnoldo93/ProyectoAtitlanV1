@@ -125,7 +125,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 19;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Listado de Familias Existentes";
             // 
             // dataGridView1
@@ -183,7 +183,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 18;
+            this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Opciones";
             // 
             // button4
@@ -276,7 +276,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 17;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos de Familia";
             // 
             // label5
@@ -294,7 +294,7 @@
             this.comboBox2.Location = new System.Drawing.Point(95, 145);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 6;
+            this.comboBox2.TabIndex = 2;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label4
@@ -312,7 +312,7 @@
             this.comboBox1.Location = new System.Drawing.Point(95, 104);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2

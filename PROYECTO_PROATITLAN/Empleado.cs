@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 using Entidades;
+using AccesoDatos;
 using Negocio;
 
 namespace PROYECTO_PROATITLAN
@@ -21,7 +22,7 @@ namespace PROYECTO_PROATITLAN
         {
             InitializeComponent();
         }
-        Conexion con = new Conexion();
+
         string puesto="", centro="";
         private void button1_Click(object sender, EventArgs e)
         {
@@ -243,6 +244,7 @@ namespace PROYECTO_PROATITLAN
             textBox7.Clear();
             textBox8.Clear();
             checkBox1.Checked = false;
+            textBox2.Focus();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -263,9 +265,9 @@ namespace PROYECTO_PROATITLAN
             textBox4.Text = dataGridView1[3, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             textBox8.Text = dataGridView1[5, e.RowIndex].Value.ToString();
-            checkBox1.Checked =Convert.ToBoolean(dataGridView1[6, e.RowIndex].Value.ToString());
             comboBox1.SelectedValue = dataGridView1[7, e.RowIndex].Value;
             comboBox2.SelectedValue = dataGridView1[9, e.RowIndex].Value;
+            checkBox1.Checked = Convert.ToBoolean(dataGridView1[10, e.RowIndex].Value);
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

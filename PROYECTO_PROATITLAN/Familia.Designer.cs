@@ -145,7 +145,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 15;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Listado de Familias Existentes";
             // 
             // dataGridView1
@@ -203,7 +203,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 14;
+            this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Opciones";
             // 
             // button4
@@ -292,7 +292,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 13;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos de Familia";
             // 
             // textBox2
@@ -317,7 +317,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
             // 
             // label3
             // 

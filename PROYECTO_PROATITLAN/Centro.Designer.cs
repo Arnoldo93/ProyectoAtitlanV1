@@ -444,7 +444,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 48;
+            this.groupPanel2.TabIndex = 0;
             this.groupPanel2.Text = "Datos Generales";
             // 
             // groupPanel3
@@ -490,7 +490,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 54;
+            this.groupPanel3.TabIndex = 1;
             this.groupPanel3.Text = "Datos Especificos";
             this.groupPanel3.Click += new System.EventHandler(this.groupPanel3_Click);
             // 
@@ -500,7 +500,7 @@
             this.comboBox2.Location = new System.Drawing.Point(124, 93);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(149, 21);
-            this.comboBox2.TabIndex = 30;
+            this.comboBox2.TabIndex = 1;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged_1);
             // 
             // button4

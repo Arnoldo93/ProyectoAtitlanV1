@@ -144,6 +144,7 @@ namespace PROYECTO_PROATITLAN
         {
             textBox2.Clear();
             textBox3.Clear();
+            textBox2.Focus();
         }
 
         private void Vehiculo_Load(object sender, EventArgs e)

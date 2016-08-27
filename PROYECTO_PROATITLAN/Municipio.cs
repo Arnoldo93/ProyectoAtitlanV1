@@ -169,6 +169,7 @@ namespace PROYECTO_PROATITLAN
         private void limpiar()
         {
             textBox2.Clear();
+            textBox2.Focus();
         }
 
         private void button4_Click(object sender, EventArgs e)

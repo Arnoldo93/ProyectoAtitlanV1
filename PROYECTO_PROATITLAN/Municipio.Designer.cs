@@ -164,7 +164,7 @@
             this.textBox2.Location = new System.Drawing.Point(126, 67);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 31;
+            this.textBox2.TabIndex = 0;
             // 
             // ribbonControl1
             // 
@@ -234,7 +234,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 34;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos de Municipio";
             this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
             // 
@@ -244,7 +244,7 @@
             this.comboBox1.Location = new System.Drawing.Point(105, 107);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupPanel2
@@ -289,7 +289,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 35;
+            this.groupPanel2.TabIndex = 17;
             this.groupPanel2.Text = "Opciones";
             // 
             // groupPanel3
@@ -331,7 +331,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 36;
+            this.groupPanel3.TabIndex = 18;
             this.groupPanel3.Text = "Listado de Zonas Existentes";
             // 
             // dataGridView1
@@ -355,7 +355,7 @@
             this.radioButton1.Location = new System.Drawing.Point(1126, 171);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabIndex = 15;
             this.radioButton1.UseVisualStyleBackColor = false;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
@@ -439,7 +439,7 @@
             this.radioButton8.Location = new System.Drawing.Point(760, 212);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(14, 13);
-            this.radioButton8.TabIndex = 10;
+            this.radioButton8.TabIndex = 9;
             this.radioButton8.UseVisualStyleBackColor = false;
             this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
             // 
@@ -451,7 +451,7 @@
             this.radioButton7.Location = new System.Drawing.Point(791, 215);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(14, 13);
-            this.radioButton7.TabIndex = 9;
+            this.radioButton7.TabIndex = 10;
             this.radioButton7.UseVisualStyleBackColor = false;
             this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
@@ -533,7 +533,7 @@
             this.radioButton15.Location = new System.Drawing.Point(1113, 125);
             this.radioButton15.Name = "radioButton15";
             this.radioButton15.Size = new System.Drawing.Size(14, 13);
-            this.radioButton15.TabIndex = 47;
+            this.radioButton15.TabIndex = 1;
             this.radioButton15.UseVisualStyleBackColor = false;
             this.radioButton15.CheckedChanged += new System.EventHandler(this.radioButton15_CheckedChanged_1);
             // 

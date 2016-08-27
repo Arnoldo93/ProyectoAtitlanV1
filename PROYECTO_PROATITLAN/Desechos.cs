@@ -287,6 +287,7 @@ namespace PROYECTO_PROATITLAN
                     item.Text = "";
                 }
             }
+            textBox2.Focus();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -148,7 +148,7 @@
             // 
             this.groupPanel5.StyleMouseOver.Class = "";
             this.groupPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel5.TabIndex = 35;
+            this.groupPanel5.TabIndex = 3;
             this.groupPanel5.Text = "Listados de Desechos Existentes";
             // 
             // dataGridView1
@@ -206,7 +206,7 @@
             // 
             this.groupPanel4.StyleMouseOver.Class = "";
             this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel4.TabIndex = 34;
+            this.groupPanel4.TabIndex = 2;
             this.groupPanel4.Text = "Opciones";
             // 
             // button1
@@ -299,7 +299,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 32;
+            this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Datos Especificos";
             // 
             // comboBox3
@@ -308,7 +308,7 @@
             this.comboBox3.Location = new System.Drawing.Point(299, 95);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(214, 21);
-            this.comboBox3.TabIndex = 23;
+            this.comboBox3.TabIndex = 3;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox4
@@ -317,7 +317,7 @@
             this.comboBox4.Location = new System.Drawing.Point(299, 42);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(214, 21);
-            this.comboBox4.TabIndex = 22;
+            this.comboBox4.TabIndex = 2;
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label7
@@ -428,7 +428,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 31;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos Generales";
             // 
             // label12
@@ -445,7 +445,7 @@
             this.textBox6.Location = new System.Drawing.Point(129, 195);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(99, 20);
-            this.textBox6.TabIndex = 12;
+            this.textBox6.TabIndex = 4;
             // 
             // label11
             // 
@@ -461,7 +461,7 @@
             this.textBox5.Location = new System.Drawing.Point(128, 161);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(99, 20);
-            this.textBox5.TabIndex = 10;
+            this.textBox5.TabIndex = 3;
             // 
             // label2
             // 
@@ -543,7 +543,7 @@
             this.checkBox1.Location = new System.Drawing.Point(140, 229);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(99, 17);
-            this.checkBox1.TabIndex = 3;
+            this.checkBox1.TabIndex = 5;
             this.checkBox1.Text = "Activo/Inactivo";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 

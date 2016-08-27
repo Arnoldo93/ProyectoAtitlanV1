@@ -21,14 +21,24 @@ namespace PROYECTO_PROATITLAN
             InitializeComponent();
         }
         string centro;
-        public static DDetalleIngresoProducto pro=null;
+        public static DDetalleIngreso d;
+        private List<DDetalleIngreso> lista;
         private void IngresoDesechos_Load(object sender, EventArgs e)
-        {
-            textBox3.Clear();
+        { 
             textBox2.Text = Program.usuario;
+            comboBox2.Focus();
             listadocentros();
-            id();
+            idencabezado();
+            iddetalle();
             desechos();
+            vehiculo();
+        }
+
+        private void vehiculo()
+        {
+            comboBox3.DataSource = NVehiculo.ListadoVechiculos();
+            comboBox3.DisplayMember = "Vehiculo";
+            comboBox3.ValueMember = "Id_Vehiculo";
         }
 
         private void desechos()
@@ -51,16 +61,22 @@ namespace PROYECTO_PROATITLAN
             comboBox2.ValueMember = "Id_Centro";
         }
 
-        private void id()
+        private void idencabezado()
         {
             var i = new DEncabezadoDesecho();
-            i.Idencabezado = NEncabezadoDesechos.id() + 1;
+            i.Idencabezado = NEncabezadoDesechos.idencabezado() + 1;
             textBox1.Text = i.Idencabezado.ToString();
+        }
+
+        private void iddetalle()
+        {
+            var i = new DEncabezadoDesecho();
+            i.Idencabezado = NEncabezadoDesechos.iddetalle() + 1;
+            textBox3.Text = i.Idencabezado.ToString();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox3.Text = comboBox1.SelectedValue.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -89,14 +105,25 @@ namespace PROYECTO_PROATITLAN
                 v.idcentro =Convert.ToInt32(comboBox2.SelectedValue.ToString());
 
                 //detalle
+                v.listardetalle = lista;
+               
 
-                var lista = new List<DDetalleIngreso>();
-                foreach(DataGridViewRow i in dataGridView1.Rows)
+
+                //foreach(DataGridViewRow i in dataGridView1.Rows)
+                //{
+                //    var d = new DDetalleIngreso();
+                //    d.iddesecho = (int)i.Cells[0].Value;
+                //    d.cantidad = (int)i.Cells[2].Value;
+                //    lista.Add(d);
+                //}
+                //v.listardetalle = lista;
+                if (NEncabezadoDesechos.Agregar(v))
                 {
-                    var d = new DDetalleIngreso();
-                    d.iddesecho = (int)i.Cells[0].Value;
-                    d.cantidad = (int)i.Cells[2].Value;
-                    lista.Add(d);
+                    MessageBox.Show("Se ingreso con exito.");
+                }
+                else
+                {
+                    MessageBox.Show("Verifique sus datos");
                 }
 
             }
@@ -104,14 +131,17 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            pro = new DDetalleIngresoProducto();
-            pro.idproducto = int.Parse(textBox1.Text);
-            pro.nombreproducto = comboBox1.Text;
-            pro.cantidad = int.Parse(textBox5.Text);
-
-            dataGridView1.Rows.Add(pro.idproducto, pro.nombreproducto, pro.cantidad);
-            textBox3.Clear();
-            textBox5.Clear();
+            lista = new List<DDetalleIngreso>();
+            d= new DDetalleIngreso();
+            d.iddetalle = Convert.ToInt32(textBox3.Text);
+            d.iddesecho = (int)comboBox1.SelectedValue;
+            d.cantidad = Convert.ToInt32(textBox5.Text);
+            d.idVehiculo = (int)comboBox3.SelectedValue;
+            lista.Add(d);
+            iddetalle();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = lista;
+            dataGridView1.Refresh();
         }
     }
 }

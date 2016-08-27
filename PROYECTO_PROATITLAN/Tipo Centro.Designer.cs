@@ -169,7 +169,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 27;
+            this.groupPanel1.TabIndex = 1;
             this.groupPanel1.Text = "Opciones";
             // 
             // button4
@@ -225,7 +225,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 28;
+            this.groupPanel2.TabIndex = 0;
             this.groupPanel2.Text = "Datos de Centro / Planta";
             // 
             // groupPanel3
@@ -267,7 +267,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 29;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Listado de Centros/ Plantas existentes";
             // 
             // dataGridView1
