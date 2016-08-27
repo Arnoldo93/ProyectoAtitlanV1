@@ -42,28 +42,34 @@ namespace PROYECTO_PROATITLAN
             ////{
             ////    MessageBox.Show("Error, verifique sus datos","Aviso");
             ////}
-
-            DataTable datos = new DataTable();
-            datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
-            string Id = datos.Rows[0][0].ToString();
-            string nombre = datos.Rows[0][1].ToString();
-            string puesto = datos.Rows[0][2].ToString();
-            label1.Text = nombre;
-
-            if (puesto == "Administrador")
+            try
             {
-                MessageBox.Show("Bienvenido al Sistema", "Aviso.");
-                Form1 f = new Form1();
-                Program.puesto = puesto;
-                Program.usuario = nombre;
-                f.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Error, verifique sus datos", "Aviso");
-            }
+                DataTable datos = new DataTable();
+                datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
+                string Id = datos.Rows[0][0].ToString();
+                string nombre = datos.Rows[0][1].ToString();
+                string puesto = datos.Rows[0][2].ToString();
+                label1.Text = nombre;
 
+                if (puesto == "Administrador")
+                {
+                    MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                    Form1 f = new Form1();
+                    Program.idempleado = Id;
+                    Program.puesto = puesto;
+                    Program.usuario = nombre;
+                    f.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Error, verifique sus datos", "Aviso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.","Aviso");
+            }
         }
     }
 }

@@ -26,5 +26,10 @@ namespace Negocio
         {
             return AdEncabezadoDesecho.Id();
         }
+
+        public static DataTable ListadoDetalleDesechos()
+        {
+            return AdEncabezadoDesecho.ListaDeDechosDetalle();
+        }
     }
 }

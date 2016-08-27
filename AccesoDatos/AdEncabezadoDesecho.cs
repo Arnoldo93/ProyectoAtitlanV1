@@ -87,5 +87,19 @@ namespace AccesoDatos
 
             }
         }
+
+        public static DataTable ListaDeDechosDetalle ()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                string consulta = "Select Id_Desecho,Nombre from desechos ";
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta,cn);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+
+        }
     }
 }
