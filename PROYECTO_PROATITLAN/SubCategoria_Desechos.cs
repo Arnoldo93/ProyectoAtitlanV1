@@ -155,7 +155,6 @@ namespace PROYECTO_PROATITLAN
                 comboBox1.DataSource = datos;
                 comboBox1.DisplayMember = "Nombre";
                 comboBox1.ValueMember = "Id_Categoria";
-                comboBox1.Refresh();
             }
             catch (Exception ex)
             {
@@ -172,7 +171,6 @@ namespace PROYECTO_PROATITLAN
                 comboBox2.DataSource = datos;
                 comboBox2.DisplayMember = "Nombre";
                 comboBox2.ValueMember = "Id_Familia";
-                comboBox2.Refresh();
             }
             catch (Exception ex)
             {
