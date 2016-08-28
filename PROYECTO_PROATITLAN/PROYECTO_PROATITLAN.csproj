@@ -54,6 +54,9 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>menuicono.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar.Design">
       <HintPath>..\..\..\..\Documents\PROGRAMAS\VISUAL STUDIO\Ribbon interfaz como office en c#\DevComponents.DotNetBar.Design.dll</HintPath>
@@ -287,6 +290,9 @@
       <Project>{5c0ce007-6b79-4160-bbf2-cdd3521d2f2d}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="menuicono.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

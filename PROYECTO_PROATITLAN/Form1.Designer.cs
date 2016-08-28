@@ -146,11 +146,11 @@
             this.ribbonControl1.BackgroundStyle.Class = "";
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel5);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel5);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.office2007StartButton1,
@@ -198,6 +198,7 @@
             this.ribbonPanel1.StyleMouseOver.Class = "";
             this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
             // 
             // ribbonBar2
             // 
@@ -627,7 +628,6 @@
             this.ribbonPanel4.StyleMouseOver.Class = "";
             this.ribbonPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel4.TabIndex = 4;
-            this.ribbonPanel4.Visible = false;
             // 
             // ribbonBar12
             // 
@@ -1061,7 +1061,6 @@
             // 
             // EMPLEADOS
             // 
-            this.EMPLEADOS.Checked = true;
             this.EMPLEADOS.Name = "EMPLEADOS";
             this.EMPLEADOS.Panel = this.ribbonPanel1;
             this.EMPLEADOS.Text = "EMPLEADOS";
@@ -1080,6 +1079,7 @@
             // 
             // ribbonTabItem3
             // 
+            this.ribbonTabItem3.Checked = true;
             this.ribbonTabItem3.Name = "ribbonTabItem3";
             this.ribbonTabItem3.Panel = this.ribbonPanel4;
             this.ribbonTabItem3.Text = "VEHICULO";
