@@ -122,7 +122,7 @@
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel3.TabIndex = 2;
-            this.groupPanel3.Text = "Listado de Empleados Existentes";
+            this.groupPanel3.Text = "Listado de Medidas Existentes";
             // 
             // dataGridView1
             // 
@@ -269,7 +269,7 @@
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 0;
-            this.groupPanel1.Text = "Puesto del Empleado";
+            this.groupPanel1.Text = "Datos de Medida";
             // 
             // textBox2
             // 

@@ -265,8 +265,8 @@ namespace PROYECTO_PROATITLAN
             textBox4.Text = dataGridView1[3, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             textBox8.Text = dataGridView1[5, e.RowIndex].Value.ToString();
-            comboBox1.SelectedValue = dataGridView1[7, e.RowIndex].Value;
-            comboBox2.SelectedValue = dataGridView1[9, e.RowIndex].Value;
+            comboBox1.SelectedValue = dataGridView1[6, e.RowIndex].Value;
+            comboBox2.SelectedValue = dataGridView1[8, e.RowIndex].Value;
             checkBox1.Checked = Convert.ToBoolean(dataGridView1[10, e.RowIndex].Value);
         }
 

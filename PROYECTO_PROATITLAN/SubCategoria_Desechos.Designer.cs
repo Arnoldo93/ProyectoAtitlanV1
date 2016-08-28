@@ -126,7 +126,7 @@
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel3.TabIndex = 2;
-            this.groupPanel3.Text = "Listado de Familias Existentes";
+            this.groupPanel3.Text = "Listado de SubCategorias Existentes";
             // 
             // dataGridView1
             // 
@@ -277,7 +277,7 @@
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 0;
-            this.groupPanel1.Text = "Datos de Familia";
+            this.groupPanel1.Text = "Datos de Categoria";
             // 
             // label5
             // 

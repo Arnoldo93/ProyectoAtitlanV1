@@ -124,7 +124,7 @@
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel3.TabIndex = 2;
-            this.groupPanel3.Text = "Listado de Zonas Existentes";
+            this.groupPanel3.Text = "Listado de Categorias Existentes";
             // 
             // dataGridView1
             // 
@@ -226,6 +226,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Nuevo";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupPanel1
             // 
@@ -272,7 +273,7 @@
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 0;
-            this.groupPanel1.Text = "Datos de Municipio";
+            this.groupPanel1.Text = "Datos de Categoria";
             // 
             // comboBox1
             // 

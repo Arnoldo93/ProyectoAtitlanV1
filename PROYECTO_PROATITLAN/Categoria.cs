@@ -181,5 +181,13 @@ namespace PROYECTO_PROATITLAN
             ListaFamilias();
             id_categoria();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            ListaCategorias();
+            ListaFamilias();
+            id_categoria();
+        }
     }
 }

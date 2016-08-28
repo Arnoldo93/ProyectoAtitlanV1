@@ -154,6 +154,11 @@ namespace PROYECTO_PROATITLAN
             listado();
         }
 
-        
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox1.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            textBox3.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+        }
     }
 }

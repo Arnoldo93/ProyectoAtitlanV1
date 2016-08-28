@@ -116,11 +116,11 @@ namespace AccesoDatos
         }
 
         //Listar
-        public static DataTable ListaPuesto()
+        public static DataTable ListaSubcategoria()
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = " select * from subcategoria_desecho";
+                var consulta = "SELECT Id_SubCategoria,subcategoria_desecho.Nombre as SubCategoria ,categoria_desecho.Id_Categoria,categoria_desecho.Nombre as Categoria,familia.Id_Familia,familia.Nombre as Familia  FROM subcategoria_desecho,categoria_desecho,familia where subcategoria_desecho.Id_Categoria=categoria_desecho.Id_Categoria and categoria_desecho.Id_Familia=familia.Id_Familia";
                 MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
                 MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
                 cnn.Open();

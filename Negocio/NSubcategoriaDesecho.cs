@@ -40,7 +40,7 @@ namespace Negocio
 
         public static DataTable ListadoSubcategoria()
         {
-            return AdSubcategoriaDesecho.ListaPuesto();
+            return AdSubcategoriaDesecho.ListaSubcategoria();
         }
     }
 }

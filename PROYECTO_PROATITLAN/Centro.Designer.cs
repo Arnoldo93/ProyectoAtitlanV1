@@ -127,14 +127,14 @@
             this.textBox6.Location = new System.Drawing.Point(126, 103);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 1;
+            this.textBox6.TabIndex = 2;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(126, 65);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 0;
+            this.textBox5.TabIndex = 1;
             // 
             // checkBox1
             // 
@@ -142,7 +142,7 @@
             this.checkBox1.Location = new System.Drawing.Point(126, 181);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(99, 17);
-            this.checkBox1.TabIndex = 3;
+            this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Activo/Inactivo";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -179,7 +179,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 26;
+            this.textBox1.TabIndex = 0;
             // 
             // label2
             // 
@@ -214,7 +214,7 @@
             this.textBox7.Location = new System.Drawing.Point(126, 139);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 2;
+            this.textBox7.TabIndex = 3;
             // 
             // ribbonControl1
             // 
@@ -380,7 +380,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 53;
+            this.groupPanel1.TabIndex = 3;
             this.groupPanel1.Text = "Listados de Centros / Plantas existentes";
             // 
             // dataGridView1
@@ -565,7 +565,7 @@
             // 
             this.groupPanel5.StyleMouseOver.Class = "";
             this.groupPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel5.TabIndex = 55;
+            this.groupPanel5.TabIndex = 2;
             this.groupPanel5.Text = "Opciones";
             // 
             // button7
