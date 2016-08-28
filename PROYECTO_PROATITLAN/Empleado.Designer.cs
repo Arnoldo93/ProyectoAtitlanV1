@@ -95,14 +95,14 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(152, 76);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 0;
+            this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             // 
@@ -120,7 +120,7 @@
             this.textBox3.Location = new System.Drawing.Point(152, 115);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 1;
+            this.textBox3.TabIndex = 2;
             // 
             // label4
             // 
@@ -136,7 +136,7 @@
             this.textBox4.Location = new System.Drawing.Point(152, 154);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(99, 20);
-            this.textBox4.TabIndex = 2;
+            this.textBox4.TabIndex = 3;
             // 
             // label5
             // 
@@ -162,7 +162,7 @@
             this.checkBox1.Location = new System.Drawing.Point(152, 192);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(99, 17);
-            this.checkBox1.TabIndex = 3;
+            this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Activo/Inactivo";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -309,7 +309,7 @@
             // 
             this.groupPanel1.StyleMouseOver.Class = "";
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 24;
+            this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos Personales";
             // 
             // groupPanel2
@@ -354,7 +354,7 @@
             // 
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 25;
+            this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Datos de Centro";
             // 
             // comboBox2
@@ -418,7 +418,7 @@
             // 
             this.groupPanel3.StyleMouseOver.Class = "";
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 26;
+            this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Datos de Usuario";
             // 
             // checkBox2
@@ -474,7 +474,7 @@
             // 
             this.groupPanel4.StyleMouseOver.Class = "";
             this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel4.TabIndex = 27;
+            this.groupPanel4.TabIndex = 3;
             this.groupPanel4.Text = "Opciones";
             // 
             // ribbonControl1
@@ -540,7 +540,7 @@
             // 
             this.groupPanel5.StyleMouseOver.Class = "";
             this.groupPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel5.TabIndex = 29;
+            this.groupPanel5.TabIndex = 4;
             this.groupPanel5.Text = "Lista de Empleados Existentes";
             // 
             // dataGridView1

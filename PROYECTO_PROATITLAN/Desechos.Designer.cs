@@ -445,7 +445,7 @@
             this.textBox6.Location = new System.Drawing.Point(129, 195);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(99, 20);
-            this.textBox6.TabIndex = 4;
+            this.textBox6.TabIndex = 5;
             // 
             // label11
             // 
@@ -461,7 +461,7 @@
             this.textBox5.Location = new System.Drawing.Point(128, 161);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(99, 20);
-            this.textBox5.TabIndex = 3;
+            this.textBox5.TabIndex = 4;
             // 
             // label2
             // 
@@ -478,7 +478,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 0;
             // 
             // label3
             // 
@@ -494,7 +494,7 @@
             this.textBox2.Location = new System.Drawing.Point(128, 45);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 0;
+            this.textBox2.TabIndex = 1;
             // 
             // label4
             // 
@@ -510,7 +510,7 @@
             this.textBox3.Location = new System.Drawing.Point(128, 84);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 1;
+            this.textBox3.TabIndex = 2;
             // 
             // label5
             // 
@@ -526,7 +526,7 @@
             this.textBox4.Location = new System.Drawing.Point(128, 123);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(99, 20);
-            this.textBox4.TabIndex = 2;
+            this.textBox4.TabIndex = 3;
             // 
             // label6
             // 
@@ -543,7 +543,7 @@
             this.checkBox1.Location = new System.Drawing.Point(140, 229);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(99, 17);
-            this.checkBox1.TabIndex = 5;
+            this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Activo/Inactivo";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 

@@ -65,6 +65,7 @@
     <Compile Include="Dpuesto.cs" />
     <Compile Include="DSubcategoriaDesecho.cs" />
     <Compile Include="DTipoCentro.cs" />
+    <Compile Include="DTipoDeCliente.cs" />
     <Compile Include="DVehiculo.cs" />
     <Compile Include="DZona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

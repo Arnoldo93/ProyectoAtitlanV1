@@ -63,6 +63,7 @@
     <Compile Include="AdPuesto.cs" />
     <Compile Include="AdSubcategoriaDesecho.cs" />
     <Compile Include="AdTipoCentro.cs" />
+    <Compile Include="AdTipoDeCliente.cs" />
     <Compile Include="AdVehiculo.cs" />
     <Compile Include="AdZona.cs" />
     <Compile Include="Conexion.cs" />

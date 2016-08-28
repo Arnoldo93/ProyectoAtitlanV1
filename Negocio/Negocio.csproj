@@ -63,6 +63,7 @@
     <Compile Include="Npuesto.cs" />
     <Compile Include="NSubcategoriaDesecho.cs" />
     <Compile Include="NTipoCentro.cs" />
+    <Compile Include="NTipoDeCentro.cs" />
     <Compile Include="NVehiculo.cs" />
     <Compile Include="NZona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
