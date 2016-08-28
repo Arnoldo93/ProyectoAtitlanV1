@@ -24,12 +24,7 @@ namespace PROYECTO_PROATITLAN
             toolStripStatusLabel1.Text=Program.puesto+": ";
             toolStripStatusLabel3.Text = Program.usuario;
         }
-        
-        private void cerrar()
-        {
-            
-        }
-
+   
         private void buttonItem19_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(centro))
@@ -75,9 +70,9 @@ namespace PROYECTO_PROATITLAN
             }
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        private void buttonItem1_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,19 +80,9 @@ namespace PROYECTO_PROATITLAN
             usuario();
         }
 
-        private void ribbonTabItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonItem13_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void toolStripStatusLabel3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonItem26_Click(object sender, EventArgs e)
@@ -175,11 +160,6 @@ namespace PROYECTO_PROATITLAN
             }
         }
 
-        private void ribbonBar8_ItemClick(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonItem20_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(familia))
@@ -238,11 +218,6 @@ namespace PROYECTO_PROATITLAN
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Empleado.Focus();
             }
-        }
-
-        private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void buttonItem14_Click(object sender, EventArgs e)
