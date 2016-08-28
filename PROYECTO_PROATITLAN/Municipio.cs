@@ -22,7 +22,7 @@ namespace PROYECTO_PROATITLAN
             InitializeComponent();
         }
 
-        string zona="";
+        string zona;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,7 +69,7 @@ namespace PROYECTO_PROATITLAN
                     var c = new DMunicipio();
                     c.Id_Municipio = Convert.ToInt32(textBox1.Text);
                     c.Nombre = textBox2.Text;
-                    c.Id_zona = Convert.ToInt32(zona);
+                    c.Id_zona = Convert.ToInt32(comboBox1.SelectedValue);
                     if (NMunicipio.Actualizar(c))
                     {
                         MessageBox.Show("Datos guardados correctamente", "Aviso");

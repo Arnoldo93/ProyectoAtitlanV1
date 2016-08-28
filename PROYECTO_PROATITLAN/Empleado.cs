@@ -96,8 +96,8 @@ namespace PROYECTO_PROATITLAN
                     c.Usuario = textBox7.Text;
                     c.Contrase_a = textBox8.Text;
                     c.Estado_Empleado = Convert.ToByte(checkBox1.Checked);
-                    c.Id_Puesto = int.Parse(puesto);
-                    c.Id_Centro = int.Parse(centro);
+                    c.Id_Puesto = Convert.ToInt32(comboBox1.SelectedValue);
+                    c.Id_Centro = Convert.ToInt32(comboBox2.SelectedValue);
 
 
                     if (NEmpleado.Actualizar(c))

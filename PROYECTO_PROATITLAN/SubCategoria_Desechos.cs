@@ -67,8 +67,8 @@ namespace PROYECTO_PROATITLAN
                 var c = new DSubcategoriaDesecho();
                 c.Id_SubCategoria = Convert.ToInt32(textBox1.Text);
                 c.Nombre = textBox2.Text;
-                c.Id_Categoria = Convert.ToInt32(categoria);
-                c.Id_Familia = Convert.ToInt32(familia);
+                c.Id_Categoria = Convert.ToInt32(comboBox1.SelectedValue);
+                c.Id_Familia = Convert.ToInt32(comboBox2.SelectedValue);
 
                 if (NSubcategoriaDesecho.Actualizar(c))
                 {
@@ -96,10 +96,7 @@ namespace PROYECTO_PROATITLAN
             {
                     var c = new DSubcategoriaDesecho();
                     c.Id_SubCategoria = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
-                    c.Id_Categoria = Convert.ToInt32(categoria);
-                    c.Id_Familia = Convert.ToInt32(familia);
-
+ 
                     if (NSubcategoriaDesecho.Eliminar(c))
                     {
                         MessageBox.Show("Datos guardados correctamente", "Aviso");
