@@ -91,55 +91,68 @@ namespace PROYECTO_PROATITLAN
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount == 0)
-            {
-                MessageBox.Show("Debe Ingresar Desechos.", "Aviso");
-            }
-            else
-            {
-                //encabezado
-                var v = new DEncabezadoDesecho();
-                v.Idencabezado =int.Parse( textBox1.Text);
-                v.fecharealizado = dateTimePicker1.Value;
-                v.idempleado =int.Parse(Program.idempleado);
-                v.idcentro =Convert.ToInt32(comboBox2.SelectedValue.ToString());
-
-                //detalle
-                v.listardetalle = lista;
-                
-
-
-                //foreach(DataGridViewRow i in dataGridView1.Rows)
-                //{
-                //    var d = new DDetalleIngreso();
-                //    d.iddesecho = (int)i.Cells[0].Value;
-                //    d.cantidad = (int)i.Cells[2].Value;
-                //    lista.Add(d);
-                //}
-                //v.listardetalle = lista;
-                if (NEncabezadoDesechos.Agregar(v))
+            try {
+                if (dataGridView1.RowCount == 0)
                 {
-                    MessageBox.Show("Se ingreso con exito.");
+                    MessageBox.Show("Debe Ingresar Desechos.", "Aviso");
                 }
                 else
                 {
-                    MessageBox.Show("Verifique sus datos");
-                }
+                    //encabezado
+                    var v = new DEncabezadoDesecho();
+                    v.Idencabezado = int.Parse(textBox1.Text);
+                    v.fecharealizado = dateTimePicker1.Value;
+                    v.idempleado = int.Parse(Program.idempleado);
+                    v.idcentro = Convert.ToInt32(comboBox2.SelectedValue.ToString());
 
+                    //detalle
+                    v.listardetalle = lista;
+
+
+
+                    //foreach(DataGridViewRow i in dataGridView1.Rows)
+                    //{
+                    //    var d = new DDetalleIngreso();
+                    //    d.iddesecho = (int)i.Cells[0].Value;
+                    //    d.cantidad = (int)i.Cells[2].Value;
+                    //    lista.Add(d);
+                    //}
+                    //v.listardetalle = lista;
+                    if (NEncabezadoDesechos.Agregar(v))
+                    {
+                        MessageBox.Show("Se ingreso con exito.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Verifique sus datos");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            iddetalle();
-            lista = new List<DDetalleIngreso>();
-            d = new DDetalleIngreso();
+            try
+            {
+                iddetalle();
+                lista = new List<DDetalleIngreso>();
+                d = new DDetalleIngreso();
                 d.iddetalle = Convert.ToInt32(textBox3.Text);
                 d.iddesecho = (int)comboBox1.SelectedValue;
                 d.cantidad = Convert.ToInt32(textBox5.Text);
-            d.idVehiculo = (int)comboBox3.SelectedValue;
-            lista.Add(d);
-            dataGridView1.Rows.Add(d.iddetalle,d.iddesecho,d.cantidad,d.idVehiculo);
+                d.idVehiculo = (int)comboBox3.SelectedValue;
+                lista.Add(d);
+                dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
+            }
+
         }
     }
 }
