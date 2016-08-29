@@ -132,14 +132,13 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
+            int detalle = 1;
                 try
                 {
-
-                    iddetalle();
+                    
                     lista = new List<DDetalleIngreso>();
                     d = new DDetalleIngreso();
-                    d.iddetalle = Convert.ToInt32(textBox3.Text);
+                    d.iddetalle = Convert.ToInt32(detalle);
                     d.iddesecho = (int)comboBox1.SelectedValue;
                     d.cantidad = Convert.ToInt32(textBox5.Text);
                     d.idVehiculo = (int)comboBox3.SelectedValue;
@@ -152,7 +151,7 @@ namespace PROYECTO_PROATITLAN
                     var actualizarcantidad = new DDesechos();
                     actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
                     actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
-
+                detalle++;
                 }
                 catch (Exception ex)
                 {

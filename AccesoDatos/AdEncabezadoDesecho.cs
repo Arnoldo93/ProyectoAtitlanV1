@@ -46,12 +46,11 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                    var trans = cn.BeginTransaction();
+                  
                 //insertar encabezado
-                try
-                {
+               
                     var consulta = "insert into encabezado_ingreso values(@iden,@fecha,@idem,@idcen)";
-                    var cmd = new MySqlCommand(consulta, cn, trans);
+                    var cmd = new MySqlCommand(consulta, cn);
                     cmd.Parameters.AddWithValue("@iden", c.Idencabezado);
                     cmd.Parameters.AddWithValue("@fecha", c.fecharealizado);
                     cmd.Parameters.AddWithValue("@idem", c.idempleado);
@@ -61,14 +60,14 @@ namespace AccesoDatos
 
                     //obtenemos el id del ultimo ingreso para guardar el detalle del ingreso 
                     var consultamax = "Select ifnull(max(Id_Encabezado),0) from encabezado_ingreso";
-                    cmd = new MySqlCommand(consultamax, cn, trans);
+                    cmd = new MySqlCommand(consultamax, cn);
                     var maxid = Convert.ToInt32(cmd.ExecuteScalar());
 
                     //insertar detalle
                     var consultadetalle = "insert into detalle_ingreso values(@iden,@idde,@idve,@idd,@can)";
                     foreach (DDetalleIngreso lista in c.listardetalle)
                     {
-                        cmd = new MySqlCommand(consultadetalle, cn, trans);
+                        cmd = new MySqlCommand(consultadetalle, cn);
                         cmd.Parameters.AddWithValue("@iden", maxid);
                         cmd.Parameters.AddWithValue("@idde", lista.iddetalle);
                         cmd.Parameters.AddWithValue("@idve", lista.idVehiculo);
@@ -76,14 +75,7 @@ namespace AccesoDatos
                         cmd.Parameters.AddWithValue("@can", lista.cantidad);
                         r1 = r1 && Convert.ToBoolean(cmd.ExecuteNonQuery());
                     }
-                    trans.Commit();
-                    return (r1);
-                }
-                catch (Exception ex)
-                {
-                    trans.Rollback();
-                    return false;
-                }
+                    return r1;
             }
 
         }
