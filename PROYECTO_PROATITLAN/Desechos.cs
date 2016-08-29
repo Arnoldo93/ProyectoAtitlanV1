@@ -253,7 +253,7 @@ namespace PROYECTO_PROATITLAN
                 DataTable datos = new DataTable();
                 datos = NSubcategoriaDesecho.ListadoSubcategoria();
                 comboBox4.DataSource = datos;
-                comboBox4.DisplayMember = "Nombre";
+                comboBox4.DisplayMember = "SubCategoria";
                 comboBox4.ValueMember = "Id_SubCategoria";
             }
             catch(Exception ex)

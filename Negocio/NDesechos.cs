@@ -26,6 +26,11 @@ namespace Negocio
             return AdDesechos.Actualizar(e);
         }
 
+        public static bool ActualizarCantidadPeso(DDesechos e)
+        {
+            return AdDesechos.ActualizarCantidadPeso(e);
+        }
+
         public static bool Eliminar(DDesechos e)
         {
             return AdDesechos.Eliminar(e);
@@ -34,6 +39,11 @@ namespace Negocio
         public static int Id()
         {
             return AdDesechos.Id();
+        }
+
+        public static int CantidadProductoPeso(int cantidad)
+        {
+            return AdDesechos.CantidadProducto(cantidad);
         }
     }
 }

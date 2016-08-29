@@ -62,6 +62,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -75,10 +79,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -468,6 +468,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(461, 150);
             this.dataGridView1.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IdDetalle";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Producto";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cantidad";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Vehiculo";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(396, 214);
@@ -616,30 +640,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(57, 20);
             this.textBox3.TabIndex = 16;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IdDetalle";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Producto";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Cantidad";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Vehiculo";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // IngresoDesechos
             // 

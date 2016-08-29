@@ -95,6 +95,33 @@ namespace AccesoDatos
 
         }
 
+        public static bool ActualizarCantidadPeso(DDesechos c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "update desechos set Id_desecho=@id, Cantidad_Peso = @cant where Id_desecho=@id";
+                var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@id", c.Id_desecho);
+                cmd.Parameters.AddWithValue("@cant", c.Cantida_peso);
+                cn.Open();
+                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+
+        }
+
+        public static int CantidadProducto(int iddesecho)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select Cantidad_Peso from desechos where Id_Desecho=@can";
+                var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@can", iddesecho);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+
         //metodo para verificar si existe
         public static bool Existe(DDesechos u)
         {

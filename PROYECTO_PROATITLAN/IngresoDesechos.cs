@@ -75,10 +75,6 @@ namespace PROYECTO_PROATITLAN
             textBox3.Text = i.Idencabezado.ToString();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
@@ -136,22 +132,37 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                iddetalle();
-                lista = new List<DDetalleIngreso>();
-                d = new DDetalleIngreso();
-                d.iddetalle = Convert.ToInt32(textBox3.Text);
-                d.iddesecho = (int)comboBox1.SelectedValue;
-                d.cantidad = Convert.ToInt32(textBox5.Text);
-                d.idVehiculo = (int)comboBox3.SelectedValue;
-                lista.Add(d);
-                dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
-            }
+            
+                try
+                {
+
+                    iddetalle();
+                    lista = new List<DDetalleIngreso>();
+                    d = new DDetalleIngreso();
+                    d.iddetalle = Convert.ToInt32(textBox3.Text);
+                    d.iddesecho = (int)comboBox1.SelectedValue;
+                    d.cantidad = Convert.ToInt32(textBox5.Text);
+                    d.idVehiculo = (int)comboBox3.SelectedValue;
+                    lista.Add(d);
+                    dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
+                
+                    
+                    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
+
+                    var actualizarcantidad = new DDesechos();
+                    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                    actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
+                }
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
