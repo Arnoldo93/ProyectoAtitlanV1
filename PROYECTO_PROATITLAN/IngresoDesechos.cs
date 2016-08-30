@@ -102,7 +102,7 @@ namespace PROYECTO_PROATITLAN
                     v.idcentro = Convert.ToInt32(comboBox2.SelectedValue.ToString());
 
                     //detalle
-                    v.listardetalle = lista;
+                   // v.listardetalle = lista;
 
 
 
@@ -114,7 +114,7 @@ namespace PROYECTO_PROATITLAN
                     //    lista.Add(d);
                     //}
                     //v.listardetalle = lista;
-                    if (NEncabezadoDesechos.Agregar(v))
+                    if (NEncabezadoDesechos.AgregarEncabezado(v))
                     {
                         MessageBox.Show("Se ingreso con exito.");
                     }
@@ -135,20 +135,28 @@ namespace PROYECTO_PROATITLAN
 
             //try
             //{
+            lista = new List<DDetalleIngreso>();
+            d = new DDetalleIngreso();
+            d.idencabezado = Convert.ToInt32(textBox1.Text);
+            d.iddetalle = Convert.ToInt32(textBox3.Text);
+            d.iddesecho = (int)comboBox1.SelectedValue;
+            d.cantidad = Convert.ToInt32(textBox5.Text);
+            d.idVehiculo = (int)comboBox3.SelectedValue;
+            lista.Add(d);
 
+            var i = new DEncabezadoDesecho();
+            i.listardetalle = lista;
 
+            if (NEncabezadoDesechos.DetalleEncabezado(i))
+            {
+                MessageBox.Show("Se agego");
+            }
+            else
+            {
+                MessageBox.Show("ERror");
+            }
 
-
-                lista = new List<DDetalleIngreso>();
-                d = new DDetalleIngreso();
-                d.iddetalle =Convert.ToInt32(textBox3.Text);
-                d.iddesecho = (int)comboBox1.SelectedValue;
-                d.cantidad = Convert.ToInt32(textBox5.Text);
-                d.idVehiculo = (int)comboBox3.SelectedValue;
-                lista.Add(d);
-
-
-            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
+               dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
 
 
             //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
