@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Entidades;
 using Negocio;
+using AccesoDatos;
 
 namespace PROYECTO_PROATITLAN
 {
@@ -50,6 +51,10 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.","Aviso");
             }
+        }
+
+        private void log_Load(object sender, EventArgs e)
+        {
         }
     }
 }
