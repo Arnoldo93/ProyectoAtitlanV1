@@ -155,6 +155,7 @@ namespace PROYECTO_PROATITLAN
                     groupPanel3.Enabled = true;
                     groupPanel1.Enabled = false;
                     button4.Enabled = false;
+                    button3.Enabled = false;
                     //encabezado
                     var v = new DEncabezadoDesecho();
                     v.Idencabezado = int.Parse(textBox1.Text);
@@ -196,7 +197,13 @@ namespace PROYECTO_PROATITLAN
 
             //try
             //{
+            iddetalle();
+            desechos();
+            vehiculo();
+            button4.Enabled = false;
+            button3.Enabled = true;
 
+            dataGridView1.Rows.Clear();
 
 
 
@@ -209,7 +216,7 @@ namespace PROYECTO_PROATITLAN
                 lista.Add(d);
 
 
-            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
+            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho,comboBox1.Text ,d.cantidad, d.idVehiculo);
 
 
             //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
@@ -225,9 +232,5 @@ namespace PROYECTO_PROATITLAN
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

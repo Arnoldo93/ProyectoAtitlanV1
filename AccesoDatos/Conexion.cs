@@ -14,7 +14,7 @@ namespace AccesoDatos
             {
                 try
                 {
-                    return "Database=proatitlan;Data Source=localhost;User Id=root;Password=arnoldo69;Integrated Security=true;Allow User Variables=true";
+                    return "Database=proatitlan;Data Source=localhost;User Id=root;Password=database;Integrated Security=true;Allow User Variables=true";
                 }
 
                 catch (MySql.Data.MySqlClient.MySqlException ex)
