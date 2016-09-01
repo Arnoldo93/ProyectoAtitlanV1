@@ -17,9 +17,14 @@ namespace Negocio
             return AdEncabezadoDesecho.ListaEncabezadoIngreso(fec_ini,fec_fin);
         }
 
-        public static bool Agregar(DEncabezadoDesecho e)
+        public static bool AgregarEncabezado(DEncabezadoDesecho e)
         {
-            return AdEncabezadoDesecho.Agregar(e);
+            return AdEncabezadoDesecho.AgregarEncabezado(e);
+        }
+
+        public static bool DetalleEncabezado(DEncabezadoDesecho e)
+        {
+            return AdEncabezadoDesecho.DetalleEncabezado(e);
         }
 
         public static int idencabezado()

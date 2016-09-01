@@ -42,7 +42,7 @@ namespace AccesoDatos
             }
         }
 
-        public static bool Agregar(DEncabezadoDesecho c)
+        public static bool AgregarEncabezado(DEncabezadoDesecho c)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
@@ -57,27 +57,37 @@ namespace AccesoDatos
                     cmd.Parameters.AddWithValue("@idcen", c.idcentro);
                     cn.Open();
                     var r1 = Convert.ToBoolean(cmd.ExecuteNonQuery());
-
-                    //obtenemos el id del ultimo ingreso para guardar el detalle del ingreso 
-                    var consultamax = "Select ifnull(max(Id_Encabezado),0) from encabezado_ingreso";
-                    cmd = new MySqlCommand(consultamax, cn);
-                    var maxid = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    //insertar detalle
-                    var consultadetalle = "insert into detalle_ingreso values(@iden,@idde,@idve,@idd,@can)";
-                    foreach (DDetalleIngreso lista in c.listardetalle)
-                    {
-                        cmd = new MySqlCommand(consultadetalle, cn);
-                        cmd.Parameters.AddWithValue("@iden", maxid);
-                        cmd.Parameters.AddWithValue("@idde", lista.iddetalle);
-                        cmd.Parameters.AddWithValue("@idve", lista.idVehiculo);
-                        cmd.Parameters.AddWithValue("@idd", lista.iddesecho);
-                        cmd.Parameters.AddWithValue("@can", lista.cantidad);
-                        r1 = r1 && Convert.ToBoolean(cmd.ExecuteNonQuery());
-                    }
-                    return r1;
+                return r1;
             }
 
+        }
+
+        public static bool DetalleEncabezado(DEncabezadoDesecho c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                Boolean r2 = false;
+                var cmd = new MySqlCommand();
+                //obtenemos el id del ultimo ingreso para guardar el detalle del ingreso 
+                //var consultamax = "Select ifnull(max(Id_Encabezado),0) from encabezado_ingreso";
+                //cmd = new MySqlCommand(consultamax, cn);
+                //var maxid = Convert.ToInt32(cmd.ExecuteScalar());
+
+                //insertar detalle
+                cn.Open();
+                var consultadetalle = "insert into detalle_ingreso values(@iden,@idde,@idve,@idd,@can)";
+                foreach (DDetalleIngreso lista in c.listardetalle)
+                {
+                    cmd = new MySqlCommand(consultadetalle, cn);
+                    cmd.Parameters.AddWithValue("@iden", lista.idencabezado);
+                    cmd.Parameters.AddWithValue("@idde", lista.iddetalle);
+                    cmd.Parameters.AddWithValue("@idve", lista.idVehiculo);
+                    cmd.Parameters.AddWithValue("@idd", lista.iddesecho);
+                    cmd.Parameters.AddWithValue("@can", lista.cantidad);
+                 r2 = Convert.ToBoolean(cmd.ExecuteNonQuery());
+                }
+              return r2;
+            }
         }
 
         public static int Idencabezado()

@@ -163,7 +163,7 @@ namespace PROYECTO_PROATITLAN
                     v.idcentro = Convert.ToInt32(comboBox2.SelectedValue.ToString());
 
                     //detalle
-                    v.listardetalle = lista;
+                   // v.listardetalle = lista;
 
 
 
@@ -175,7 +175,7 @@ namespace PROYECTO_PROATITLAN
                     //    lista.Add(d);
                     //}
                     //v.listardetalle = lista;
-                    if (NEncabezadoDesechos.Agregar(v))
+                    if (NEncabezadoDesechos.AgregarEncabezado(v))
                     {
                         MessageBox.Show("Se ingreso con exito.");
                     }
@@ -193,12 +193,41 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            idencabezado();
-            centroempleado();
-            groupPanel2.Enabled = true;
-            groupPanel3.Enabled = true;
-            groupPanel1.Enabled = false;
-            button4.Enabled = false;
+
+            //try
+            //{
+
+
+
+
+                lista = new List<DDetalleIngreso>();
+                d = new DDetalleIngreso();
+                d.iddetalle =Convert.ToInt32(textBox3.Text);
+                d.iddesecho = (int)comboBox1.SelectedValue;
+                d.cantidad = Convert.ToInt32(textBox5.Text);
+                d.idVehiculo = (int)comboBox3.SelectedValue;
+                lista.Add(d);
+
+
+            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
+
+
+            //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
+
+            //    var actualizarcantidad = new DDesechos();
+            //    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+            //    actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
+            //}
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

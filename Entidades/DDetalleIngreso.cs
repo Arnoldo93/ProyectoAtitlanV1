@@ -9,6 +9,7 @@ namespace Entidades
     public class DDetalleIngreso
     {
         //detalle
+        public int idencabezado { get; set; }
         public int iddetalle { get; set; }
         public int idVehiculo { get; set; }
         public int iddesecho { get; set; }
