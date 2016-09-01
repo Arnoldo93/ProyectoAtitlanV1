@@ -32,6 +32,7 @@ namespace PROYECTO_PROATITLAN
             iddetalle();
             desechos();
             vehiculo();
+            centroempleado();
         }
 
         private void vehiculo()
@@ -39,6 +40,19 @@ namespace PROYECTO_PROATITLAN
             comboBox3.DataSource = NVehiculo.ListadoVechiculos();
             comboBox3.DisplayMember = "Vehiculo";
             comboBox3.ValueMember = "Id_Vehiculo";
+        }
+
+        private void centroempleado()
+        {
+            DataTable datos = new DataTable();
+            datos = NDatosCentro.CentroEmpleado(Convert.ToInt32( Program.idempleado));
+            string idcen = datos.Rows[0][0].ToString();
+            string nombre = datos.Rows[0][1].ToString();
+
+            comboBox2.DataSource = datos;
+            comboBox2.DisplayMember = "Nombre_centro";
+            comboBox2.ValueMember = "Id_Centro";
+
         }
 
         private void desechos()
@@ -70,9 +84,9 @@ namespace PROYECTO_PROATITLAN
 
         private void iddetalle()
         {
-            var i = new DEncabezadoDesecho();
-            i.Idencabezado = NEncabezadoDesechos.iddetalle() + 1;
-            textBox3.Text = i.Idencabezado.ToString();
+            var i = new DDetalleIngreso();
+            i.iddetalle = NEncabezadoDesechos.iddetalle() + 1;
+            textBox3.Text = i.iddetalle.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -85,15 +99,62 @@ namespace PROYECTO_PROATITLAN
             dataGridView1.Rows.Clear();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            try {
+
+            try
+            {
+                groupPanel1.Enabled = false;
+                button4.Enabled = false;
+                iddetalle();
+                vehiculo();
+                desechos();
+                textBox5.Clear();
+
+                lista = new List<DDetalleIngreso>();
+                d = new DDetalleIngreso();
+                d.iddetalle =Convert.ToInt32(textBox3.Text);
+                d.iddesecho = (int)comboBox1.SelectedValue;
+                d.cantidad = Convert.ToInt32(textBox5.Text);
+                d.idVehiculo = (int)comboBox3.SelectedValue;
+                lista.Add(d);
+
+
+            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho,comboBox1.Text, d.cantidad, d.idVehiculo);
+
+
+                //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
+
+                //    var actualizarcantidad = new DDesechos();
+                //    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                //    actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
+            }
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
                 if (dataGridView1.RowCount == 0)
                 {
                     MessageBox.Show("Debe Ingresar Desechos.", "Aviso");
                 }
                 else
                 {
+                    groupPanel2.Enabled = true;
+                    groupPanel3.Enabled = true;
+                    groupPanel1.Enabled = false;
+                    button4.Enabled = false;
                     //encabezado
                     var v = new DEncabezadoDesecho();
                     v.Idencabezado = int.Parse(textBox1.Text);
@@ -124,49 +185,20 @@ namespace PROYECTO_PROATITLAN
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
-
-            //try
-            //{
-
-
-
-
-                lista = new List<DDetalleIngreso>();
-                d = new DDetalleIngreso();
-                d.iddetalle =Convert.ToInt32(textBox3.Text);
-                d.iddesecho = (int)comboBox1.SelectedValue;
-                d.cantidad = Convert.ToInt32(textBox5.Text);
-                d.idVehiculo = (int)comboBox3.SelectedValue;
-                lista.Add(d);
-
-
-            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, d.cantidad, d.idVehiculo);
-
-
-            //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
-
-            //    var actualizarcantidad = new DDesechos();
-            //    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //    actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
-            //}
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            idencabezado();
+            centroempleado();
+            groupPanel2.Enabled = true;
+            groupPanel3.Enabled = true;
+            groupPanel1.Enabled = false;
+            button4.Enabled = false;
         }
     }
 }

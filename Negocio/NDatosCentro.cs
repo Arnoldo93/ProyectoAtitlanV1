@@ -35,5 +35,10 @@ namespace Negocio
         {
             return AdDatosCentro.Id();
         }
+
+        public static DataTable CentroEmpleado(int idempleado)
+        {
+            return AdDatosCentro.CentroEmpleado(idempleado);
+        }
     }
 }

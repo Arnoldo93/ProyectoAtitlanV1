@@ -124,6 +124,22 @@ namespace AccesoDatos
             }
         }
 
+        //centro en el que esta el empleado
+        public static DataTable CentroEmpleado(int idempleado)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select centro.Id_Centro,centro.Nombre_centro from empleado,centro where centro.Id_Centro=empleado.Id_Centro and Id_Empleado=@idem";
+                var cmd = new MySqlCommand(consulta, cn);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmd);
+                DataTable dtDatos = new DataTable();
+                cmd.Parameters.AddWithValue("@idem", idempleado);
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
+
         //Listar
         public static DataTable ListaCentro()
         {
