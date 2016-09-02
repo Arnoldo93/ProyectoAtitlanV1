@@ -21,8 +21,9 @@ namespace PROYECTO_PROATITLAN
             InitializeComponent();
         }
         string centro;
-        public static DDetalleIngreso d;
+        private static DDetalleIngreso d;
         private List<DDetalleIngreso> lista;
+
         private void IngresoDesechos_Load(object sender, EventArgs e)
         { 
             textBox2.Text = Program.usuario;
@@ -46,9 +47,6 @@ namespace PROYECTO_PROATITLAN
         {
             DataTable datos = new DataTable();
             datos = NDatosCentro.CentroEmpleado(Convert.ToInt32( Program.idempleado));
-            string idcen = datos.Rows[0][0].ToString();
-            string nombre = datos.Rows[0][1].ToString();
-
             comboBox2.DataSource = datos;
             comboBox2.DisplayMember = "Nombre_centro";
             comboBox2.ValueMember = "Id_Centro";
@@ -99,49 +97,72 @@ namespace PROYECTO_PROATITLAN
             dataGridView1.Rows.Clear();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-            try
-            {
-                groupPanel1.Enabled = false;
-                button4.Enabled = false;
-                iddetalle();
-                vehiculo();
-                desechos();
-                textBox5.Clear();
-
-                lista = new List<DDetalleIngreso>();
-                d = new DDetalleIngreso();
-                d.iddetalle =Convert.ToInt32(textBox3.Text);
-                d.iddesecho = (int)comboBox1.SelectedValue;
-                d.cantidad = Convert.ToInt32(textBox5.Text);
-                d.idVehiculo = (int)comboBox3.SelectedValue;
-                lista.Add(d);
-
-
-            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho,comboBox1.Text, d.cantidad, d.idVehiculo);
-
-
-                //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
-
-                //    var actualizarcantidad = new DDesechos();
-                //    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-                //    actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
-            }
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                iddetalle();
+                button1.Enabled = false;
+                button3.Enabled = true;
+
+                lista = new List<DDetalleIngreso>();
+                d = new DDetalleIngreso();
+                d.idencabezado = Convert.ToInt32(textBox1.Text);
+                d.iddetalle = Convert.ToInt32(textBox3.Text);
+                d.iddesecho = Convert.ToInt32(comboBox1.SelectedValue);
+                d.cantidad = Convert.ToInt32(textBox5.Text);
+                d.idVehiculo = Convert.ToInt32(comboBox3.SelectedValue);
+                lista.Add(d);
+
+                var i = new DEncabezadoDesecho();
+                i.listardetalle = lista;
+
+                if (NEncabezadoDesechos.DetalleEncabezado(i))
+                {
+                    MessageBox.Show("Se agrego");
+                    dataGridView1.Rows.Add(d.iddetalle, comboBox1.Text, d.cantidad,comboBox3.Text);
+
+                    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
+
+                    int total = Convert.ToInt32(cantidad) + Convert.ToInt32(textBox5.Text);
+                    var actualizarcantidad = new DDesechos();
+                    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                    actualizarcantidad.Cantida_peso = total;
+
+
+                    if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
+                    {
+                        MessageBox.Show("Actualizado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
+                
+            }
+
+            desechos();
+            vehiculo();
+            textBox5.Clear();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -154,28 +175,15 @@ namespace PROYECTO_PROATITLAN
                     groupPanel2.Enabled = true;
                     groupPanel3.Enabled = true;
                     groupPanel1.Enabled = false;
-                    button4.Enabled = false;
-                    button3.Enabled = false;
-                    //encabezado
+                    groupPanel4.Enabled = false;
+
+
                     var v = new DEncabezadoDesecho();
                     v.Idencabezado = int.Parse(textBox1.Text);
                     v.fecharealizado = dateTimePicker1.Value;
                     v.idempleado = int.Parse(Program.idempleado);
-                    v.idcentro = Convert.ToInt32(comboBox2.SelectedValue.ToString());
+                    v.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
 
-                    //detalle
-                   // v.listardetalle = lista;
-
-
-
-                    //foreach(DataGridViewRow i in dataGridView1.Rows)
-                    //{
-                    //    var d = new DDetalleIngreso();
-                    //    d.iddesecho = (int)i.Cells[0].Value;
-                    //    d.cantidad = (int)i.Cells[2].Value;
-                    //    lista.Add(d);
-                    //}
-                    //v.listardetalle = lista;
                     if (NEncabezadoDesechos.AgregarEncabezado(v))
                     {
                         MessageBox.Show("Se ingreso con exito.");
@@ -192,45 +200,39 @@ namespace PROYECTO_PROATITLAN
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox3.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (NEncabezadoDesechos.EliminarDetalleEncabezado(Convert.ToInt32(textBox3.Text)))
+                {
+                    MessageBox.Show("Se eelimino correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void button3_Click_1(object sender, EventArgs e)
         {
-
-            //try
-            //{
+            groupPanel2.Enabled = true;
+            groupPanel3.Enabled = true;
+            idencabezado();
+            centroempleado();
             iddetalle();
             desechos();
             vehiculo();
-            button4.Enabled = false;
-            button3.Enabled = true;
-
-            dataGridView1.Rows.Clear();
-
-
-
-                lista = new List<DDetalleIngreso>();
-                d = new DDetalleIngreso();
-                d.iddetalle =Convert.ToInt32(textBox3.Text);
-                d.iddesecho = (int)comboBox1.SelectedValue;
-                d.cantidad = Convert.ToInt32(textBox5.Text);
-                d.idVehiculo = (int)comboBox3.SelectedValue;
-                lista.Add(d);
-
-
-            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho,comboBox1.Text ,d.cantidad, d.idVehiculo);
-
-
-            //    var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
-
-            //    var actualizarcantidad = new DDesechos();
-            //    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //    actualizarcantidad.Cantida_peso = Convert.ToInt32(textBox5.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
-            //}
-
         }
-
     }
 }

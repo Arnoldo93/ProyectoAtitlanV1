@@ -27,6 +27,11 @@ namespace Negocio
             return AdEncabezadoDesecho.DetalleEncabezado(e);
         }
 
+        public static bool EliminarDetalleEncabezado(int id)
+        {
+            return AdEncabezadoDesecho.eliminardetalle(id);
+        }
+
         public static int idencabezado()
         {
             return AdEncabezadoDesecho.Idencabezado();

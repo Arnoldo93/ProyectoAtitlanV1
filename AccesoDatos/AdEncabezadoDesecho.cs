@@ -94,7 +94,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "select IFNULL (max(Id_Encabezado),0) from encabezado_ingreso";
+                var consulta = "Select ifnull (max(Id_Encabezado),0) from encabezado_ingreso";
                 var cmd = new MySqlCommand(consulta, cn);
                 cn.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());
@@ -102,11 +102,12 @@ namespace AccesoDatos
             }
         }
 
+        //id detalle
         public static int Iddetalle()
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                //iddetalle
+                
                 var iddetalle = "Select ifnull(max(Id_Detalle),0) from detalle_ingreso";
                 var cmd = new MySqlCommand(iddetalle, cn);
                 cn.Open();
@@ -115,6 +116,17 @@ namespace AccesoDatos
             }
         }
 
+        public static bool eliminardetalle(int id)
+        {
+            using (MySqlConnection cn = new MySqlConnection())
+            {
+                string consulta = "DELETE FROM detalle_ingreso WHERE Id_Detalle=@id";
+                MySqlCommand cmd = new MySqlCommand(consulta,cn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cn.Open();
+                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+        }
         
 
         public static DataTable ListaDeDechosDetalle ()
