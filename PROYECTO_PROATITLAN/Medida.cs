@@ -28,7 +28,7 @@ namespace PROYECTO_PROATITLAN
                 {
                     var c = new DMedida();
                     c.Id_medida = Convert.ToInt32(textBox1.Text);
-                    c.Nombre =Convert.ToString(textBox2.Text);
+                    c.Nombre = textBox2.Text.ToUpper();
 
                     if (NMedida.Agregar(c))
                     {

@@ -47,7 +47,7 @@ namespace PROYECTO_PROATITLAN
                     }
                     var c = new DDesechos();
                     c.Id_desecho = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
+                    c.Nombre = textBox2.Text.ToUpper();
                     c.Id_familia = int.Parse(familia);
                     c.Id_categoria = int.Parse(categoria);
                     c.Id_subcategoria = int.Parse(subcategoria);

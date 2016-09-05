@@ -40,7 +40,7 @@ namespace PROYECTO_PROATITLAN
                     }
                     var c = new DEmpleado();
                     c.Id_Empleado = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
+                    c.Nombre = textBox2.Text.ToUpper();
                     c.Direccion = textBox3.Text;
                     c.Telefono = int.Parse(textBox4.Text);
                     c.Usuario = textBox7.Text;

@@ -30,7 +30,7 @@ namespace PROYECTO_PROATITLAN
                 {
                     var c = new DSubcategoriaDesecho();
                     c.Id_SubCategoria = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
+                    c.Nombre = textBox2.Text.ToUpper();
                     c.Id_Categoria = Convert.ToInt32(categoria);
                     c.Id_Familia = Convert.ToInt32(familia);
 

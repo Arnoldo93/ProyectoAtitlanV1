@@ -28,7 +28,7 @@ namespace PROYECTO_PROATITLAN
                 {
                     var v = new DVehiculo();
                     v.Idvehiculo = Convert.ToInt32(textBox1.Text);
-                    v.Nombrevehiculo = textBox2.Text;
+                    v.Nombrevehiculo = textBox2.Text.ToUpper();
                     v.Volumen = Convert.ToInt32(textBox3.Text);
 
                     if (NVehiculo.agregar(v))
