@@ -119,23 +119,23 @@ namespace PROYECTO_PROATITLAN
 
                 if (NEncabezadoDesechos.DetalleEncabezado(i))
                 {
-                    MessageBox.Show("Se agrego");
-                    dataGridView1.Columns["Column5"].Visible = false;
-                    dataGridView1.Rows.Add(d.iddetalle,d.iddesecho, comboBox1.Text, d.cantidad,comboBox3.Text);
-
                     //Actualizar volumen
-
-                    if (comboBox1.SelectedText == "ORGANICO")
+                    label1.Text = comboBox1.Text;
+                    if (comboBox1.Text == "ORGANICO")
                     {
-                        var cantidadvolumen = NDesechos.Volumen(Convert.ToInt32(comboBox1.SelectedText));
+                        var cantidadvolumen = NDesechos.Volumen(Convert.ToInt32(comboBox1.Text));
+
                         int tot = Convert.ToInt32(cantidadvolumen) + Convert.ToInt32(textBox5.Text);
                         var actualizarvolumen = new DDesechos();
-                        actualizarvolumen.Nombre = comboBox1.SelectedText;
+                        actualizarvolumen.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
                         actualizarvolumen.Volumen = tot;
 
                         if (NDesechos.ActualizarVolumen(actualizarvolumen))
                         {
                             MessageBox.Show("Se actualizo volumen");
+                            MessageBox.Show("Se agrego");
+                            dataGridView1.Columns["Column5"].Visible = false;
+                            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
                         }
                         else
                         {
@@ -157,6 +157,9 @@ namespace PROYECTO_PROATITLAN
                         if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
                         {
                             MessageBox.Show("Se actualizo cantidad peso");
+                            MessageBox.Show("Se agrego");
+                            dataGridView1.Columns["Column5"].Visible = false;
+                            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
                         }
                         else
                         {
