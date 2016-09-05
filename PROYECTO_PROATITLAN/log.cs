@@ -23,38 +23,55 @@ namespace PROYECTO_PROATITLAN
         
         private void button1_Click(object sender, EventArgs e)
         {
+
             try
             {
-                DataTable datos = new DataTable();
-                datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
-                string Id = datos.Rows[0][0].ToString();
-                string nombre = datos.Rows[0][1].ToString();
-                string puesto = datos.Rows[0][2].ToString();
-
-                if (puesto == "Administrador")
+                if (NEmpleado.logprimeravez() <= 0)
                 {
-                    MessageBox.Show("Bienvenido al Sistema", "Aviso.");
-                    Form1 f = new Form1();
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    Program.idempleado = Id;
-                    Program.puesto = puesto;
-                    Program.usuario = nombre;
-                    f.Show();
+
+                    if (textBox1.Text == "admin" && textBox2.Text == "admin")
+                    {
+                        Form1 f = new Form1();
+                        f.Show();
+                        textBox1.Clear();
+                        textBox2.Clear();
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Error, verifique sus datos", "Aviso");
+                    DataTable datos = new DataTable();
+                    datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
+                    string Id = datos.Rows[0][0].ToString();
+                    string nombre = datos.Rows[0][1].ToString();
+                    string puesto = datos.Rows[0][2].ToString();
+
+                    if (puesto == "Administrador")
+                    {
+                        MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                        Form1 f = new Form1();
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        Program.idempleado = Id;
+                        Program.puesto = puesto;
+                        Program.usuario = nombre;
+                        f.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, verifique sus datos", "Aviso");
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.","Aviso");
+                MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso");
             }
         }
 
         private void log_Load(object sender, EventArgs e)
         {
+        
         }
     }
 }

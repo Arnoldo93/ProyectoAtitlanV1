@@ -69,7 +69,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NTipoCentro.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         id_tipocentro();
                         listartipocentro();
                     limpiar();
@@ -97,7 +97,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NTipoCentro.Eliminar(c))
                     {
-                        MessageBox.Show("Elliminado correctamente.", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         id_tipocentro();
                         listartipocentro();
                     limpiar();

@@ -43,27 +43,45 @@ namespace AccesoDatos
 
         public static bool Agregar(DMedida c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into medida values(@id,@nombre)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarMedida";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_medida);
                 cmd.Parameters.AddWithValue("@nombre", c.Nombre);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         public static bool Actualizar(DMedida c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update medida set Id_Medida=@id, Medida=@nombre where Id_Medida=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarMedida";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_medida);
                 cmd.Parameters.AddWithValue("@nombre", c.Nombre);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
 
         }
@@ -86,13 +104,22 @@ namespace AccesoDatos
 
         public static bool Eliminar(DMedida c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from medida where Id_Medida=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarMedida";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_medida);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 

@@ -48,10 +48,15 @@ namespace AccesoDatos
 
         public static bool Agregar(DDatosCentro c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into centro values(@id,@nom,@idmuni,@idtipo,@tel,@dir,@esta)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarCentro";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Centro);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idmuni", c.Id_Municipio);
@@ -62,14 +67,23 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         public static bool Actualizar(DDatosCentro c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update centro set Id_Centro=@id,Nombre_centro=@nom ,Id_Municipio=@idmuni,Id_Tipo=@idtipo,Telefono=@tel,Direccion=@dir,Estado_centro=@esta where Id_Centro=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarCentro";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Centro);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idmuni", c.Id_Municipio);
@@ -79,6 +93,10 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@esta", c.Estado);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch (Exception)
+            {
+                return false;
             }
 
         }
@@ -101,13 +119,22 @@ namespace AccesoDatos
 
         public static bool Eliminar(DDatosCentro c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from centro where Id_Centro=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarCentro";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Centro);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 

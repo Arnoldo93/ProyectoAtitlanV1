@@ -31,7 +31,7 @@ namespace PROYECTO_PROATITLAN
                     if (Npuesto.Guardar(c))
                     {
 
-                        MessageBox.Show("Se Agrego con exito.","Aviso");
+                        MessageBox.Show("Datos guardados correctamente","Aviso");
                         id_puesto();
                         limpiar();
                         ListaPuestos();
@@ -64,7 +64,7 @@ namespace PROYECTO_PROATITLAN
                 c.Nombre_puesto = textBox2.Text;
                 if (Npuesto.Actualizar(c))
                 {
-                    MessageBox.Show("Se actualizo correctamento.");
+                    MessageBox.Show("Se actualizo correctamento");
                     id_puesto();
                     limpiar();
                     ListaPuestos();
@@ -92,7 +92,7 @@ namespace PROYECTO_PROATITLAN
 
                 if (Npuesto.Eliminar(c))
                 {
-                    MessageBox.Show("Datos guardados correctamente");
+                    MessageBox.Show("Se elimino correctamente");
                     id_puesto();
                     limpiar();
                     ListaPuestos();

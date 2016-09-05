@@ -33,7 +33,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NVehiculo.agregar(v))
                     {
-                        MessageBox.Show("Se Ingreso Correctamente.");
+                        MessageBox.Show("Datos guardados correctamente.");
                         limpiar();
                         Id();
                         listado();

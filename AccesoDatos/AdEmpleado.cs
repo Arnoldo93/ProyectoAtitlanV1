@@ -53,10 +53,15 @@ namespace AccesoDatos
 
         public static bool Agregar(DEmpleado c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into empleado values(@id,@nom,@dir,@tel,@usu,@pasw,@est,@idpuesto,@idcentro)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarEmpleado";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Empleado);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@dir", c.Direccion);
@@ -69,14 +74,23 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         public static bool Actualizar(DEmpleado c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update empleado set Id_Empleado=@id,Nombre_Empleado=@nom ,Direccion=@dir,Telefono=@tel,Usuario=@usu,Contrase_a=@pasw,Estado_Empleado=@est,Id_Puesto=@idpuesto,Id_Centro=@idcentro where Id_Empleado=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarEmpleado";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Empleado);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@dir", c.Direccion);
@@ -88,6 +102,10 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@idcentro", c.Id_Centro);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false; ;
             }
 
         }
@@ -110,13 +128,21 @@ namespace AccesoDatos
 
         public static bool Eliminar(DEmpleado c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from empleado where Id_Empleado=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarEmpleado";
                 cmd.Parameters.AddWithValue("@id", c.Id_Empleado);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 
@@ -147,19 +173,17 @@ namespace AccesoDatos
             }
         }
 
-        ////Login
-        //public static int loguin(DEmpleado c)
-        //{
-        //    using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-        //    {
-        //        var consulta = "Select count(*) from empleado where Usuario=@usu and Contrase_a=@pasw ";
-        //        var cmd = new MySqlCommand(consulta, cn);
-        //        cmd.Parameters.AddWithValue("@usu", c.Usuario);
-        //        cmd.Parameters.AddWithValue("@pasw", c.Contrase_a);
-        //        cn.Open();
-        //        return Convert.ToInt32(cmd.ExecuteNonQuery());
-        //    }
-        //}
+        //logueo primera vez
+        public static int logprimeravez()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select count(*) from empleado";
+                var cmd = new MySqlCommand(consulta, cn);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
 
         //Listar
         public static DataTable Logueo(string usu, string pasw)

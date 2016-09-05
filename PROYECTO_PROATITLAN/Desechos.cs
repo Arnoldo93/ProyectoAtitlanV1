@@ -108,7 +108,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NDesechos.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         limpiar();
                         IdDesecho();
                         ListadoFamilia();
@@ -149,7 +149,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NDesechos.Eliminar(c))
                     {
-                        MessageBox.Show("Eliminado Correctamente.", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         limpiar();
                         IdDesecho();
                         ListadoFamilia();

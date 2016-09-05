@@ -70,7 +70,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NZona.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         listarZonas();
                         id_zona();
                         limpiar();
@@ -103,7 +103,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NZona.Eliminar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         listarZonas();
                         id_zona();
                         limpiar();

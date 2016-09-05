@@ -102,7 +102,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NEmpleado.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         idempleado();
                         limpiar();
                         Listacentros();
@@ -133,7 +133,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NEmpleado.Eliminar(c))
                     {
-                        MessageBox.Show("Eliminacion correcta.", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         idempleado();
                         limpiar();
                         Listacentros();

@@ -25,44 +25,70 @@ namespace AccesoDatos
 
         public static bool Agregar(DVehiculo c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into vehiculo values(@id,@nombre,@vol)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText= "insertarVehiculo";
+
                 cmd.Parameters.AddWithValue("@id", c.Idvehiculo);
                 cmd.Parameters.AddWithValue("@nombre", c.Nombrevehiculo);
                 cmd.Parameters.AddWithValue("@vol", c.Volumen);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 
         public static bool Actualizar(DVehiculo c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update vehiculo set Id_Vehiculo=@id, Vehiculo=@nombre,volumen=@vol where Id_Vehiculo=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarVehiculo";
+
                 cmd.Parameters.AddWithValue("@id", c.Idvehiculo);
                 cmd.Parameters.AddWithValue("@nombre", c.Nombrevehiculo);
                 cmd.Parameters.AddWithValue("@vol", c.Volumen);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
-
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         //Eliminar
 
         public static bool Eliminar(DVehiculo c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from vehiculo where Id_Vehiculo=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarVehiculo";
+
                 cmd.Parameters.AddWithValue("@id", c.Idvehiculo);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
         // Id

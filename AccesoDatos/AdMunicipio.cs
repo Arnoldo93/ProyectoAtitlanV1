@@ -44,29 +44,47 @@ namespace AccesoDatos
 
         public static bool Agregar(DMunicipio c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into municipio values(@id,@nombre,@idzona)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarMunicipio";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Municipio);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idzona", c.Id_zona);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 
         public static bool Actualizar(DMunicipio c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update municipio set Id_Municipio=@id, Nombre=@nombre,Id_Zona=@idzona where Id_Municipio=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarMunicipio";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Municipio);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idzona", c.Id_zona);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
 
         }
@@ -89,13 +107,22 @@ namespace AccesoDatos
 
         public static bool Eliminar(DMunicipio c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from municipio where Id_Municipio=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarMunicipio";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_Municipio);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
         //Id

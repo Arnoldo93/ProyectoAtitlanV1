@@ -40,5 +40,10 @@ namespace Negocio
         {
             return AdEmpleado.Id();
         }
+
+        public static int logprimeravez()
+        {
+            return AdEmpleado.logprimeravez();
+        }
     }
 }

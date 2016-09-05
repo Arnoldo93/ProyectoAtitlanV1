@@ -64,7 +64,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NMedida.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         limpiar();
                         id_medida();
                         ListaMedida();
@@ -90,7 +90,7 @@ namespace PROYECTO_PROATITLAN
 
                 if (NMedida.Eliminar(c))
                 {
-                    MessageBox.Show("Datos guardados correctamente", "Aviso");
+                    MessageBox.Show("Se elimino correctamente", "Aviso");
                     limpiar();
                     id_medida();
                     ListaMedida();

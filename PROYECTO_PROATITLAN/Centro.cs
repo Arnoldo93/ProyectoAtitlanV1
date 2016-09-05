@@ -95,7 +95,7 @@ namespace PROYECTO_PROATITLAN
 
                 if (NDatosCentro.Actualizar(c))
                 {
-                    MessageBox.Show("Datos guardados correctamente", "Aviso");
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
                     limpiar();
                     ListaCentros();
                     ListaMunicipio();
@@ -124,7 +124,7 @@ namespace PROYECTO_PROATITLAN
 
                 if (NDatosCentro.Eliminar(c))
                 {
-                    MessageBox.Show("Eliminado correctamente.", "Aviso");
+                    MessageBox.Show("Se elimino correctamente", "Aviso");
                     limpiar();
                     ListaCentros();
                     ListaMunicipio();

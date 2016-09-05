@@ -65,7 +65,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NFamilia.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         id_familia();
                         ListaFamilia();
                         limpiar();
@@ -91,7 +91,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NFamilia.Eliminar(c))
                     {
-                        MessageBox.Show("Eliminado correctamente", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         id_familia();
                         ListaFamilia();
                         limpiar();

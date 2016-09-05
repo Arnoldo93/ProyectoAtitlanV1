@@ -72,7 +72,7 @@ namespace PROYECTO_PROATITLAN
 
                 if (NSubcategoriaDesecho.Actualizar(c))
                 {
-                    MessageBox.Show("Datos guardados correctamente", "Aviso");
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
                     limpiar();
                     ListadoCategorias();
                     ListadoFamilias();
@@ -99,7 +99,7 @@ namespace PROYECTO_PROATITLAN
  
                     if (NSubcategoriaDesecho.Eliminar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         limpiar();
                         ListadoCategorias();
                         ListadoFamilias();

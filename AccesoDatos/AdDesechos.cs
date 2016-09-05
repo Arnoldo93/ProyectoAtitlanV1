@@ -52,10 +52,15 @@ namespace AccesoDatos
 
         public static bool Agregar(DDesechos c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into desechos values(@id,@nom,@idfam,@idcat,@idsubcat,@cant,@idmedi,@vol,@precos,@preven,@est)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarDesecho";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idfam", c.Id_familia);
@@ -69,15 +74,24 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@est", c.Estado_desecho);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 
         public static bool Actualizar(DDesechos c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update desechos set Id_Desecho = @id,Nombre = @nom,Id_Familia = @idfam,Id_Categoria = @idcat,Id_SubCategoria = @idsubcat,Cantidad_Peso = @cant,Id_Medida = @idmedi,Volumen = @vol,Precio_Costo = @precos,Precio_Venta = @preven,Estado_desechos = @est  where Id_desecho=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarDesechos";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idfam", c.Id_familia);
@@ -92,9 +106,13 @@ namespace AccesoDatos
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+            catch(Exception)
+            {
+                return false;
+            }
 
         }
-
+        //actualiza cantidad peso desde ingreso desechos
         public static bool ActualizarCantidadPeso(DDesechos c)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
@@ -108,7 +126,7 @@ namespace AccesoDatos
             }
 
         }
-
+        //obtiene cantidadproducto en desecho
         public static int CantidadProducto(int iddesecho)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
@@ -120,6 +138,33 @@ namespace AccesoDatos
                 return Convert.ToInt32(cmd.ExecuteScalar());
 
             }
+        }
+        //obtiene cantidad en desecho de volumen
+        public static int Volumen(int iddesecho)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select Volumen from desechos where Id_Desecho=@can";
+                var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@vol", iddesecho);
+                cn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+        }
+        //actualizar volumen de ingresodesechos
+        public static bool ActualizarVolumen(DDesechos c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "update desechos set Nombre=@nom, Volumen = @vol where Nombre=@nom";
+                var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
+                cmd.Parameters.AddWithValue("@vol", c.Cantida_peso);
+                cn.Open();
+                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+
         }
 
         //metodo para verificar si existe
@@ -140,13 +185,22 @@ namespace AccesoDatos
 
         public static bool Eliminar(DDesechos c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from desechos where Id_Desecho=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarDesechos";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 

@@ -45,31 +45,49 @@ namespace AccesoDatos
 
         public static bool Agregar(DSubcategoriaDesecho c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into subcategoria_desecho values(@id,@nombre,@idcat,@idfamilia)";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarSubCategoriaDesecho";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_SubCategoria);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idcat", c.Id_Categoria);
                 cmd.Parameters.AddWithValue("@idfamilia", c.Id_Familia);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         public static bool Actualizar(DSubcategoriaDesecho c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update subcategoria_desecho set Id_SubCategoria=@id, Nombre=@nombre,Id_Categoria=@idcat,Id_Familia=@idfamilia where Id_SubCategoria=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarSubCategoiraDesecho";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_SubCategoria);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idcat", c.Id_Categoria);
                 cmd.Parameters.AddWithValue("@idfamilia", c.Id_Familia);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
 
         }
@@ -92,13 +110,22 @@ namespace AccesoDatos
 
         public static bool Eliminar(DSubcategoriaDesecho c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from subcategoria_desecho where Id_SubCategoria=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarSubCategoriaDesecho";
+
                 cmd.Parameters.AddWithValue("@id", c.Id_SubCategoria);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 

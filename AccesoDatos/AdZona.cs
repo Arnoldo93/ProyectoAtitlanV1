@@ -43,29 +43,41 @@ namespace AccesoDatos
 
         public static bool Agregar(DZona c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
-            {
-                var consulta = "insert into zona_gestiom values(@id,@nombre)";
-                var cmd = new MySqlCommand(consulta, cn);
+        try {
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "insertarZonaGestion";
                 cmd.Parameters.AddWithValue("@id", c.Id_zona);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombrezona);
+                cmd.Parameters.AddWithValue("@nom", c.Nombrezona);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
         public static bool Actualizar(DZona c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update zona_gestiom set Id_Zona=@id, Nombre=@nombre where Id_Zona=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "ActualizarZonaGestion";
                 cmd.Parameters.AddWithValue("@id", c.Id_zona);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombrezona);
+                cmd.Parameters.AddWithValue("@nom", c.Nombrezona);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
-
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         //metodo para verificar si existe
@@ -73,9 +85,9 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "select ifnull(Nombre,1) from zona_gestiom where Nombre=@nombre";
+                var consulta = "select ifnull(Nombre,1) from zona_gestiom where Nombre=@nom";
                 var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@nombre", u.Nombrezona);
+                cmd.Parameters.AddWithValue("@nom", u.Nombrezona);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteScalar());
 
@@ -86,13 +98,20 @@ namespace AccesoDatos
 
         public static bool Eliminar(DZona c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from zona_gestiom where Id_Zona=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarZonaGestion";
                 cmd.Parameters.AddWithValue("@id", c.Id_zona);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
         // Id

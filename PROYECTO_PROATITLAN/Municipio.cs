@@ -72,7 +72,7 @@ namespace PROYECTO_PROATITLAN
                     c.Id_zona = Convert.ToInt32(comboBox1.SelectedValue);
                     if (NMunicipio.Actualizar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
                         id_municipio();
                         listarmunicipios();
                         listarZonas();
@@ -102,7 +102,7 @@ namespace PROYECTO_PROATITLAN
   
                     if (NMunicipio.Eliminar(c))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
+                        MessageBox.Show("Se elimino correctamente", "Aviso");
                         id_municipio();
                         listarmunicipios();
                         listarZonas();

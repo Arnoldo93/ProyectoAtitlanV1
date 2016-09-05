@@ -116,9 +116,21 @@ namespace AccesoDatos
             }
         }
 
+        public static bool EliminarEncabezado(int id)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                string consulta = "DELETE FROM encabezado_ingreso WHERE Id_Encabezado=@id";
+                MySqlCommand cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cn.Open();
+                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+        }
+
         public static bool eliminardetalle(int id)
         {
-            using (MySqlConnection cn = new MySqlConnection())
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
                 string consulta = "DELETE FROM detalle_ingreso WHERE Id_Detalle=@id";
                 MySqlCommand cmd = new MySqlCommand(consulta,cn);
