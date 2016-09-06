@@ -144,7 +144,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "SELECT categoria_desecho.Id_Categoria,categoria_desecho.Nombre,categoria_desecho.Id_Familia,familia.Nombre FROM proatitlan.categoria_desecho,proatitlan.familia where categoria_desecho.Id_Familia = familia.Id_Familia;";
+                var consulta = "SELECT categoria_desecho.Id_Categoria,categoria_desecho.Nombre,categoria_desecho.Id_Familia,familia.Nombre FROM categoria_desecho,familia where categoria_desecho.Id_Familia = familia.Id_Familia;";
                 MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
                 MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
                 cnn.Open();

@@ -46,7 +46,7 @@ namespace PROYECTO_PROATITLAN
                     string nombre = datos.Rows[0][1].ToString();
                     string puesto = datos.Rows[0][2].ToString();
 
-                    if (puesto == "Administrador")
+                    if (puesto == "ADMINISTRADOR")
                     {
                         MessageBox.Show("Bienvenido al Sistema", "Aviso.");
                         Form1 f = new Form1();
