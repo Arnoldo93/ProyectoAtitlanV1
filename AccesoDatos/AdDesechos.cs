@@ -117,8 +117,9 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "update desechos set Id_desecho=@id, Cantidad_Peso = @cant where Id_desecho=@id";
+                var consulta = "update desechos set Cantidad_Peso = @cant where Nombre=@nom AND Id_Desecho=@id;";
                 var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
                 cmd.Parameters.AddWithValue("@cant", c.Cantida_peso);
                 cn.Open();
@@ -127,26 +128,26 @@ namespace AccesoDatos
 
         }
         //obtiene cantidadproducto en desecho
-        public static int CantidadProducto(int iddesecho)
+        public static int CantidadProducto(string iddesecho)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "Select Cantidad_Peso from desechos where Id_Desecho=@id";
+                var consulta = "Select Cantidad_Peso from desechos where Nombre=@nom";
                 var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@id", iddesecho);
+                cmd.Parameters.AddWithValue("@nom", iddesecho);
                 cn.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());
 
             }
         }
         //obtiene cantidad en desecho de volumen
-        public static int Volumen(int iddesecho)
+        public static int Volumen(string iddesecho)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "Select Volumen from desechos where Id_Desecho=@id";
+                var consulta = "Select Volumen from desechos where Nombre=@nom";
                 var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@id", iddesecho);
+                cmd.Parameters.AddWithValue("@nom", iddesecho);
                 cn.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -157,10 +158,11 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "update desechos set Id_desecho=@id, Volumen = @vol where Nombre=@nom";
+                var consulta = "update desechos set Volumen =@vol where Nombre=@nom AND Id_Desecho=@id;";
                 var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
-                cmd.Parameters.AddWithValue("@vol", c.Cantida_peso);
+                cmd.Parameters.AddWithValue("@vol", c.Volumen);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }

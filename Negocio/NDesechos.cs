@@ -46,12 +46,12 @@ namespace Negocio
             return AdDesechos.Id();
         }
 
-        public static int Volumen(int volumen)
+        public static int Volumen(string volumen)
         {
             return AdDesechos.Volumen(volumen);
         }
 
-        public static int CantidadProductoPeso(int cantidad)
+        public static int CantidadProductoPeso(string cantidad)
         {
             return AdDesechos.CantidadProducto(cantidad);
         }

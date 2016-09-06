@@ -25,7 +25,7 @@ namespace PROYECTO_PROATITLAN
         private List<DDetalleIngreso> lista;
 
         private void IngresoDesechos_Load(object sender, EventArgs e)
-        { 
+        {
             textBox2.Text = Program.usuario;
             comboBox2.Focus();
             listadocentros();
@@ -46,7 +46,7 @@ namespace PROYECTO_PROATITLAN
         private void centroempleado()
         {
             DataTable datos = new DataTable();
-            datos = NDatosCentro.CentroEmpleado(Convert.ToInt32( Program.idempleado));
+            datos = NDatosCentro.CentroEmpleado(Convert.ToInt32(Program.idempleado));
             comboBox2.DataSource = datos;
             comboBox2.DisplayMember = "Nombre_centro";
             comboBox2.ValueMember = "Id_Centro";
@@ -58,7 +58,7 @@ namespace PROYECTO_PROATITLAN
             comboBox1.DataSource = NDesechos.ListaDesechos();
             comboBox1.DisplayMember = "Desecho";
             comboBox1.ValueMember = "Id_Desecho";
-            
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,9 +99,9 @@ namespace PROYECTO_PROATITLAN
 
         private void button6_Click(object sender, EventArgs e)
         {
+            // boton agregar
             try
             {
-                iddetalle();
                 button1.Enabled = false;
                 button3.Enabled = true;
 
@@ -116,71 +116,82 @@ namespace PROYECTO_PROATITLAN
 
                 var i = new DEncabezadoDesecho();
                 i.listardetalle = lista;
-
-                if (NEncabezadoDesechos.DetalleEncabezado(i))
+                //Actualizar volumen
+                if (comboBox1.Text == "ORGANICO")
                 {
-                    //Actualizar volumen
-                    label1.Text = comboBox1.Text;
-                    if (comboBox1.Text == "ORGANICO")
+
+                    var cantidadvolumen = NDesechos.Volumen(comboBox1.Text);
+                    int tot = Convert.ToInt32(cantidadvolumen) + Convert.ToInt32(textBox5.Text);
+
+                    var actualizarvolumen = new DDesechos();
+                    actualizarvolumen.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                    actualizarvolumen.Nombre = comboBox1.Text;
+                    actualizarvolumen.Volumen = tot;
+
+                    if (NDesechos.ActualizarVolumen(actualizarvolumen))
                     {
-                        var cantidadvolumen = NDesechos.Volumen(Convert.ToInt32(comboBox1.Text));
+                        MessageBox.Show("Se actualizo volumen");
 
-                        int tot = Convert.ToInt32(cantidadvolumen) + Convert.ToInt32(textBox5.Text);
-                        var actualizarvolumen = new DDesechos();
-                        actualizarvolumen.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-                        actualizarvolumen.Volumen = tot;
-
-                        if (NDesechos.ActualizarVolumen(actualizarvolumen))
+                        if (NEncabezadoDesechos.DetalleEncabezado(i))
                         {
-                            MessageBox.Show("Se actualizo volumen");
                             MessageBox.Show("Se agrego");
                             dataGridView1.Columns["Column5"].Visible = false;
                             dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
                         }
                         else
                         {
-                            MessageBox.Show("Error no se actualizo volumen");
+                            MessageBox.Show("Error");
                         }
-
                     }
                     else
                     {
-                        //actualizar cantidad peso 
-                        var cantidadpeso = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
-
-                        int total = Convert.ToInt32(cantidadpeso) + Convert.ToInt32(textBox5.Text);
-                        var actualizarcantidad = new DDesechos();
-                        actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-                        actualizarcantidad.Cantida_peso = total;
-
-
-                        if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
-                        {
-                            MessageBox.Show("Se actualizo cantidad peso");
-                            MessageBox.Show("Se agrego");
-                            dataGridView1.Columns["Column5"].Visible = false;
-                            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al actualizar cantidad peso");
-                        }
-
-                        iddetalle();
+                        MessageBox.Show("Error no se actualizo volumen");
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+
+                    //actualizar cantidad peso
+                    var cantidadpeso = NDesechos.CantidadProductoPeso((comboBox1.Text));
+
+                    int total = Convert.ToInt32(cantidadpeso) + Convert.ToInt32(textBox5.Text);
+
+                    var actualizarcantidad = new DDesechos();
+                    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                    actualizarcantidad.Nombre = comboBox1.Text;
+                    actualizarcantidad.Cantida_peso =Convert.ToDecimal(total);
+
+                    if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
+                    {
+                        MessageBox.Show("Se actualizo cantidad peso");
+                        if (NEncabezadoDesechos.DetalleEncabezado(i))
+                        {
+
+                            MessageBox.Show("Se agrego");
+                            dataGridView1.Columns["Column5"].Visible = false;
+                            dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
+                            iddetalle();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al agregar cantidad peso");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar cantidad peso");
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
-                
-            }
 
+            }
+            iddetalle();
             desechos();
             vehiculo();
             textBox5.Clear();
@@ -189,14 +200,9 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //boton guardar encabezado
             try
             {
-                if (dataGridView1.RowCount == 0)
-                {
-                    MessageBox.Show("Debe Ingresar Desechos.", "Aviso");
-                }
-                else
-                {
                     groupPanel2.Enabled = true;
                     groupPanel3.Enabled = true;
                     groupPanel1.Enabled = false;
@@ -218,13 +224,11 @@ namespace PROYECTO_PROATITLAN
                     {
                         MessageBox.Show("Verifique sus datos");
                     }
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            textBox1.Enabled = true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -236,53 +240,72 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            //eliminar desecho
             try
             {
-                if (NEncabezadoDesechos.EliminarDetalleEncabezado(Convert.ToInt32(textBox3.Text)))
+                if (comboBox1.Text == "ORGANICO")
                 {
-                    //
-                    if (comboBox1.SelectedText == "ORGANICO")
+
+                    var cantidadvolumen = NDesechos.Volumen(comboBox1.Text);
+                    int tot = Convert.ToInt32(cantidadvolumen) - Convert.ToInt32(textBox5.Text);
+
+                    var actualizarvolumen = new DDesechos();
+                    actualizarvolumen.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                    actualizarvolumen.Nombre = comboBox1.Text;
+                    actualizarvolumen.Volumen = tot;
+
+                    if (NDesechos.ActualizarVolumen(actualizarvolumen))
                     {
-                        var cantidadvolumen = NDesechos.Volumen(Convert.ToInt32(comboBox1.SelectedText));
-                        int tot = Convert.ToInt32(cantidadvolumen) - Convert.ToInt32(textBox5.Text);
-                        var actualizarvolumen = new DDesechos();
-                        actualizarvolumen.Nombre = comboBox1.SelectedText;
-                        actualizarvolumen.Volumen = tot;
-
-                        if (NDesechos.ActualizarVolumen(actualizarvolumen))
+                        MessageBox.Show("Se actualizo volumen");
+                        //eliminar desecho
+                        if (NEncabezadoDesechos.EliminarDetalleEncabezado(Convert.ToInt32(textBox3.Text)))
                         {
-                            MessageBox.Show("Se actualizo volumen");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error no se actualizo volumen");
-                        }
-                    }
-                    else
-                    {
-
-                        var cantidad = NDesechos.CantidadProductoPeso(Convert.ToInt32(comboBox1.SelectedValue));
-
-                        int total = Convert.ToInt32(cantidad) - Convert.ToInt32(textBox5.Text);
-                        var actualizarcantidad = new DDesechos();
-                        actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-                        actualizarcantidad.Cantida_peso = total;
-
-                        if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
-                        {
-                            MessageBox.Show("Actualizado");
+                            MessageBox.Show("Se Elimino correctamente");
+                            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
                         }
                         else
                         {
                             MessageBox.Show("Error");
                         }
-                        MessageBox.Show("Se elimino correctamente");
-                        dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
                     }
-                }
+                    else
+                    {
+                        MessageBox.Show("No se actualizo volumen");
+                    }
+
+                }//fin if organico
                 else
                 {
-                    MessageBox.Show("Error");
+
+                    //actualizar cantidad peso
+                    var cantidadpeso = NDesechos.CantidadProductoPeso((comboBox1.Text));
+
+                    int total = Convert.ToInt32(cantidadpeso) - Convert.ToInt32(textBox5.Text);
+
+                    var actualizarcantidad = new DDesechos();
+                    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
+                    actualizarcantidad.Nombre = comboBox1.Text;
+                    actualizarcantidad.Cantida_peso = Convert.ToDecimal(total);
+
+                    if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
+                    {
+                        MessageBox.Show("Se actualizo cantidad peso");
+
+                        //eliminar desecho
+                        if (NEncabezadoDesechos.EliminarDetalleEncabezado(Convert.ToInt32(textBox3.Text)))
+                        {
+                            MessageBox.Show("Se Elimino correctamente");
+                            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar cantidad peso");
+                    }
                 }
             }
             catch (Exception ex)
@@ -297,10 +320,11 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            //nuevo encabezado
+            idencabezado();
             groupPanel1.Enabled = true;
             button1.Enabled = true;
             button3.Enabled = false;
-            idencabezado();
             centroempleado();
             iddetalle();
             desechos();
