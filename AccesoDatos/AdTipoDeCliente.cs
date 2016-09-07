@@ -118,5 +118,19 @@ namespace AccesoDatos
             mdatos.Fill(dtDatos);
             return dtDatos;
         }
+
+        public static DataTable listacombinadatipocliente(int id)
+        {
+            MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+            string Consulta = "Select cliente.Id_Categoria,categoria_cliente.Nombre from cliente, categoria_cliente where cliente.Id_Categoria=categoria_cliente.Id_Categoria and cliente.Id_Cliente=@id";
+            MySqlCommand cmd = new MySqlCommand(Consulta, cnn);
+            cmd.Parameters.AddWithValue("@id", id);
+            MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            cnn.Open();
+            DataTable dtDatos = new DataTable();
+            mdatos.Fill(dtDatos);
+            return dtDatos;
+        }
+
     }
 }

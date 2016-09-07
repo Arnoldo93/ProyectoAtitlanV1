@@ -16,6 +16,11 @@ namespace Negocio
             return AdDesechos.ListaDesecho();
         }
 
+        public static DataTable ListaD()
+        {
+            return AdDesechos.listd();
+        }
+
         public static bool Agregar(DDesechos e)
         {
             return AdDesechos.Agregar(e);
@@ -54,6 +59,16 @@ namespace Negocio
         public static int CantidadProductoPeso(string cantidad)
         {
             return AdDesechos.CantidadProducto(cantidad);
+        }
+
+        public static DataTable obtenercantidadpesodesechos(DDesechos e)
+        {
+            return AdDesechos.ObtenerCantidadpesodesechos(e);
+        }
+
+        public static DataTable obtenerVolumendesechos(DDesechos e)
+        {
+            return AdDesechos.ObtenerVolumendesechos(e);
         }
     }
 }

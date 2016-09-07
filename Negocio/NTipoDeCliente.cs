@@ -17,6 +17,11 @@ namespace Negocio
             return AdTipoDeCliente.ListaTipoDeCliente();
         }
 
+        public static DataTable listacombinadatipocliente(int id)
+        {
+            return AdTipoDeCliente.listacombinadatipocliente(id);
+        }
+
         public static bool Agregar(DTipoDeCliente e)
         {
             return AdTipoDeCliente.Agregar(e);

@@ -233,5 +233,53 @@ namespace AccesoDatos
                 return dtDatos;
             }
         }
+
+        public static DataTable listd()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select * from desechos";
+                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
+                cnn.Open();
+                DataTable dtDatos = new DataTable();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
+
+        //obtener cantidad,volumen,precio de desechos
+
+        public static DataTable ObtenerCantidadpesodesechos(DDesechos c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                string consulta = "Select Id_Desecho,Nombre,Cantidad_Peso,Precio_Venta from desechos where Id_Desecho=@id and Nombre=@nom";
+                MySqlCommand cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@id", c.Id_desecho);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmd);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
+
+        public static DataTable ObtenerVolumendesechos(DDesechos c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                string consulta = "Select Id_Desecho,Nombre,Volumen,Precio_Venta from desechos where Id_Desecho=@id and Nombre=@nom";
+                MySqlCommand cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@id", c.Id_desecho);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmd);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
     }
 }
