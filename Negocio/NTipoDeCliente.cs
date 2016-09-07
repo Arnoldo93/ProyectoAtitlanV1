@@ -10,7 +10,7 @@ using Entidades;
 
 namespace Negocio
 {
-    public class NTipoDeCentro
+    public class NTipoDeCliente
     {
         public static DataTable ListaTipoDeCliente()
         {

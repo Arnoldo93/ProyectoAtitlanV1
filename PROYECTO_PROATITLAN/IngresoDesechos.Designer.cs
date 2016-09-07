@@ -51,7 +51,6 @@
             this.itemContainer4 = new DevComponents.DotNetBar.ItemContainer();
             this.buttonItem12 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem13 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -115,8 +114,6 @@
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.ribbonControl1.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem1});
             this.ribbonControl1.Size = new System.Drawing.Size(668, 29);
             this.ribbonControl1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonControl1.TabGroupHeight = 14;
@@ -305,11 +302,6 @@
             this.buttonItem13.Name = "buttonItem13";
             this.buttonItem13.SubItemsExpandWidth = 24;
             this.buttonItem13.Text = "E&xit";
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.Text = "buttonItem1";
             // 
             // groupPanel1
             // 
@@ -770,7 +762,6 @@
         private DevComponents.DotNetBar.ItemContainer itemContainer4;
         private DevComponents.DotNetBar.ButtonItem buttonItem12;
         private DevComponents.DotNetBar.ButtonItem buttonItem13;
-        private DevComponents.DotNetBar.ButtonItem buttonItem1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;

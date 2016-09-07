@@ -53,14 +53,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DCategoriaDesecho.cs" />
+    <Compile Include="DCliente.cs" />
     <Compile Include="DDatosCentro.cs" />
     <Compile Include="DDesechos.cs" />
     <Compile Include="DDetalleIngreso.cs" />
-    <Compile Include="DDetalleIngresoProducto.cs" />
+    <Compile Include="DDetalleVenta.cs" />
     <Compile Include="DEmpleado.cs" />
     <Compile Include="DEncabezadoDesecho.cs" />
+    <Compile Include="DEncabezadoVentas.cs" />
     <Compile Include="DFamilia.cs" />
     <Compile Include="DMedida.cs" />
+    <Compile Include="DMoneda.cs" />
     <Compile Include="DMunicipio.cs" />
     <Compile Include="Dpuesto.cs" />
     <Compile Include="DSubcategoriaDesecho.cs" />

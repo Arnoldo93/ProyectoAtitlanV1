@@ -23,27 +23,49 @@ namespace AccesoDatos
 
         public static bool Agregar(DTipoDeCliente c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "insert into categoria_cliente values(@id,@nombre)";
-                var cmd = new MySqlCommand(consulta, cn);
+
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                MySqlCommand cmd = new MySqlCommand();
+
+                // setear parametros del command
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "InsertarCategoriaCliente";
+
                 cmd.Parameters.AddWithValue("@id", c.Idtipo);
-                cmd.Parameters.AddWithValue("@nombre", c.nombretipo);
+                cmd.Parameters.AddWithValue("@nom", c.nombretipo);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 
         public static bool Actualizar(DTipoDeCliente c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "update categoria_cliente set Id_Categoria=@id, Nombre=@nombre where Id_Categoria=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                MySqlCommand cmd = new MySqlCommand();
+
+                // setear parametros del command
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "actualizarCategoriaCliente";
+
                 cmd.Parameters.AddWithValue("@id", c.Idtipo);
-                cmd.Parameters.AddWithValue("@nombre", c.nombretipo);
+                cmd.Parameters.AddWithValue("@nom", c.nombretipo);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
 
         }
@@ -51,13 +73,24 @@ namespace AccesoDatos
 
         public static bool Eliminar(DTipoDeCliente c)
         {
-            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            try
             {
-                var consulta = "delete from categoria_cliente where Id_Categoria=@id";
-                var cmd = new MySqlCommand(consulta, cn);
+
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                MySqlCommand cmd = new MySqlCommand();
+
+                // setear parametros del command
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "EliminarCategoriaCliente";
+
                 cmd.Parameters.AddWithValue("@id", c.Idtipo);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch(Exception)
+            {
+                return false;
             }
         }
 

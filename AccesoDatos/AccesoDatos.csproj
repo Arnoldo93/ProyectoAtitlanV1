@@ -53,12 +53,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdCategoriaDesecho.cs" />
+    <Compile Include="AdCliente.cs" />
     <Compile Include="AdDatosCentro.cs" />
     <Compile Include="AdDesechos.cs" />
     <Compile Include="AdEmpleado.cs" />
     <Compile Include="AdEncabezadoDesecho.cs" />
+    <Compile Include="AdEncabezadoVenta.cs" />
     <Compile Include="AdFamilia.cs" />
     <Compile Include="AdMedida.cs" />
+    <Compile Include="AdMoneda.cs" />
     <Compile Include="AdMunicipio.cs" />
     <Compile Include="AdPuesto.cs" />
     <Compile Include="AdSubcategoriaDesecho.cs" />
