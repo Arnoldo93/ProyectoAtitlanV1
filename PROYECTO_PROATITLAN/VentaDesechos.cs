@@ -25,6 +25,8 @@ namespace PROYECTO_PROATITLAN
         {
             idencabezado();
             iddetalle();
+            moneda();
+            cliente();
             textBox2.Text = Program.usuario;
             //centroempleado();
         }
@@ -49,6 +51,24 @@ namespace PROYECTO_PROATITLAN
             comboBox2.DisplayMember = "Nombre_centro";
             comboBox2.ValueMember = "Id_Centro";
 
+        }
+
+        private void moneda()
+        {
+            DataTable datos = new DataTable();
+            datos = NMoneda.ListarMoneda();
+            comboBox1.DataSource = datos;
+            comboBox1.DisplayMember = "Nombre";
+            comboBox1.ValueMember = "Id_Moneda";
+        }
+
+        private void cliente()
+        {
+            DataTable datos = new DataTable();
+            datos = NCliente.ListaDatosCliente();
+            comboBox3.DataSource = datos;
+            comboBox3.DisplayMember = "Cliente";
+            comboBox3.ValueMember = "Id_Cliente";
         }
 
         private void button1_Click(object sender, EventArgs e)
