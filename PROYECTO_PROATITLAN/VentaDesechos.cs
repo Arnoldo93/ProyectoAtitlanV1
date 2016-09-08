@@ -20,6 +20,8 @@ namespace PROYECTO_PROATITLAN
         {
             InitializeComponent();
         }
+        private static DDetalleVenta d;
+        private List<DDetalleVenta> lista;
         private void VentaDesechos_Load(object sender, EventArgs e)
         {
             idencabezado();
@@ -55,13 +57,13 @@ namespace PROYECTO_PROATITLAN
             textBox4.Text = id.ToString();
         }
 
-        private void listacombinadatipocliente()
+        private void centroempleado()
         {
             DataTable datos = new DataTable();
-            datos = NTipoDeCliente.listacombinadatipocliente(Convert.ToInt32(comboBox3.SelectedValue));
+            datos = NDatosCentro.CentroEmpleado(Convert.ToInt32(Program.idempleado));
             comboBox2.DataSource = datos;
-            comboBox2.DisplayMember = "Nombre";
-            comboBox2.ValueMember = "Id_Categoria";
+            comboBox2.DisplayMember = "Nombre_centro";
+            comboBox2.ValueMember = "Id_Centro";
         }
 
         private void moneda()
@@ -106,7 +108,6 @@ namespace PROYECTO_PROATITLAN
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
                 var dese = new DDesechos();
@@ -120,7 +121,7 @@ namespace PROYECTO_PROATITLAN
                     string precioventa = datos.Rows[0][3].ToString();
                     textBox5.Text = cantidad;
                     textBox6.Text = precioventa;
-                    int SUBTOTAL =Convert.ToInt32(cantidad) * Convert.ToInt32(precioventa);
+                    int SUBTOTAL = Convert.ToInt32(cantidad) * Convert.ToInt32(precioventa);
                     textBox7.Text = SUBTOTAL.ToString();
                 }
                 else
@@ -139,11 +140,84 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show(ex.Message);
             }
-}
+        }
 
-        private void comboBox4_SelectionChangeCommitted(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var dese = new DDesechos();
+                dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
+                dese.Nombre = comboBox4.Text;
+                if (comboBox4.Text != "ORGANICO")
+                {
+                    DataTable datos = new DataTable();
+                    datos = NDesechos.obtenercantidadpesodesechos(dese);
+                    string cantidad = datos.Rows[0][2].ToString();
+                    textBox5.Text = cantidad;
+                    int TOT = Convert.ToInt32(cantidad) - Convert.ToInt32(textBox5.Text);
+                    textBox7.Text = TOT.ToString();
 
+                    if (TOT < 0)
+                    {
+                        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
+                    }
+                    else
+                    {
+                        lista = new List<DDetalleVenta>();
+                        d = new DDetalleVenta();
+                        d.idventa = Convert.ToInt32(textBox1.Text);
+                        d.iddetalleventa = Convert.ToInt32(textBox4.Text);
+                        d.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                        d.cantidad = Convert.ToInt32(textBox5.Text);
+                        d.precio = Convert.ToDecimal(textBox6.Text);
+                        d.subtotal = Convert.ToDecimal(textBox7.Text);
+                        lista.Add(d);
+
+                        var i = new DEncabezadoVentas();
+                        i.listardetalleventa = lista;
+
+                        MessageBox.Show("Se agrego correctamente");
+                    }
+                    
+                    
+                }
+                else
+                {
+                    DataTable datos1 = new DataTable();
+                    datos1 = NDesechos.obtenerVolumendesechos(dese);
+                    string volumen = datos1.Rows[0][2].ToString();
+                    string precioventa = datos1.Rows[0][3].ToString();
+                    textBox5.Text = volumen;
+                    textBox6.Text = precioventa;
+                    int TOT = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
+                    textBox7.Text = TOT.ToString();
+                    if (TOT < 0)
+                    {
+                        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
+                    }
+                    else
+                    {
+                        lista = new List<DDetalleVenta>();
+                        d = new DDetalleVenta();
+                        d.idventa = Convert.ToInt32(textBox1.Text);
+                        d.iddetalleventa = Convert.ToInt32(textBox4.Text);
+                        d.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                        d.cantidad = Convert.ToInt32(textBox5.Text);
+                        d.precio = Convert.ToDecimal(textBox6.Text);
+                        d.subtotal = Convert.ToDecimal(textBox7.Text);
+                        lista.Add(d);
+
+                        var i = new DEncabezadoVentas();
+                        i.listardetalleventa = lista;
+                        MessageBox.Show("Se agrego correctamente");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
