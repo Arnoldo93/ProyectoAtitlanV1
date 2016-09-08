@@ -120,6 +120,8 @@ namespace PROYECTO_PROATITLAN
                     string precioventa = datos.Rows[0][3].ToString();
                     textBox5.Text = cantidad;
                     textBox6.Text = precioventa;
+                    int SUBTOTAL =Convert.ToInt32(cantidad) * Convert.ToInt32(precioventa);
+                    textBox7.Text = SUBTOTAL.ToString();
                 }
                 else
                 {
@@ -129,6 +131,8 @@ namespace PROYECTO_PROATITLAN
                     string precioventa = datos1.Rows[0][3].ToString();
                     textBox5.Text = volumen;
                     textBox6.Text = precioventa;
+                    int SUBTOTAL = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
+                    textBox7.Text = SUBTOTAL.ToString();
                 }
             }
             catch (Exception ex)
