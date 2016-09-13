@@ -172,7 +172,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "SELECT centro.Id_Centro, centro.Nombre_centro,centro.Id_Municipio,municipio.Nombre as Nombre_Municipio,centro.Id_Tipo,tipo_centro.Nombre as Nombre_Tipo,centro.Telefono,centro.Direccion,centro.Estado_centro FROM amsclaeg_sistema.centro, amsclaeg_sistema.municipio,amsclaeg_sistema.tipo_centro where centro.Id_Municipio = municipio.Id_Municipio and centro.Id_Tipo = tipo_centro.Id_Tipo";
+                var consulta = "SELECT centro.Id_Centro, centro.Nombre_centro,centro.Id_Municipio,municipio.Nombre as Nombre_Municipio,centro.Id_Tipo,tipo_centro.Nombre as Nombre_Tipo,centro.Telefono,centro.Direccion,centro.Estado_centro FROM centro, municipio,tipo_centro where centro.Id_Municipio = municipio.Id_Municipio and centro.Id_Tipo = tipo_centro.Id_Tipo";
                 MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
                 MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
                 cnn.Open();

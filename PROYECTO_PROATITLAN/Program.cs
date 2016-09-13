@@ -22,7 +22,7 @@ namespace PROYECTO_PROATITLAN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VentaDesechos());
+            Application.Run(new Login());
         }
     }
 }

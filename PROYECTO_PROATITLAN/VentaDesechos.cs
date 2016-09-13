@@ -24,15 +24,15 @@ namespace PROYECTO_PROATITLAN
         private List<DDetalleVenta> lista;
         private void VentaDesechos_Load(object sender, EventArgs e)
         {
+            limpiar();
             idencabezado();
             iddetalle();
             moneda();
             cliente();
             desechos();
-            //listacombinadatipocliente();
-            textBox2.Text = Program.usuario;
-            limpiar();
-            //centroempleado();
+
+            textBox2.Text= Program.usuario;
+            centroempleado();
         }
 
         private void idencabezado()
@@ -100,10 +100,19 @@ namespace PROYECTO_PROATITLAN
             inser.idventa =Convert.ToInt32(textBox1.Text);
             inser.total = Convert.ToDecimal(textBox8.Text);
             inser.fecharealizado = DateTime.Now;
-            inser.idempleado = Convert.ToInt32(textBox2.Text);
+            inser.idempleado = Convert.ToInt32(Program.idempleado);
             inser.idmoneda =Convert.ToInt32(comboBox1.SelectedValue);
             inser.idcliente = Convert.ToInt32(comboBox3.SelectedValue);
             inser.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
+            
+            if (NEncabezadoVenta.AgregarEncabezado(inser))
+            {
+                MessageBox.Show("Encabezado ingresado correctamente.","Aviso");
+            }
+            else
+            {
+                MessageBox.Show("verifique que sus datos sean correctos","Error");
+            }
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,8 +122,8 @@ namespace PROYECTO_PROATITLAN
                 var dese = new DDesechos();
                 dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
                 dese.Nombre = comboBox4.Text;
-                if (comboBox4.Text != "ORGANICO")
-                {
+                //if (comboBox4.Text != "ORGANICO")
+                //{
                     DataTable datos = new DataTable();
                     datos = NDesechos.obtenercantidadpesodesechos(dese);
                     string cantidad = datos.Rows[0][2].ToString();
@@ -123,18 +132,18 @@ namespace PROYECTO_PROATITLAN
                     textBox6.Text = precioventa;
                     int SUBTOTAL = Convert.ToInt32(cantidad) * Convert.ToInt32(precioventa);
                     textBox7.Text = SUBTOTAL.ToString();
-                }
-                else
-                {
-                    DataTable datos1 = new DataTable();
-                    datos1 = NDesechos.obtenerVolumendesechos(dese);
-                    string volumen = datos1.Rows[0][2].ToString();
-                    string precioventa = datos1.Rows[0][3].ToString();
-                    textBox5.Text = volumen;
-                    textBox6.Text = precioventa;
-                    int SUBTOTAL = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
-                    textBox7.Text = SUBTOTAL.ToString();
-                }
+                //}
+                //else
+                //{
+                //    DataTable datos1 = new DataTable();
+                //    datos1 = NDesechos.obtenerVolumendesechos(dese);
+                //    string volumen = datos1.Rows[0][2].ToString();
+                //    string precioventa = datos1.Rows[0][3].ToString();
+                //    textBox5.Text = volumen;
+                //    textBox6.Text = precioventa;
+                //    int SUBTOTAL = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
+                //    textBox7.Text = SUBTOTAL.ToString();
+                //}
             }
             catch (Exception ex)
             {
@@ -149,8 +158,8 @@ namespace PROYECTO_PROATITLAN
                 var dese = new DDesechos();
                 dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
                 dese.Nombre = comboBox4.Text;
-                if (comboBox4.Text != "ORGANICO")
-                {
+                //if (comboBox4.Text != "ORGANICO")
+                //{
                     DataTable datos = new DataTable();
                     datos = NDesechos.obtenercantidadpesodesechos(dese);
                     string cantidad = datos.Rows[0][2].ToString();
@@ -176,43 +185,45 @@ namespace PROYECTO_PROATITLAN
 
                         var i = new DEncabezadoVentas();
                         i.listardetalleventa = lista;
-
-                        MessageBox.Show("Se agrego correctamente");
+                    int result = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToInt32(x.Cells["Subtotal"].Value));
+                    textBox8.Text = result.ToString();
+                    dataGridView1.Rows.Add(d.cantidad,comboBox4.Text,d.precio,d.subtotal);
+                    MessageBox.Show("Se agrego correctamente");
                     }
                     
                     
-                }
-                else
-                {
-                    DataTable datos1 = new DataTable();
-                    datos1 = NDesechos.obtenerVolumendesechos(dese);
-                    string volumen = datos1.Rows[0][2].ToString();
-                    string precioventa = datos1.Rows[0][3].ToString();
-                    textBox5.Text = volumen;
-                    textBox6.Text = precioventa;
-                    int TOT = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
-                    textBox7.Text = TOT.ToString();
-                    if (TOT < 0)
-                    {
-                        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
-                    }
-                    else
-                    {
-                        lista = new List<DDetalleVenta>();
-                        d = new DDetalleVenta();
-                        d.idventa = Convert.ToInt32(textBox1.Text);
-                        d.iddetalleventa = Convert.ToInt32(textBox4.Text);
-                        d.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
-                        d.cantidad = Convert.ToInt32(textBox5.Text);
-                        d.precio = Convert.ToDecimal(textBox6.Text);
-                        d.subtotal = Convert.ToDecimal(textBox7.Text);
-                        lista.Add(d);
+                //}
+                //else
+                //{
+                //    DataTable datos1 = new DataTable();
+                //    datos1 = NDesechos.obtenerVolumendesechos(dese);
+                //    string volumen = datos1.Rows[0][2].ToString();
+                //    string precioventa = datos1.Rows[0][3].ToString();
+                //    textBox5.Text = volumen;
+                //    textBox6.Text = precioventa;
+                //    int TOT = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
+                //    textBox7.Text = TOT.ToString();
+                //    if (TOT < 0)
+                //    {
+                //        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
+                //    }
+                //    else
+                //    {
+                //        lista = new List<DDetalleVenta>();
+                //        d = new DDetalleVenta();
+                //        d.idventa = Convert.ToInt32(textBox1.Text);
+                //        d.iddetalleventa = Convert.ToInt32(textBox4.Text);
+                //        d.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                //        d.cantidad = Convert.ToInt32(textBox5.Text);
+                //        d.precio = Convert.ToDecimal(textBox6.Text);
+                //        d.subtotal = Convert.ToDecimal(textBox7.Text);
+                //        lista.Add(d);
 
-                        var i = new DEncabezadoVentas();
-                        i.listardetalleventa = lista;
-                        MessageBox.Show("Se agrego correctamente");
-                    }
-                }
+                //        var i = new DEncabezadoVentas();
+                //        i.listardetalleventa = lista;
+                //        MessageBox.Show("Se agrego correctamente");
+                //    }
+                //}
             }
             catch (Exception ex)
             {

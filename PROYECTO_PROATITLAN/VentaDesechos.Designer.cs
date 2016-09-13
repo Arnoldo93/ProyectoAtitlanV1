@@ -36,7 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,6 +99,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -109,13 +109,13 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.textBox2);
             this.groupPanel1.Controls.Add(this.dateTimePicker1);
             this.groupPanel1.Controls.Add(this.comboBox2);
             this.groupPanel1.Controls.Add(this.label5);
             this.groupPanel1.Controls.Add(this.label4);
             this.groupPanel1.Controls.Add(this.comboBox1);
             this.groupPanel1.Controls.Add(this.label3);
-            this.groupPanel1.Controls.Add(this.textBox2);
             this.groupPanel1.Controls.Add(this.label2);
             this.groupPanel1.Controls.Add(this.textBox1);
             this.groupPanel1.Controls.Add(this.label1);
@@ -206,13 +206,6 @@
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Moneda";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(81, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(248, 20);
-            this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
@@ -316,7 +309,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(58, 20);
             this.textBox8.TabIndex = 23;
-            this.textBox8.Text = "0";
+            this.textBox8.Text = "0,00";
             // 
             // label11
             // 
@@ -846,6 +839,13 @@
             this.button4.Text = "Quitar";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(81, 54);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(258, 20);
+            this.textBox2.TabIndex = 24;
+            // 
             // VentaDesechos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -860,6 +860,7 @@
             this.Controls.Add(this.groupPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VentaDesechos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentaDesechos";
             this.Load += new System.EventHandler(this.VentaDesechos_Load);
             this.groupPanel1.ResumeLayout(false);
@@ -879,7 +880,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
@@ -943,5 +943,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

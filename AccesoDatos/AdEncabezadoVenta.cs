@@ -31,7 +31,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "INSERT INTO encabezado_venta VALUES (@idve,@tot,@fecha,idemp,idmon,idclie,idcentro);";
+                var consulta = "INSERT INTO encabezado_venta VALUES (@idve,@tot,@fecha,idemp,idmon,idclie,idcentro)";
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@idven", c.idventa);
                 cmd.Parameters.AddWithValue("@tot", c.total);

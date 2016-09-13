@@ -54,7 +54,7 @@ namespace AccesoDatos
                 cmd.CommandText = "InsertarCategoriaDesecho";
 
                 cmd.Parameters.AddWithValue("@id", c.Id_Categoria);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idfamilia", c.Id_Familia);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
@@ -77,7 +77,7 @@ namespace AccesoDatos
                 cmd.CommandText = "actualizarCategoriaDesecho";
 
                 cmd.Parameters.AddWithValue("@id", c.Id_Categoria);
-                cmd.Parameters.AddWithValue("@nombre", c.Nombre);
+                cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@idfamilia", c.Id_Familia);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
@@ -97,7 +97,7 @@ namespace AccesoDatos
             {
                 var consulta = "select ifnull(Nombre,0) from categoria_desecho where Nombre=@nombre";
                 var cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@nombre", u);
+                cmd.Parameters.AddWithValue("@nom", u);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteScalar());
 

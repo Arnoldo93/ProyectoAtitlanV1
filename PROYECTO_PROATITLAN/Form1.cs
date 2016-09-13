@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PROYECTO_PROATITLAN
 {
@@ -16,8 +17,9 @@ namespace PROYECTO_PROATITLAN
         {
             InitializeComponent();
         }
-        Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos;
-
+        Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos,
+            tipocliente,cliente,venta;
+        string opcion;
         private void usuario()
         {
             log l = new log();
@@ -75,9 +77,132 @@ namespace PROYECTO_PROATITLAN
             this.Close();
         }
 
+        private void buttonItem3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.Filter = "Bitmap files (*.bmp)|*.bmp|Gif files (*.gif)|*.gif|JGP files (*.jpg)|*.jpg|All (*.*)|*.* |PNG (*.png)|*.png ";
+                openFileDialog1.FilterIndex = 3;
+                openFileDialog1.FileName = "Seleccione una imagen";
+                openFileDialog1.Title = "Escoja una imagen";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    opcion = openFileDialog1.FileName;
+                    BackgroundImage = Image.FromFile(opcion);
+                    //guardar archivo
+                    StreamWriter escrito = File.CreateText(@"fondo.txt");
+                    string contenido = opcion;
+                    escrito.Write(contenido.ToString());
+                    escrito.Flush();
+                    //Cerramos
+                    escrito.Close();
+
+                    //System.IO.StreamReader sr = new System.IO.StreamReader(fic);
+                    //dir = sr.ReadToEnd();
+                    //
+                    //sr.Close();
+                    BackgroundImageLayout = ImageLayout.Stretch;
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Intente de nuevo.","Error");
+            }
+
+            //openFileDialog1.Filter = "Sólo imágenes|*.jpg;*.pgn;*.gif";
+            //openFileDialog1.Title = "Selecciona una imágen";
+            //openFileDialog1.InitialDirectory = Environment.GetFolderPath(
+            //    Environment.SpecialFolder.MyDocuments);
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    this.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
+            //}
+        }
+
+        private void buttonItem28_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(cliente))
+            {
+                cliente = new Clientes();
+                cliente.MdiParent = this;
+                cliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cliente.Focus();
+            }
+        }
+
+        private void buttonItem29_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(venta))
+            {
+                venta = new VentaDesechos();
+                venta.MdiParent = this;
+                venta.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                venta.Focus();
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             usuario();
+            imagendefondo();
+        }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem27_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(tipocliente))
+            {
+                tipocliente = new TipoDeCliente();
+                tipocliente.MdiParent = this;
+                tipocliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tipocliente.Focus();
+            }
+        }
+
+        private void imagendefondo()
+        {
+            try
+            {
+                //Crea archivo de ruta de imagen 
+                StreamReader leido = File.OpenText(@"fondo.txt");
+                //Variable que contendrá el archivo
+                string contenido = null;
+                //Leemos todo el archivo
+                contenido = leido.ReadToEnd();
+                //Lo mostramos
+                //Cerramos
+                leido.Close();
+
+                //buscar la imgen y la agrega de fondo
+                DoubleBuffered = true;
+
+                BackgroundImageLayout = ImageLayout.Stretch;
+                Controls.OfType<MdiClient>().First().BackgroundImage = new Bitmap(@contenido.ToString());
+                Form f = new Form();
+                f.MdiParent = this;
+                SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+                f.Refresh();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Seleccione un fondo para la aplicacion","Aviso");
+            }
         }
 
         private void buttonItem13_Click(object sender, EventArgs e)
