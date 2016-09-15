@@ -42,7 +42,7 @@ namespace PROYECTO_PROATITLAN
                     c.Id_Empleado = Convert.ToInt32(textBox1.Text);
                     c.Nombre = textBox2.Text.ToUpper();
                     c.Direccion = textBox3.Text;
-                    c.Telefono = int.Parse(textBox4.Text);
+                    c.Telefono = int.Parse(maskedTextBox1.Text);
                     c.Usuario = textBox7.Text;
                     c.Contrase_a = textBox8.Text;
                     c.Estado_Empleado = Convert.ToByte(checkBox1.Checked);
@@ -92,7 +92,7 @@ namespace PROYECTO_PROATITLAN
                     c.Id_Empleado = Convert.ToInt32(textBox1.Text);
                     c.Nombre = textBox2.Text;
                     c.Direccion = textBox3.Text;
-                    c.Telefono = int.Parse(textBox4.Text);
+                    c.Telefono = int.Parse(maskedTextBox1.Text);
                     c.Usuario = textBox7.Text;
                     c.Contrase_a = textBox8.Text;
                     c.Estado_Empleado = Convert.ToByte(checkBox1.Checked);
@@ -262,7 +262,7 @@ namespace PROYECTO_PROATITLAN
             textBox1.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             textBox3.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-            textBox4.Text = dataGridView1[3, e.RowIndex].Value.ToString();
+            maskedTextBox1.Text = dataGridView1[3, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             textBox8.Text = dataGridView1[5, e.RowIndex].Value.ToString();
             comboBox1.SelectedValue = dataGridView1[6, e.RowIndex].Value;

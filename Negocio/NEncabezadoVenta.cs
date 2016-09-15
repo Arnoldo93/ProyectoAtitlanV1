@@ -40,5 +40,10 @@ namespace Negocio
         {
             return AdEncabezadoVenta.Iddetalleventa();
         }
+
+        public static bool ActualizarTotalVenta(DEncabezadoVentas e)
+        {
+            return AdEncabezadoVenta.ActualizarTotalEncabezado(e);
+        }
     }
 }

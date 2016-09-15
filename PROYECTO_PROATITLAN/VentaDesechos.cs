@@ -30,9 +30,13 @@ namespace PROYECTO_PROATITLAN
             moneda();
             cliente();
             desechos();
-
             textBox2.Text= Program.usuario;
             centroempleado();
+            dataGridView1.Columns["Column1"].Visible = false;
+            dataGridView1.Columns["Column2"].Visible = false;
+            groupPanel2.Enabled = false;
+            groupPanel4.Enabled = false;
+            button2.Enabled = false;
         }
 
         private void idencabezado()
@@ -43,7 +47,6 @@ namespace PROYECTO_PROATITLAN
 
         private void limpiar()
         {
-            textBox2.Clear();
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
@@ -96,22 +99,35 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var inser = new DEncabezadoVentas();
-            inser.idventa =Convert.ToInt32(textBox1.Text);
-            inser.total = Convert.ToDecimal(textBox8.Text);
-            inser.fecharealizado = DateTime.Now;
-            inser.idempleado = Convert.ToInt32(Program.idempleado);
-            inser.idmoneda =Convert.ToInt32(comboBox1.SelectedValue);
-            inser.idcliente = Convert.ToInt32(comboBox3.SelectedValue);
-            inser.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
-            
-            if (NEncabezadoVenta.AgregarEncabezado(inser))
+            try
             {
-                MessageBox.Show("Encabezado ingresado correctamente.","Aviso");
+                textBox8.Text = 0.ToString();
+                var inser = new DEncabezadoVentas();
+                inser.idventa = Convert.ToInt32(textBox1.Text);
+                inser.total = Convert.ToDecimal(textBox8.Text);
+                inser.fecharealizado = DateTime.Now;
+                inser.idempleado = Convert.ToInt32(Program.idempleado);
+                inser.idmoneda = Convert.ToInt32(comboBox1.SelectedValue);
+                inser.idcliente = Convert.ToInt32(comboBox3.SelectedValue);
+                inser.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
+
+                if (NEncabezadoVenta.AgregarEncabezado(inser))
+                {
+                    MessageBox.Show("Encabezado ingresado correctamente.", "Aviso");
+                    groupPanel1.Enabled = false;
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    groupPanel2.Enabled = true;
+                    groupPanel4.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("verifique que sus datos sean correctos", "Error");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("verifique que sus datos sean correctos","Error");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -130,8 +146,6 @@ namespace PROYECTO_PROATITLAN
                     string precioventa = datos.Rows[0][3].ToString();
                     textBox5.Text = cantidad;
                     textBox6.Text = precioventa;
-                    int SUBTOTAL = Convert.ToInt32(cantidad) * Convert.ToInt32(precioventa);
-                    textBox7.Text = SUBTOTAL.ToString();
                 //}
                 //else
                 //{
@@ -153,26 +167,111 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //var dese = new DDesechos();
+            //dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
+            //dese.Nombre = comboBox4.Text;
+            //if (comboBox4.Text != "ORGANICO")
+            //{
+            //Si la cantidad guardada es mayor a la venta
+            //DataTable datos = new DataTable();
+            //datos = NDesechos.CantidadProductoPeso(comboBox4.Text);
+            //string cantidad = datos.Rows[0][2].ToString();
+            //textBox5.Text = cantidad;
+            
+
+            #region
+            //}
+            //else
+            //{
+            //    DataTable datos1 = new DataTable();
+            //    datos1 = NDesechos.obtenerVolumendesechos(dese);
+            //    string volumen = datos1.Rows[0][2].ToString();
+            //    string precioventa = datos1.Rows[0][3].ToString();
+            //    textBox5.Text = volumen;
+            //    textBox6.Text = precioventa;
+            //    int TOT = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
+            //    textBox7.Text = TOT.ToString();
+            //    if (TOT < 0)
+            //    {
+            //        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
+            //    }
+            //    else
+            //    {
+            //        lista = new List<DDetalleVenta>();
+            //        d = new DDetalleVenta();
+            //        d.idventa = Convert.ToInt32(textBox1.Text);
+            //        d.iddetalleventa = Convert.ToInt32(textBox4.Text);
+            //        d.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+            //        d.cantidad = Convert.ToInt32(textBox5.Text);
+            //        d.precio = Convert.ToDecimal(textBox6.Text);
+            //        d.subtotal = Convert.ToDecimal(textBox7.Text);
+            //        lista.Add(d);
+
+            //        var i = new DEncabezadoVentas();
+            //        i.listardetalleventa = lista;
+            //        MessageBox.Show("Se agrego correctamente");
+            //    }
+            //}
+            //}
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+            #endregion
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox4.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            textBox5.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            comboBox4.SelectedValue = dataGridView1[2, e.RowIndex].Value;
+            textBox6.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            textBox7.Text = dataGridView1[5, e.RowIndex].Value.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            idencabezado();
+            cliente();
+            centroempleado();
+            moneda();
+            iddetalle();
+            desechos();
+            groupPanel1.Enabled = true;
+            groupPanel2.Enabled = false;
+            button1.Enabled = true;
+            groupPanel4.Enabled = false;
+            
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            button2.Enabled = true;
             try
             {
-                var dese = new DDesechos();
-                dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
-                dese.Nombre = comboBox4.Text;
-                //if (comboBox4.Text != "ORGANICO")
-                //{
-                    DataTable datos = new DataTable();
-                    datos = NDesechos.obtenercantidadpesodesechos(dese);
-                    string cantidad = datos.Rows[0][2].ToString();
-                    textBox5.Text = cantidad;
-                    int TOT = Convert.ToInt32(cantidad) - Convert.ToInt32(textBox5.Text);
-                    textBox7.Text = TOT.ToString();
+                int cantidad = NDesechos.CantidadProductoPeso(comboBox4.Text);
+                int maxcantidad = Convert.ToInt32(cantidad) - Convert.ToInt32(textBox5.Text);
 
-                    if (TOT < 0)
+                if (maxcantidad < 0)
+                {
+                    MessageBox.Show("La cantidad ingresada es mayor a la que esta guardada", "Error");
+                }
+                else
+                {
+                    var actualizarcantidad = new DDesechos();
+                    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
+                    actualizarcantidad.Nombre = comboBox4.Text;
+                    actualizarcantidad.Cantida_peso = Convert.ToDecimal(maxcantidad);
+
+                    if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
                     {
-                        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
-                    }
-                    else
-                    {
+                        MessageBox.Show("Se actualizo con exito", "Aviso");
+                        decimal TOT = Convert.ToInt32(textBox6.Text) * Convert.ToInt32(textBox5.Text);
+                        textBox7.Text = TOT.ToString();
                         lista = new List<DDetalleVenta>();
                         d = new DDetalleVenta();
                         d.idventa = Convert.ToInt32(textBox1.Text);
@@ -185,50 +284,107 @@ namespace PROYECTO_PROATITLAN
 
                         var i = new DEncabezadoVentas();
                         i.listardetalleventa = lista;
-                    int result = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToInt32(x.Cells["Subtotal"].Value));
-                    textBox8.Text = result.ToString();
-                    dataGridView1.Rows.Add(d.cantidad,comboBox4.Text,d.precio,d.subtotal);
-                    MessageBox.Show("Se agrego correctamente");
-                    }
-                    
-                    
-                //}
-                //else
-                //{
-                //    DataTable datos1 = new DataTable();
-                //    datos1 = NDesechos.obtenerVolumendesechos(dese);
-                //    string volumen = datos1.Rows[0][2].ToString();
-                //    string precioventa = datos1.Rows[0][3].ToString();
-                //    textBox5.Text = volumen;
-                //    textBox6.Text = precioventa;
-                //    int TOT = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
-                //    textBox7.Text = TOT.ToString();
-                //    if (TOT < 0)
-                //    {
-                //        MessageBox.Show("Error la cantidad ingresada es mayor a la que esta guardada");
-                //    }
-                //    else
-                //    {
-                //        lista = new List<DDetalleVenta>();
-                //        d = new DDetalleVenta();
-                //        d.idventa = Convert.ToInt32(textBox1.Text);
-                //        d.iddetalleventa = Convert.ToInt32(textBox4.Text);
-                //        d.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
-                //        d.cantidad = Convert.ToInt32(textBox5.Text);
-                //        d.precio = Convert.ToDecimal(textBox6.Text);
-                //        d.subtotal = Convert.ToDecimal(textBox7.Text);
-                //        lista.Add(d);
 
-                //        var i = new DEncabezadoVentas();
-                //        i.listardetalleventa = lista;
-                //        MessageBox.Show("Se agrego correctamente");
-                //    }
-                //}
+                        if (NEncabezadoVenta.DetalleEncabezado(i))
+                        {
+                            dataGridView1.Columns["Column1"].Visible = false;
+                            dataGridView1.Columns["Column2"].Visible = false;
+                            dataGridView1.Rows.Add(d.iddetalleventa, d.cantidad, d.iddesecho, comboBox4.Text, d.precio, d.subtotal);
+                            int result = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToInt32(x.Cells["Column5"].Value));
+                            textBox8.Text = result.ToString();
+                            MessageBox.Show("Se agrego correctamente");
+
+                            var actuatotal = new DEncabezadoVentas();
+                            actuatotal.idventa = Convert.ToInt32(textBox1.Text);
+                            actuatotal.total = Convert.ToDecimal(textBox8.Text);
+                            if (NEncabezadoVenta.ActualizarTotalVenta(actuatotal))
+                            {
+                                MessageBox.Show("Se actualizo Correctamente el Total", "Aviso");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Verifique sus datos", "Error");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se agrego", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se realizo la actualizacion, verifique sus datos", "Error");
+                    }
+
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int cantidad = NDesechos.CantidadProductoPeso(comboBox4.Text);
+                int maxcantidad = Convert.ToInt32(cantidad) + Convert.ToInt32(textBox5.Text);
+
+                var actualizarcantidad = new DDesechos();
+                actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
+                actualizarcantidad.Nombre = comboBox4.Text;
+                actualizarcantidad.Cantida_peso = Convert.ToDecimal(maxcantidad);
+
+                if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
+                {
+                    MessageBox.Show("Se actualizo la cantida del desecho", "Aviso");
+
+                    if (NEncabezadoVenta.EliminarDetalleEncabezado(Convert.ToInt32(textBox4.Text)))
+                    {
+                        dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+                        MessageBox.Show("Se elimino Correctamente el detalle", "Aviso");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Revise sus datos", "Error");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Revise que los datos sean correctos", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count <= 1)
+            {
+                if (NEncabezadoVenta.EliminarEncabezado(int.Parse(textBox1.Text)))
+                {
+                    MessageBox.Show("Se elimino el Encabezado");
+                    this.Close();
+                }
+            }
+            if (dataGridView1.Rows.Count > 1)
+            {
+                MessageBox.Show("saliendo...");
+                this.Close();
+            }
+
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

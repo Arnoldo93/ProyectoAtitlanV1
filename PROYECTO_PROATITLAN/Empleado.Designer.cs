@@ -37,7 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -62,6 +61,7 @@
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.groupPanel3.SuspendLayout();
@@ -130,13 +130,6 @@
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Direccion";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(152, 154);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(99, 20);
-            this.textBox4.TabIndex = 3;
             // 
             // label5
             // 
@@ -265,6 +258,7 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.maskedTextBox1);
             this.groupPanel1.Controls.Add(this.label2);
             this.groupPanel1.Controls.Add(this.textBox1);
             this.groupPanel1.Controls.Add(this.label3);
@@ -272,7 +266,6 @@
             this.groupPanel1.Controls.Add(this.label4);
             this.groupPanel1.Controls.Add(this.textBox3);
             this.groupPanel1.Controls.Add(this.label5);
-            this.groupPanel1.Controls.Add(this.textBox4);
             this.groupPanel1.Controls.Add(this.label6);
             this.groupPanel1.Controls.Add(this.checkBox1);
             this.groupPanel1.Location = new System.Drawing.Point(58, 80);
@@ -556,6 +549,15 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(152, 153);
+            this.maskedTextBox1.Mask = "9999-9999";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(86, 26);
+            this.maskedTextBox1.TabIndex = 3;
+            // 
             // Empleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -596,7 +598,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -621,5 +622,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

@@ -31,7 +31,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "INSERT INTO encabezado_venta VALUES (@idve,@tot,@fecha,idemp,idmon,idclie,idcentro)";
+                var consulta = "INSERT INTO encabezado_venta VALUES (@idven,@tot,@fecha,@idemp,@idmon,@idclie,@idcentro)";
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@idven", c.idventa);
                 cmd.Parameters.AddWithValue("@tot", c.total);
@@ -122,6 +122,20 @@ namespace AccesoDatos
             }
         }
 
-       
+        public static bool ActualizarTotalEncabezado(DEncabezadoVentas c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "update encabezado_venta set Total=@tot where Id_Venta=@id";
+                var cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@id", c.idventa);
+                cmd.Parameters.AddWithValue("@tot", c.total);
+                cn.Open();
+                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+
+        }
+
+
     }
 }

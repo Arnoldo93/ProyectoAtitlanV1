@@ -352,5 +352,10 @@ namespace PROYECTO_PROATITLAN
 
             this.Close();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

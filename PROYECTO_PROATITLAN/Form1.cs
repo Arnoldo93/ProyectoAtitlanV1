@@ -75,6 +75,8 @@ namespace PROYECTO_PROATITLAN
         private void buttonItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+            Login l = new Login();
+            l.Show();
         }
 
         private void buttonItem3_Click(object sender, EventArgs e)
@@ -201,7 +203,12 @@ namespace PROYECTO_PROATITLAN
             }
             catch(Exception)
             {
-                MessageBox.Show("Seleccione un fondo para la aplicacion","Aviso");
+                BackgroundImageLayout = ImageLayout.Stretch;
+                Controls.OfType<MdiClient>().First().BackgroundImage = new Bitmap(@"fondo.png");
+                Form f = new Form();
+                f.MdiParent = this;
+                SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+                f.Refresh();
             }
         }
 
