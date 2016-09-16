@@ -59,7 +59,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.button6 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -142,7 +145,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(398, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 2;
             // 
             // label3
             // 
@@ -159,7 +162,7 @@
             this.comboBox2.Location = new System.Drawing.Point(85, 48);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(238, 21);
-            this.comboBox2.TabIndex = 2;
+            this.comboBox2.TabIndex = 1;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
@@ -184,7 +187,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(60, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -266,7 +269,7 @@
             this.textBox7.Location = new System.Drawing.Point(210, 69);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(57, 20);
-            this.textBox7.TabIndex = 46;
+            this.textBox7.TabIndex = 3;
             // 
             // label9
             // 
@@ -282,7 +285,7 @@
             this.textBox6.Location = new System.Drawing.Point(435, 62);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(135, 20);
-            this.textBox6.TabIndex = 44;
+            this.textBox6.TabIndex = 5;
             // 
             // label8
             // 
@@ -298,7 +301,7 @@
             this.textBox4.Location = new System.Drawing.Point(435, 30);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(135, 20);
-            this.textBox4.TabIndex = 42;
+            this.textBox4.TabIndex = 4;
             // 
             // label7
             // 
@@ -332,7 +335,7 @@
             this.comboBox3.Location = new System.Drawing.Point(64, 36);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(203, 21);
-            this.comboBox3.TabIndex = 34;
+            this.comboBox3.TabIndex = 1;
             // 
             // label4
             // 
@@ -349,7 +352,7 @@
             this.comboBox1.Location = new System.Drawing.Point(64, 0);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(203, 21);
-            this.comboBox1.TabIndex = 33;
+            this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // label6
@@ -366,7 +369,7 @@
             this.textBox5.Location = new System.Drawing.Point(64, 69);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(57, 20);
-            this.textBox5.TabIndex = 38;
+            this.textBox5.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -377,12 +380,15 @@
             this.Column5,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column6,
+            this.Column4,
+            this.Column7,
+            this.Column8});
             this.dataGridView1.Location = new System.Drawing.Point(53, 117);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(561, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
@@ -409,11 +415,29 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Volumen";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "Vehiculo";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "PrecioCompra";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "PrecioVenta";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // groupPanel3
             // 
@@ -464,7 +488,7 @@
             this.button6.Location = new System.Drawing.Point(3, 9);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(99, 33);
-            this.button6.TabIndex = 2;
+            this.button6.TabIndex = 0;
             this.button6.Text = "Agregar";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -527,7 +551,7 @@
             this.button1.Location = new System.Drawing.Point(3, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 33);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -537,7 +561,7 @@
             this.button3.Location = new System.Drawing.Point(3, 48);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 33);
-            this.button3.TabIndex = 5;
+            this.button3.TabIndex = 1;
             this.button3.Text = "Nuevo";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
@@ -630,11 +654,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
@@ -644,5 +663,13 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }
