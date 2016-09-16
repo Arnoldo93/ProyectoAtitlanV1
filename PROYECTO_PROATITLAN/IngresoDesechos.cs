@@ -433,6 +433,8 @@ namespace PROYECTO_PROATITLAN
             vehiculo();
             textBox5.Text = 0.ToString();
             textBox7.Text = 0.ToString();
+            textBox4.Clear();
+            textBox6.Clear();
 
             #endregion
         }

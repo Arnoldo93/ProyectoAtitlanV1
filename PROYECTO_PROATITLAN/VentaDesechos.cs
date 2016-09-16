@@ -20,6 +20,7 @@ namespace PROYECTO_PROATITLAN
         {
             InitializeComponent();
         }
+        string peso, precioventa;
         private static DDetalleVenta d;
         private List<DDetalleVenta> lista;
         private void VentaDesechos_Load(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace PROYECTO_PROATITLAN
         private void desechos()
         {
             DataTable datos = new DataTable();
-            datos = NDesechos.ListaD();
+            datos = NDesechos.ListaDesechosVenta();
             comboBox4.DisplayMember = "Nombre";
             comboBox4.ValueMember = "Id_Desecho";
             comboBox4.DataSource = datos;
@@ -135,17 +136,18 @@ namespace PROYECTO_PROATITLAN
         {
             try
             {
-                var dese = new DDesechos();
-                dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
-                dese.Nombre = comboBox4.Text;
-                //if (comboBox4.Text != "ORGANICO")
-                //{
-                    DataTable datos = new DataTable();
-                    datos = NDesechos.obtenercantidadpesodesechos(dese);
-                    string cantidad = datos.Rows[0][2].ToString();
-                    string precioventa = datos.Rows[0][3].ToString();
-                    textBox5.Text = cantidad;
-                    textBox6.Text = precioventa;
+                #region desechos
+                //var dese = new DDesechos();
+                //dese.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
+                //dese.Nombre = comboBox4.Text;
+                ////if (comboBox4.Text != "ORGANICO")
+                ////{
+                //    DataTable datos = new DataTable();
+                //    datos = NDesechos.obtenercantidadpesodesechos(dese);
+                //    string cantidad = datos.Rows[0][2].ToString();
+                //    string precioventa = datos.Rows[0][3].ToString();
+                //    textBox5.Text = cantidad;
+                //    textBox6.Text = precioventa;
                 //}
                 //else
                 //{
@@ -158,10 +160,22 @@ namespace PROYECTO_PROATITLAN
                 //    int SUBTOTAL = Convert.ToInt32(volumen) * Convert.ToInt32(precioventa);
                 //    textBox7.Text = SUBTOTAL.ToString();
                 //}
+                #endregion
+
+                DataTable datos = new DataTable();
+                var pv = new DExistencias();
+                pv.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
+                pv.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                datos = NExistencias.pesoyvolumen(pv);
+                peso = datos.Rows[0][0].ToString();
+                precioventa = datos.Rows[0][3].ToString();
+                textBox5.Text = peso.ToString();
+                textBox6.Text = precioventa.ToString();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
         }
 

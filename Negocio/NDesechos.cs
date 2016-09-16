@@ -16,6 +16,11 @@ namespace Negocio
             return AdDesechos.ListaDesecho();
         }
 
+        public static DataTable ListaDesechosVenta()
+        {
+            return AdDesechos.listadesechosVenta();
+        }
+
         public static DataTable ListaD()
         {
             return AdDesechos.listd();

@@ -248,6 +248,20 @@ namespace AccesoDatos
             }
         }
 
+        public static DataTable listadesechosVenta()
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "Select * from desechos where Nombre!='ORGANICO'";
+                MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(consulta, cnn);
+                cnn.Open();
+                DataTable dtDatos = new DataTable();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
+
         //obtener cantidad,volumen,precio de desechos
 
         public static DataTable ObtenerCantidadpesodesechos(DDesechos c)

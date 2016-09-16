@@ -74,7 +74,7 @@
             this.textBox1.Location = new System.Drawing.Point(326, 420);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 31);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
@@ -84,7 +84,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(175, 31);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 1;
             this.textBox2.UseSystemPasswordChar = true;
             // 
             // button3
@@ -95,7 +95,7 @@
             this.button3.Location = new System.Drawing.Point(162, 547);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 80);
-            this.button3.TabIndex = 4;
+            this.button3.TabIndex = 2;
             this.button3.Text = "&Aceptar";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -108,7 +108,7 @@
             this.button4.Location = new System.Drawing.Point(306, 547);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 80);
-            this.button4.TabIndex = 4;
+            this.button4.TabIndex = 3;
             this.button4.Text = "&Salir";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
