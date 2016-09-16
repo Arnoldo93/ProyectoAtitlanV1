@@ -240,7 +240,7 @@ namespace PROYECTO_PROATITLAN
         {
             textBox2.Clear();
             textBox3.Clear();
-            textBox4.Clear();
+            maskedTextBox1.Clear();
             textBox7.Clear();
             textBox8.Clear();
             checkBox1.Checked = false;

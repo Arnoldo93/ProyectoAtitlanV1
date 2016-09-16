@@ -59,6 +59,7 @@
     <Compile Include="AdEmpleado.cs" />
     <Compile Include="AdEncabezadoDesecho.cs" />
     <Compile Include="AdEncabezadoVenta.cs" />
+    <Compile Include="AdExistencias.cs" />
     <Compile Include="AdFamilia.cs" />
     <Compile Include="AdMedida.cs" />
     <Compile Include="AdMoneda.cs" />

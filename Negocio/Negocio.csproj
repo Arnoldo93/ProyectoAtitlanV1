@@ -59,6 +59,7 @@
     <Compile Include="NEmpleado.cs" />
     <Compile Include="NEncabezadoDesechos.cs" />
     <Compile Include="NEncabezadoVenta.cs" />
+    <Compile Include="NExistencias.cs" />
     <Compile Include="NFamilia.cs" />
     <Compile Include="NMedida.cs" />
     <Compile Include="NMoneda.cs" />

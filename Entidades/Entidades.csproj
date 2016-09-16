@@ -61,6 +61,7 @@
     <Compile Include="DEmpleado.cs" />
     <Compile Include="DEncabezadoDesecho.cs" />
     <Compile Include="DEncabezadoVentas.cs" />
+    <Compile Include="DExistencias.cs" />
     <Compile Include="DFamilia.cs" />
     <Compile Include="DMedida.cs" />
     <Compile Include="DMoneda.cs" />
