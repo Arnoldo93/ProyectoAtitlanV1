@@ -52,6 +52,30 @@ namespace AccesoDatos
             }
         }
 
+        public static bool ActualizarExistenciaPorVenta(DExistencias c)
+        {
+            try
+            {
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "ActualizarExistencias";
+
+                cmd.Parameters.AddWithValue("@idcentro", c.idcentro);
+                cmd.Parameters.AddWithValue("@iddesecho", c.iddesecho);
+                cmd.Parameters.AddWithValue("@canpeso", c.cantidadpeso);
+                cmd.Parameters.AddWithValue("@volum", c.cantidadvolumen);
+                cn.Open();
+                return Convert.ToBoolean(cmd.ExecuteNonQuery());
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool Eliminar(DExistencias c)
         {
             try

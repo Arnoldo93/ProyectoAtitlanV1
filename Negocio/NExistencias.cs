@@ -17,6 +17,11 @@ namespace Negocio
             return AdExistencias.AgregaryActualizar(e);
         }
 
+        public static bool Actualizarexistenciaventa(DExistencias e)
+        {
+            return AdExistencias.ActualizarExistenciaPorVenta(e);
+        }
+
         public static bool Eliminar (DExistencias e)
         {
             return AdExistencias.Eliminar(e);

@@ -267,8 +267,16 @@ namespace PROYECTO_PROATITLAN
             button2.Enabled = true;
             try
             {
-                int cantidad = NDesechos.CantidadProductoPeso(comboBox4.Text);
-                int maxcantidad = Convert.ToInt32(cantidad) - Convert.ToInt32(textBox5.Text);
+                //int cantidad = NDesechos.CantidadProductoPeso(comboBox4.Text);
+                //int maxcantidad = Convert.ToInt32(cantidad) - Convert.ToInt32(textBox5.Text);
+                DataTable datos = new DataTable();
+                var pv = new DExistencias();
+                pv.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
+                pv.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                datos = NExistencias.pesoyvolumen(pv);
+                peso = datos.Rows[0][0].ToString();
+
+                double maxcantidad = Convert.ToDouble(peso) - Convert.ToDouble(textBox5.Text);
 
                 if (maxcantidad < 0)
                 {
@@ -276,14 +284,18 @@ namespace PROYECTO_PROATITLAN
                 }
                 else
                 {
-                    var actualizarcantidad = new DDesechos();
-                    actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
-                    actualizarcantidad.Nombre = comboBox4.Text;
-                    actualizarcantidad.Cantida_peso = Convert.ToDecimal(maxcantidad);
+                    var upex = new DExistencias();
+                    upex.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
+                    upex.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                    //upex.preciocosto = Convert.ToDouble(textBox4.Text);
+                    //upex.precioventa = Convert.ToDouble(textBox6.Text);
+                    //se suma la cantidad y el peso a lo que ya esta en la base de datos
+                    upex.cantidadpeso = Convert.ToDouble(peso) - Convert.ToDouble(textBox5.Text);
 
-                    if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
+                    if (NExistencias.Actualizarexistenciaventa(upex))
                     {
                         MessageBox.Show("Se actualizo con exito", "Aviso");
+
                         decimal TOT = Convert.ToInt32(textBox6.Text) * Convert.ToInt32(textBox5.Text);
                         textBox7.Text = TOT.ToString();
                         lista = new List<DDetalleVenta>();
@@ -343,17 +355,18 @@ namespace PROYECTO_PROATITLAN
         {
             try
             {
-                int cantidad = NDesechos.CantidadProductoPeso(comboBox4.Text);
-                int maxcantidad = Convert.ToInt32(cantidad) + Convert.ToInt32(textBox5.Text);
+                var upex = new DExistencias();
+                upex.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
+                upex.iddesecho = Convert.ToInt32(comboBox4.SelectedValue);
+                //upex.preciocosto = Convert.ToDouble(textBox4.Text);
+                //upex.precioventa = Convert.ToDouble(textBox6.Text);
+                //se suma la cantidad y el peso a lo que ya esta en la base de datos
+                upex.cantidadpeso = Convert.ToDouble(textBox5.Text) + Convert.ToDouble(peso);
+                upex.cantidadvolumen = Convert.ToDouble(textBox7.Text) + Convert.ToDouble(0);
 
-                var actualizarcantidad = new DDesechos();
-                actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox4.SelectedValue);
-                actualizarcantidad.Nombre = comboBox4.Text;
-                actualizarcantidad.Cantida_peso = Convert.ToDecimal(maxcantidad);
-
-                if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
+                if (NExistencias.Actualizarexistenciaventa(upex))
                 {
-                    MessageBox.Show("Se actualizo la cantida del desecho", "Aviso");
+                    MessageBox.Show("Se actualizo con exito", "Aviso");
 
                     if (NEncabezadoVenta.EliminarDetalleEncabezado(Convert.ToInt32(textBox4.Text)))
                     {
