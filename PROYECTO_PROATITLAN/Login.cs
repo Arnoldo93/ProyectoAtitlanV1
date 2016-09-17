@@ -135,5 +135,56 @@ namespace PROYECTO_PROATITLAN
                 label1.Text = DateTime.Now.ToLongTimeString();
             
             }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                try
+                {
+                    if (NEmpleado.logprimeravez() <= 0)
+                    {
+
+                        if (textBox1.Text == "admin" && textBox2.Text == "admin")
+                        {
+                            Form1 f = new Form1();
+
+                            f.Show();
+                            textBox1.Clear();
+                            textBox2.Clear();
+                        }
+
+                    }
+                    else
+                    {
+                        DataTable datos = new DataTable();
+                        datos = NEmpleado.logueo(textBox1.Text, textBox2.Text);
+                        string Id = datos.Rows[0][0].ToString();
+                        string nombre = datos.Rows[0][1].ToString();
+                        string puesto = datos.Rows[0][2].ToString();
+
+                        if (puesto == "ADMINISTRADOR")
+                        {
+                            MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                            Form1 f = new Form1();
+                            textBox1.Clear();
+                            textBox2.Clear();
+                            Program.idempleado = Id;
+                            Program.puesto = puesto;
+                            Program.usuario = nombre;
+                            f.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error, verifique sus datos", "Aviso");
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso");
+                }
+            }
+        }
     }
 }

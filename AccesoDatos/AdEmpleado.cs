@@ -189,11 +189,11 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                var consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro,empleado.Estado_Empleado FROM empleado, puesto,centro where empleado.Id_Puesto=puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro and empleado.Nombre_Empleado like '@nom%'";
+                var consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro,empleado.Estado_Empleado FROM empleado, puesto,centro where empleado.Id_Puesto=puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro and empleado.Nombre_Empleado like '" + b.Nombre + "%';";
                 var cmdd = new MySqlCommand(consulta, cn);
+                cmdd.Parameters.AddWithValue("@nom", b.Nombre);
                 MySqlDataAdapter mdatos = new MySqlDataAdapter(cmdd);
                 DataTable dtDatos = new DataTable();
-                cmdd.Parameters.AddWithValue("@nom", b.Nombre);
                 cn.Open();
                 mdatos.Fill(dtDatos);
                 return dtDatos;

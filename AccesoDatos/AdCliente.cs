@@ -116,6 +116,22 @@ namespace AccesoDatos
             }
         }
 
+        public static DataTable BuscarPorNombre(DCliente b)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                var consulta = "SELECT cliente.Id_Cliente,cliente.Nombre as Cliente,cliente.Id_Categoria,categoria_cliente.Nombre as Categoria_Cliente,cliente.Direccion,cliente.Ubicacion,cliente.Zona,cliente.Telefono,cliente.Contacto,cliente.Correo FROM cliente,categoria_cliente where cliente.Id_Categoria=categoria_cliente.Id_Categoria and cliente.Nombre like'%"+ b.nombre + "%';";
+                var cmdd = new MySqlCommand(consulta, cn);
+                cmdd.Parameters.AddWithValue("@nom", b.nombre);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmdd);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+
+            }
+        }
+
         //Id ultimo ingresado
         public static int Id()
         {

@@ -297,6 +297,7 @@ namespace PROYECTO_PROATITLAN
             //dataGridView1.Columns["Id_Puesto"].Visible = false;
             //dataGridView1.Columns["Id_Centro"].Visible = false;
             //cnn.Close();
+
             var bus = new DEmpleado();
             bus.Nombre = Convert.ToString(textBox2.Text);
             

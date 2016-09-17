@@ -34,7 +34,7 @@ namespace PROYECTO_PROATITLAN
                     c.direccion = Convert.ToString(textBox3.Text);
                     c.ubicacion = textBox4.Text;
                     c.zona = Convert.ToInt32(textBox5.Text);
-                    c.telefono = Convert.ToInt32(textBox6.Text);
+                    c.telefono = Convert.ToInt32(maskedTextBox1.Text);
                     c.contacto = textBox7.Text; ;
                     c.correo = textBox8.Text;
 
@@ -75,7 +75,7 @@ namespace PROYECTO_PROATITLAN
                     c.direccion = Convert.ToString(textBox3.Text);
                     c.ubicacion = textBox4.Text;
                     c.zona = Convert.ToInt32(textBox5.Text);
-                    c.telefono = Convert.ToInt32(textBox6.Text);
+                    c.telefono = Convert.ToInt32(maskedTextBox1.Text);
                     c.contacto = textBox7.Text; ;
                     c.correo = textBox8.Text;
 
@@ -138,7 +138,7 @@ namespace PROYECTO_PROATITLAN
             textBox3.Clear();
             textBox4.Clear();
             textBox5.Clear();
-            textBox6.Clear();
+            maskedTextBox1.Clear();
             textBox7.Clear();
             textBox8.Clear();
         }
@@ -183,9 +183,18 @@ namespace PROYECTO_PROATITLAN
             textBox3.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             textBox4.Text = dataGridView1[5, e.RowIndex].Value.ToString();
             textBox5.Text = dataGridView1[6, e.RowIndex].Value.ToString();
-            textBox6.Text = dataGridView1[7, e.RowIndex].Value.ToString();
+            maskedTextBox1.Text = dataGridView1[7, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[8, e.RowIndex].Value.ToString();
             textBox8.Text = dataGridView1[9, e.RowIndex].Value.ToString();
+        }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            var bus = new DCliente();
+            bus.nombre = Convert.ToString(textBox2.Text);
+
+            dataGridView1.DataSource = NCliente.BuscarCliente(bus);
+            dataGridView1.Refresh();
         }
     }
 }

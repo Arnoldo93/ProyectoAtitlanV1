@@ -16,6 +16,11 @@ namespace Negocio
             return AdCliente.ListaClientes();
         }
 
+        public static DataTable BuscarCliente(DCliente e)
+        {
+            return AdCliente.BuscarPorNombre(e);
+        }
+
         public static bool Agregar(DCliente e)
         {
             return AdCliente.Agregar(e);

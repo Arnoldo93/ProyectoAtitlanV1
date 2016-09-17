@@ -60,7 +60,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupPanel1.SuspendLayout();
             this.groupPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -307,6 +307,7 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.maskedTextBox1);
             this.groupPanel1.Controls.Add(this.comboBox1);
             this.groupPanel1.Controls.Add(this.label10);
             this.groupPanel1.Controls.Add(this.label9);
@@ -314,7 +315,6 @@
             this.groupPanel1.Controls.Add(this.label8);
             this.groupPanel1.Controls.Add(this.textBox7);
             this.groupPanel1.Controls.Add(this.label7);
-            this.groupPanel1.Controls.Add(this.textBox6);
             this.groupPanel1.Controls.Add(this.label6);
             this.groupPanel1.Controls.Add(this.textBox5);
             this.groupPanel1.Controls.Add(this.label2);
@@ -420,13 +420,6 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Telefono";
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(368, 18);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(99, 20);
-            this.textBox6.TabIndex = 10;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -475,6 +468,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(150, 20);
             this.textBox2.TabIndex = 1;
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             // 
             // label4
             // 
@@ -652,6 +646,15 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(347, 18);
+            this.maskedTextBox1.Mask = "9999-9999";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(86, 26);
+            this.maskedTextBox1.TabIndex = 18;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,7 +720,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel5;
@@ -727,5 +729,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
