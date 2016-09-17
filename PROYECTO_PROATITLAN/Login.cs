@@ -102,7 +102,6 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso");
             }
-            this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)

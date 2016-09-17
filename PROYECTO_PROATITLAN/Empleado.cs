@@ -283,22 +283,26 @@ namespace PROYECTO_PROATITLAN
         }
 
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
-        { 
-            //    Conexion con = new Conexion();
-            //    string conexionbasededatos = con.Seconecto();
-            //    string Consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro and empleado.Nombre_Empleado like'" + textBox2.Text + "%';";
-            //    MySqlConnection cnn = new MySqlConnection(conexionbasededatos);
-            //    MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
-            //    cnn.Open();
-            //    DataTable dtDatos = new DataTable();
-            //    mdatos.Fill(dtDatos);
-            //    dataGridView1.DataSource = dtDatos;
-            //    dataGridView1.Refresh();
-            //    dataGridView1.Columns["Usuario"].Visible = false;
-            //    dataGridView1.Columns["Contrase_a"].Visible = false;
-            //    dataGridView1.Columns["Id_Puesto"].Visible = false;
-            //    dataGridView1.Columns["Id_Centro"].Visible = false;
+        {
+            //string Consulta = "SELECT empleado.Id_Empleado,empleado.Nombre_Empleado,empleado.Direccion,empleado.Telefono,empleado.Usuario,empleado.Contrase_a,empleado.Estado_Empleado,empleado.Id_Puesto,puesto.Nombre_Puesto,empleado.Id_Centro,centro.Nombre_centro FROM proatitlan.empleado, proatitlan.puesto,proatitlan.centro where empleado.Id_Puesto= puesto.Id_Puesto and empleado.Id_Centro=centro.Id_Centro and empleado.Nombre_Empleado like'" + textBox2.Text + "%';";
+            //MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
+            //MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
+            //cnn.Open();
+            //DataTable dtDatos = new DataTable();
+            //mdatos.Fill(dtDatos);
+            //dataGridView1.DataSource = dtDatos;
+            //dataGridView1.Refresh();
+            //dataGridView1.Columns["Usuario"].Visible = false;
+            //dataGridView1.Columns["Contrase_a"].Visible = false;
+            //dataGridView1.Columns["Id_Puesto"].Visible = false;
+            //dataGridView1.Columns["Id_Centro"].Visible = false;
             //cnn.Close();
+            var bus = new DEmpleado();
+            bus.Nombre = Convert.ToString(textBox2.Text);
+            
+            dataGridView1.DataSource = NEmpleado.BuscarEmpleado(bus);
+            dataGridView1.Refresh();
+
         }
 
         private void Empleado_Load(object sender, EventArgs e)

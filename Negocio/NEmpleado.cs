@@ -16,6 +16,11 @@ namespace Negocio
             return AdEmpleado.ListaEmpleado();
         }
 
+        public static DataTable BuscarEmpleado(DEmpleado e)
+        {
+            return AdEmpleado.BuscarPorNombre(e);
+        }
+
         public static bool Agregar(DEmpleado e)
         {
             return AdEmpleado.Agregar(e);
