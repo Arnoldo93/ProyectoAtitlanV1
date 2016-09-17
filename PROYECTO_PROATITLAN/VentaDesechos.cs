@@ -326,6 +326,10 @@ namespace PROYECTO_PROATITLAN
                             if (NEncabezadoVenta.ActualizarTotalVenta(actuatotal))
                             {
                                 MessageBox.Show("Se actualizo Correctamente el Total", "Aviso");
+                                textBox5.Clear();
+                                textBox6.Clear();
+                                textBox7.Clear();
+                                desechos();
                             }
                             else
                             {
