@@ -151,6 +151,32 @@ namespace PROYECTO_PROATITLAN
             }
         }
 
+        private void buttonItem5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem31_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void buttonItem32_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void buttonItem33_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void EMPLEADOS_DoubleClick(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.Refresh();
+        }
+
         private void buttonItem30_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(moneda))
