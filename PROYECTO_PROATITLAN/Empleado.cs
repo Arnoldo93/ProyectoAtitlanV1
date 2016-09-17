@@ -169,6 +169,10 @@ namespace PROYECTO_PROATITLAN
             Listacentros();
             ListaEmpleados();
             ListaPuestos();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void ListaEmpleados()
@@ -268,6 +272,10 @@ namespace PROYECTO_PROATITLAN
             comboBox1.SelectedValue = dataGridView1[6, e.RowIndex].Value;
             comboBox2.SelectedValue = dataGridView1[8, e.RowIndex].Value;
             checkBox1.Checked = Convert.ToBoolean(dataGridView1[10, e.RowIndex].Value);
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -313,6 +321,9 @@ namespace PROYECTO_PROATITLAN
             ListaEmpleados();
             ListaPuestos();
             limpiar();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
     }
 }

@@ -157,6 +157,10 @@ namespace PROYECTO_PROATITLAN
         {
             id_zona();
             listarZonas();
+            limpiar();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button12.Enabled = false;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -216,6 +220,10 @@ namespace PROYECTO_PROATITLAN
         {
             textBox1.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button12.Enabled = true;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -228,6 +236,10 @@ namespace PROYECTO_PROATITLAN
             limpiar();
             id_zona();
             listarZonas();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button12.Enabled = false;
         }
     }
 }

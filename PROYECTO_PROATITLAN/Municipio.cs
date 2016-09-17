@@ -178,6 +178,10 @@ namespace PROYECTO_PROATITLAN
             limpiar();
             listarmunicipios();
             listarZonas();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void Municipio_Load(object sender, EventArgs e)
@@ -186,6 +190,9 @@ namespace PROYECTO_PROATITLAN
             limpiar();
             listarmunicipios();
             listarZonas();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -278,6 +285,10 @@ namespace PROYECTO_PROATITLAN
             textBox1.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             comboBox1.SelectedValue = dataGridView1[2, e.RowIndex].Value;
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void groupPanel1_Click(object sender, EventArgs e)

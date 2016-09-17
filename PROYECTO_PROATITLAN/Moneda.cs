@@ -110,6 +110,10 @@ namespace PROYECTO_PROATITLAN
             id();
             limpiar();
             listado();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void id()
@@ -134,6 +138,10 @@ namespace PROYECTO_PROATITLAN
         {
             textBox1.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void Moneda_Load(object sender, EventArgs e)
@@ -141,6 +149,9 @@ namespace PROYECTO_PROATITLAN
             id();
             limpiar();
             listado();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
     }
 }

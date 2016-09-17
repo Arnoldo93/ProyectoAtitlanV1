@@ -148,7 +148,7 @@ namespace AccesoDatos
         //listado
         public static DataTable ListaClientes()
         {
-            string Consulta = "SELECT cliente.Id_Cliente,cliente.Nombre as Cliente,cliente.Id_Categoria,categoria_cliente.Nombre as Categoria_Cliente,cliente.Direccion,cliente.Ubicacion,cliente.Zona,cliente.Telefono,cliente.Contacto,cliente.Correo FROM cliente,categoria_cliente where cliente.Id_Categoria=categoria_cliente.Id_Categoria;";
+            string Consulta = "SELECT cliente.Id_Cliente,cliente.Nombre as Cliente,cliente.Id_Categoria,categoria_cliente.Nombre as Categoria_Cliente,cliente.Direccion,cliente.Ubicacion,cliente.Zona,cliente.Telefono,cliente.Contacto,cliente.Correo FROM cliente,categoria_cliente";
             MySqlConnection cnn = new MySqlConnection(Conexion.Cadena);
             MySqlDataAdapter mdatos = new MySqlDataAdapter(Consulta, cnn);
             cnn.Open();

@@ -170,11 +170,9 @@ namespace PROYECTO_PROATITLAN
             ListaCentros();
             ListaMunicipio();
             ListaTipocentro();
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-             
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button7.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -187,6 +185,10 @@ namespace PROYECTO_PROATITLAN
             ListaCentros();
             ListaMunicipio();
             ListaTipocentro();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button7.Enabled = false;
         }
 
         private void button4_Click_1(object sender, EventArgs e)
@@ -211,6 +213,10 @@ namespace PROYECTO_PROATITLAN
             textBox6.Text = dataGridView1[6, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[7, e.RowIndex].Value.ToString();
             checkBox1.Checked =Convert.ToBoolean(dataGridView1[8, e.RowIndex].Value);
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button7.Enabled = true;
 
         }
 

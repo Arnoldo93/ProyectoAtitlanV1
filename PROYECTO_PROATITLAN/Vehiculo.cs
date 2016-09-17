@@ -109,6 +109,12 @@ namespace PROYECTO_PROATITLAN
         private void button4_Click(object sender, EventArgs e)
         {
             limpiar();
+            listado();
+            Id();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void listado()
@@ -152,6 +158,9 @@ namespace PROYECTO_PROATITLAN
             limpiar();
             Id();
             listado();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -159,6 +168,10 @@ namespace PROYECTO_PROATITLAN
             textBox1.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             textBox3.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
     }
 }

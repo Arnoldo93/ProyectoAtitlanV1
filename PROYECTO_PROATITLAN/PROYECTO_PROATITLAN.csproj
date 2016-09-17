@@ -145,12 +145,6 @@
     <Compile Include="IngresoDesechos.Designer.cs">
       <DependentUpon>IngresoDesechos.cs</DependentUpon>
     </Compile>
-    <Compile Include="log.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="log.Designer.cs">
-      <DependentUpon>log.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,9 +236,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IngresoDesechos.resx">
       <DependentUpon>IngresoDesechos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="log.resx">
-      <DependentUpon>log.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

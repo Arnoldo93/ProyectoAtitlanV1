@@ -124,6 +124,10 @@ namespace PROYECTO_PROATITLAN
             ListadoFamilias();
             ListaSubcategorias();
             idSubCategoria();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void ListaSubcategorias()
@@ -197,6 +201,9 @@ namespace PROYECTO_PROATITLAN
             ListadoFamilias();
             ListaSubcategorias();
             idSubCategoria();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,6 +222,10 @@ namespace PROYECTO_PROATITLAN
             textBox2.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             comboBox1.SelectedValue = dataGridView1[2, e.RowIndex].Value;
             comboBox2.SelectedValue = dataGridView1[4, e.RowIndex].Value;
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void limpiar()

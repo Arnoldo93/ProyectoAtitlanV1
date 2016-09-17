@@ -28,7 +28,10 @@ namespace PROYECTO_PROATITLAN
             ListadoCategoria();
             ListadoSubCategoria();
             ListadoMedida();
-            Listadodesecho();            
+            Listadodesecho();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;        
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -179,6 +182,10 @@ namespace PROYECTO_PROATITLAN
             ListadoSubCategoria();
             ListadoMedida();
             Listadodesecho();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void IdDesecho()
@@ -323,6 +330,10 @@ namespace PROYECTO_PROATITLAN
             textBox5.Text = dataGridView1[12, e.RowIndex].Value.ToString();
             textBox6.Text = dataGridView1[13, e.RowIndex].Value.ToString();
             checkBox1.Checked =Convert.ToBoolean( dataGridView1[14, e.RowIndex].Value);
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
     }
 }

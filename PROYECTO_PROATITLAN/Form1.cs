@@ -18,11 +18,11 @@ namespace PROYECTO_PROATITLAN
             InitializeComponent();
         }
         Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos,
-            tipocliente,cliente,venta;
+            tipocliente,cliente,venta,moneda;
         string opcion;
         private void usuario()
         {
-            log l = new log();
+            Login l = new Login();
             toolStripStatusLabel1.Text=Program.puesto+": ";
             toolStripStatusLabel3.Text = Program.usuario;
         }
@@ -148,6 +148,21 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 venta.Focus();
+            }
+        }
+
+        private void buttonItem30_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(moneda))
+            {
+                moneda = new Moneda();
+                moneda.MdiParent = this;
+                moneda.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                moneda.Focus();
             }
         }
 

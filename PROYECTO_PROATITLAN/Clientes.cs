@@ -130,6 +130,10 @@ namespace PROYECTO_PROATITLAN
             id();
             listar();
             listarcategoria();
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void limpiar()
@@ -146,7 +150,7 @@ namespace PROYECTO_PROATITLAN
         private void id ()
         {
             var d = NCliente.Id() + 1;
-            textBox1.Text = d.ToString(); ;
+            textBox1.Text = d.ToString();
         }
 
         private void listar()
@@ -173,6 +177,9 @@ namespace PROYECTO_PROATITLAN
             listarcategoria();
             listar();
             limpiar();
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -186,6 +193,10 @@ namespace PROYECTO_PROATITLAN
             maskedTextBox1.Text = dataGridView1[7, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[8, e.RowIndex].Value.ToString();
             textBox8.Text = dataGridView1[9, e.RowIndex].Value.ToString();
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
