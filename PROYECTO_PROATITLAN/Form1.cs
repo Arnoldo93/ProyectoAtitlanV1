@@ -177,6 +177,16 @@ namespace PROYECTO_PROATITLAN
             f.Refresh();
         }
 
+        private void buttonItem2_Click(object sender, EventArgs e)
+        {
+            BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.OfType<MdiClient>().First().BackgroundImage = new Bitmap(@"fondo.png");
+            Form f = new Form();
+            f.MdiParent = this;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            f.Refresh();
+        }
+
         private void buttonItem30_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(moneda))
