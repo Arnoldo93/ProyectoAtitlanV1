@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using MySql.Data;
 using Entidades;
 using AccesoDatos;
@@ -21,10 +22,15 @@ namespace PROYECTO_PROATITLAN
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private static bool isValid(String str)
         {
-            try
-            {
+            return Regex.IsMatch(str, @"^[a-z0-9._ -]+@[a-z0-9.-]+.[a-z]{2,3}$");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        { 
+            //try
+            //{
                 if (textBox2.Text != "")
                 {
                     var c = new DCliente();
@@ -38,18 +44,25 @@ namespace PROYECTO_PROATITLAN
                     c.contacto = textBox7.Text; ;
                     c.correo = textBox8.Text;
 
-
-                    if (NCliente.Agregar(c))
+                    if (isValid(textBox8.Text))
                     {
-                        MessageBox.Show("Datos guardados correctamente", "Aviso");
-                        id();
-                        listarcategoria();
-                        listar();
-                        limpiar();
+
+                        if (NCliente.Agregar(c))
+                        {
+                            MessageBox.Show("Datos guardados correctamente", "Aviso");
+                            id();
+                            listarcategoria();
+                            listar();
+                            limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error", "Aviso");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error", "Aviso");
+                        MessageBox.Show("Revise que su correo electronico contenga el formato correcto", "Error");
                     }
                 }
 
@@ -57,11 +70,11 @@ namespace PROYECTO_PROATITLAN
                 {
                     MessageBox.Show("Error", "Aviso");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,19 +91,25 @@ namespace PROYECTO_PROATITLAN
                     c.telefono = Convert.ToInt32(maskedTextBox1.Text);
                     c.contacto = textBox7.Text; ;
                     c.correo = textBox8.Text;
-
-
-                if (NCliente.Actualizar(c))
+                if (isValid(textBox8.Text))
                 {
-                    MessageBox.Show("Se actualizo correctamente", "Aviso");
-                    id();
-                    listarcategoria();
-                    listar();
-                    limpiar();
+
+                    if (NCliente.Actualizar(c))
+                    {
+                        MessageBox.Show("Se actualizo correctamente", "Aviso");
+                        id();
+                        listarcategoria();
+                        listar();
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Aviso");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Aviso");
+                    MessageBox.Show("Revise que su correo electronico contenga el formato correcto","Error");
                 }
             }
             catch (Exception ex)

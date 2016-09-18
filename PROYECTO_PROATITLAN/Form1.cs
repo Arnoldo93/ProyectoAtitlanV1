@@ -187,6 +187,19 @@ namespace PROYECTO_PROATITLAN
             f.Refresh();
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.MdiChildren.Length > 1)
+            {
+                MessageBox.Show("Cierre todos los formularios antes de salir", "Aviso");
+                e.Cancel = true;
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
         private void buttonItem30_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(moneda))
@@ -206,6 +219,8 @@ namespace PROYECTO_PROATITLAN
         {
             usuario();
             imagendefondo();
+            Login l = new Login();
+            l.Close();
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)

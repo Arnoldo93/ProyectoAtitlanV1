@@ -90,7 +90,9 @@ namespace PROYECTO_PROATITLAN
                         Program.idempleado = Id;
                         Program.puesto = puesto;
                         Program.usuario = nombre;
+                        this.Hide();
                         f.Show();
+
                     }
                     else
                     {
@@ -172,6 +174,7 @@ namespace PROYECTO_PROATITLAN
                             Program.idempleado = Id;
                             Program.puesto = puesto;
                             Program.usuario = nombre;
+                            this.Hide();
                             f.Show();
                         }
                         else
