@@ -125,10 +125,10 @@ namespace PROYECTO_PROATITLAN
         {
             //int alto=Screen.PrimaryScreen.Bounds.Height ;
             //int ancho = Screen.PrimaryScreen.Bounds.Width;
-          //  this.Size = new Size(alto, ancho);
-            
+            //  this.Size = new Size(alto, ancho);
+           
             label1.Text = DateTime.Now.ToLongTimeString();
-            label2.Text = DateTime.Now.ToLongDateString();  
+            label2.Text = DateTime.Now.ToLongDateString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

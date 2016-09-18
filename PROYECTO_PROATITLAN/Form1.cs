@@ -74,9 +74,17 @@ namespace PROYECTO_PROATITLAN
 
         private void buttonItem1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Login l = new Login();
-            l.Show();
+            if (this.MdiChildren.Length > 1)
+            {
+                MessageBox.Show("Cierre todos los formularios antes de salir", "Aviso");
+            }
+            else
+            {
+                this.Hide();
+                Login l = new Login();
+                l.Show();
+            }
+            
         }
 
         private void buttonItem3_Click(object sender, EventArgs e)
