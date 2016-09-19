@@ -62,17 +62,21 @@ namespace PROYECTO_PROATITLAN
                     c.Id_medida = Convert.ToInt32(textBox1.Text);
                     c.Nombre = Convert.ToString(textBox2.Text);
 
-                    if (NMedida.Actualizar(c))
-                    {
-                        MessageBox.Show("Se actualizo correctamente", "Aviso");
-                        limpiar();
-                        id_medida();
-                        ListaMedida();
+                if (NMedida.Actualizar(c))
+                {
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
+                    limpiar();
+                    id_medida();
+                    ListaMedida();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
-                    else
-                    {
-                        MessageBox.Show("Error", "Aviso");
-                    }
+                else
+                {
+                    MessageBox.Show("Error", "Aviso");
+                }
             }
             catch (Exception ex)
             {
@@ -94,6 +98,10 @@ namespace PROYECTO_PROATITLAN
                     limpiar();
                     id_medida();
                     ListaMedida();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
             }
             catch (Exception ex)

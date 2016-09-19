@@ -78,6 +78,10 @@ namespace PROYECTO_PROATITLAN
                     ListadoFamilias();
                     ListaSubcategorias();
                     idSubCategoria();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
                 else
                 {
@@ -96,20 +100,24 @@ namespace PROYECTO_PROATITLAN
             {
                     var c = new DSubcategoriaDesecho();
                     c.Id_SubCategoria = Convert.ToInt32(textBox1.Text);
- 
-                    if (NSubcategoriaDesecho.Eliminar(c))
-                    {
-                        MessageBox.Show("Se elimino correctamente", "Aviso");
-                        limpiar();
-                        ListadoCategorias();
-                        ListadoFamilias();
-                        ListaSubcategorias();
-                        idSubCategoria();
+
+                if (NSubcategoriaDesecho.Eliminar(c))
+                {
+                    MessageBox.Show("Se elimino correctamente", "Aviso");
+                    limpiar();
+                    ListadoCategorias();
+                    ListadoFamilias();
+                    ListaSubcategorias();
+                    idSubCategoria();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
-                    else
-                    {
-                        MessageBox.Show("Error", "Aviso");
-                    }
+                else
+                {
+                    MessageBox.Show("Error", "Aviso");
+                }
             }
             catch (Exception ex)
             {

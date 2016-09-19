@@ -67,17 +67,21 @@ namespace PROYECTO_PROATITLAN
                     c.Id_Tipocentro = Convert.ToInt32(textBox1.Text);
                     c.Nombre = textBox2.Text;
 
-                    if (NTipoCentro.Actualizar(c))
-                    {
-                        MessageBox.Show("Se actualizo correctamente", "Aviso");
-                        id_tipocentro();
-                        listartipocentro();
+                if (NTipoCentro.Actualizar(c))
+                {
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
+                    id_tipocentro();
+                    listartipocentro();
                     limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error", "Aviso");
-                    }
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Aviso");
+                }
             }
             catch (Exception ex)
             {
@@ -95,17 +99,21 @@ namespace PROYECTO_PROATITLAN
                     var c = new DTipoCentro();
                     c.Id_Tipocentro = Convert.ToInt32(textBox1.Text);
 
-                    if (NTipoCentro.Eliminar(c))
-                    {
-                        MessageBox.Show("Se elimino correctamente", "Aviso");
-                        id_tipocentro();
-                        listartipocentro();
+                if (NTipoCentro.Eliminar(c))
+                {
+                    MessageBox.Show("Se elimino correctamente", "Aviso");
+                    id_tipocentro();
+                    listartipocentro();
                     limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error", "Aviso");
-                    }
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Aviso");
+                }
             }
             catch (Exception ex)
             {

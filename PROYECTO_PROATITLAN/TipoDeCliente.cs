@@ -96,7 +96,11 @@ namespace PROYECTO_PROATITLAN
                         id();
                         limpiar();
                         listado();
-                    }
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                }
                     else
                     {
                         MessageBox.Show("Error, Verifique que los datos sean correctos.");
@@ -121,6 +125,10 @@ namespace PROYECTO_PROATITLAN
                     id();
                     limpiar();
                     listado();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
                 else
                 {

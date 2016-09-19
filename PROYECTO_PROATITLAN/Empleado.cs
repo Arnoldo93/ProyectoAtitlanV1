@@ -100,14 +100,18 @@ namespace PROYECTO_PROATITLAN
                     c.Id_Centro = Convert.ToInt32(comboBox2.SelectedValue);
 
 
-                    if (NEmpleado.Actualizar(c))
-                    {
-                        MessageBox.Show("Se actualizo correctamente", "Aviso");
-                        idempleado();
-                        limpiar();
-                        Listacentros();
-                        ListaPuestos();
-                        ListaEmpleados();
+                if (NEmpleado.Actualizar(c))
+                {
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
+                    idempleado();
+                    limpiar();
+                    Listacentros();
+                    ListaPuestos();
+                    ListaEmpleados();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
 
                 else
@@ -139,6 +143,10 @@ namespace PROYECTO_PROATITLAN
                         Listacentros();
                         ListaPuestos();
                         ListaEmpleados();
+                        button1.Enabled = true;
+                        button2.Enabled = false;
+                        button3.Enabled = false;
+                        button4.Enabled = false;
                     }
                     else
                     {
@@ -148,7 +156,7 @@ namespace PROYECTO_PROATITLAN
 
                 else
                 {
-                    MessageBox.Show("Error", "Aviso");
+                    MessageBox.Show("Ingrese valores en los campos", "Aviso");
                 }
             }
             catch (Exception ex)

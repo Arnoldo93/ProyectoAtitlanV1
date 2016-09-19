@@ -63,17 +63,21 @@ namespace PROYECTO_PROATITLAN
                     c.Id_Familia = Convert.ToInt32(textBox1.Text);
                     c.Nombre = textBox2.Text;
 
-                    if (NFamilia.Actualizar(c))
-                    {
-                        MessageBox.Show("Se actualizo correctamente", "Aviso");
-                        id_familia();
-                        ListaFamilia();
-                        limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error", "Aviso");
-                    }
+                if (NFamilia.Actualizar(c))
+                {
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
+                    id_familia();
+                    ListaFamilia();
+                    limpiar();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Aviso");
+                }
             }
             catch (Exception ex)
             {
@@ -89,17 +93,21 @@ namespace PROYECTO_PROATITLAN
                     var c = new DFamilia();
                     c.Id_Familia = Convert.ToInt32(textBox1.Text);
 
-                    if (NFamilia.Eliminar(c))
-                    {
-                        MessageBox.Show("Se elimino correctamente", "Aviso");
-                        id_familia();
-                        ListaFamilia();
-                        limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error", "Aviso");
-                    }
+                if (NFamilia.Eliminar(c))
+                {
+                    MessageBox.Show("Se elimino correctamente", "Aviso");
+                    id_familia();
+                    ListaFamilia();
+                    limpiar();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Aviso");
+                }
             }
             catch (Exception ex)
             {

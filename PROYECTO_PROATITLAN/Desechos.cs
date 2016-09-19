@@ -109,16 +109,20 @@ namespace PROYECTO_PROATITLAN
                     c.Estado_desecho = Convert.ToByte(checkBox1.Checked);
 
 
-                    if (NDesechos.Actualizar(c))
-                    {
-                        MessageBox.Show("Se actualizo correctamente", "Aviso");
-                        limpiar();
-                        IdDesecho();
-                        ListadoFamilia();
-                        ListadoCategoria();
-                        ListadoSubCategoria();
-                        ListadoMedida();
-                        Listadodesecho();
+                if (NDesechos.Actualizar(c))
+                {
+                    MessageBox.Show("Se actualizo correctamente", "Aviso");
+                    limpiar();
+                    IdDesecho();
+                    ListadoFamilia();
+                    ListadoCategoria();
+                    ListadoSubCategoria();
+                    ListadoMedida();
+                    Listadodesecho();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
                 }
 
                 else
@@ -150,17 +154,21 @@ namespace PROYECTO_PROATITLAN
                     c.Estado_desecho = Convert.ToByte(checkBox1.Checked);
 
 
-                    if (NDesechos.Eliminar(c))
-                    {
-                        MessageBox.Show("Se elimino correctamente", "Aviso");
-                        limpiar();
-                        IdDesecho();
-                        ListadoFamilia();
-                        ListadoCategoria();
-                        ListadoSubCategoria();
-                        ListadoMedida();
-                        Listadodesecho();
-                    }
+                if (NDesechos.Eliminar(c))
+                {
+                    MessageBox.Show("Se elimino correctamente", "Aviso");
+                    limpiar();
+                    IdDesecho();
+                    ListadoFamilia();
+                    ListadoCategoria();
+                    ListadoSubCategoria();
+                    ListadoMedida();
+                    Listadodesecho();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                }
 
                 else
                 {

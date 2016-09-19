@@ -101,6 +101,10 @@ namespace PROYECTO_PROATITLAN
                     ListaMunicipio();
                     ListaTipocentro();
                     id_centro();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button7.Enabled = false;
                 }
                 else
                 {
@@ -130,6 +134,10 @@ namespace PROYECTO_PROATITLAN
                     ListaMunicipio();
                     ListaTipocentro();
                     id_centro();
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button7.Enabled = false;
                 }
                 else
                 {
