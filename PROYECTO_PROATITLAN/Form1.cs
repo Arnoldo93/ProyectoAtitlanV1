@@ -18,6 +18,8 @@ namespace PROYECTO_PROATITLAN
         {
             InitializeComponent();
 
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
             foreach (Control control in this.Controls)
 
                 if (control is MdiClient)
@@ -33,6 +35,17 @@ namespace PROYECTO_PROATITLAN
         Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos,
             tipocliente,cliente,venta,moneda;
         string opcion;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private void usuario()
         {
             Login l = new Login();
