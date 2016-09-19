@@ -514,7 +514,7 @@ namespace PROYECTO_PROATITLAN
                     precioventa = datos.Rows[0][3].ToString();
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 //MessageBox.Show(ex.Message);
             }
