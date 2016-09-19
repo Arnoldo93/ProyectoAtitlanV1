@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 using System.IO;
 
@@ -16,6 +17,18 @@ namespace PROYECTO_PROATITLAN
         public Form1()
         {
             InitializeComponent();
+
+            foreach (Control control in this.Controls)
+
+                if (control is MdiClient)
+
+                {
+
+                    MethodInfo method = ((MdiClient)control).GetType().GetMethod("SetStyle", BindingFlags.Instance | BindingFlags.NonPublic);
+
+                    method.Invoke((MdiClient)control, new Object[] { ControlStyles.OptimizedDoubleBuffer, true });
+
+                }
         }
         Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos,
             tipocliente,cliente,venta,moneda;
