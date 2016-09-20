@@ -360,9 +360,9 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(110, 169);
+            this.textBox2.Location = new System.Drawing.Point(91, 169);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(578, 40);
+            this.textBox2.Size = new System.Drawing.Size(620, 40);
             this.textBox2.TabIndex = 32;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

@@ -91,7 +91,8 @@ namespace PROYECTO_PROATITLAN
 
         private void GenerarUserYPass_Load(object sender, EventArgs e)
         {
-            textBox2.Text = nombre;
+            textBox2.Text = nombre.ToUpper();
+
         }
     }
 }
