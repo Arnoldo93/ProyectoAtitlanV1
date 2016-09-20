@@ -223,12 +223,20 @@ namespace PROYECTO_PROATITLAN
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.MdiChildren.Length > 1)
+            try
             {
-                MessageBox.Show("Cierre todos los formularios antes de salir", "Aviso");
-                e.Cancel = true;
+                if (this.MdiChildren.Length > 1)
+                {
+                    //MessageBox.Show(this.ActiveMdiChild.Text);
+                    MessageBox.Show("Cierre todos los formularios antes de salir\n\n Formulario activo:" + this.ActiveMdiChild.Text, "Aviso");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
-            else
+            catch(Exception)
             {
                 Application.Exit();
             }

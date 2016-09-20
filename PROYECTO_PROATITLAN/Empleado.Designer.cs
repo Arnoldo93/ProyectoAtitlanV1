@@ -62,6 +62,7 @@
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.groupPanel3.SuspendLayout();
@@ -224,7 +225,7 @@
             // button2
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(149, 3);
+            this.button2.Location = new System.Drawing.Point(158, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 74);
             this.button2.TabIndex = 1;
@@ -235,7 +236,7 @@
             // button3
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(277, 3);
+            this.button3.Location = new System.Drawing.Point(310, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 74);
             this.button3.TabIndex = 2;
@@ -246,7 +247,7 @@
             // button4
             // 
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(399, 3);
+            this.button4.Location = new System.Drawing.Point(434, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 74);
             this.button4.TabIndex = 3;
@@ -322,7 +323,7 @@
             this.groupPanel2.Controls.Add(this.comboBox1);
             this.groupPanel2.Controls.Add(this.label10);
             this.groupPanel2.Controls.Add(this.label9);
-            this.groupPanel2.Location = new System.Drawing.Point(417, 81);
+            this.groupPanel2.Location = new System.Drawing.Point(398, 81);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(234, 152);
             // 
@@ -381,14 +382,15 @@
             // 
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.button5);
             this.groupPanel3.Controls.Add(this.checkBox2);
             this.groupPanel3.Controls.Add(this.textBox8);
             this.groupPanel3.Controls.Add(this.textBox7);
             this.groupPanel3.Controls.Add(this.label7);
             this.groupPanel3.Controls.Add(this.label8);
-            this.groupPanel3.Location = new System.Drawing.Point(690, 81);
+            this.groupPanel3.Location = new System.Drawing.Point(649, 81);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(238, 159);
+            this.groupPanel3.Size = new System.Drawing.Size(341, 159);
             // 
             // 
             // 
@@ -442,9 +444,9 @@
             this.groupPanel4.Controls.Add(this.button2);
             this.groupPanel4.Controls.Add(this.button3);
             this.groupPanel4.Controls.Add(this.button4);
-            this.groupPanel4.Location = new System.Drawing.Point(417, 246);
+            this.groupPanel4.Location = new System.Drawing.Point(396, 246);
             this.groupPanel4.Name = "groupPanel4";
-            this.groupPanel4.Size = new System.Drawing.Size(511, 104);
+            this.groupPanel4.Size = new System.Drawing.Size(553, 104);
             // 
             // 
             // 
@@ -510,7 +512,7 @@
             this.groupPanel5.Controls.Add(this.dataGridView1);
             this.groupPanel5.Location = new System.Drawing.Point(58, 356);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(870, 210);
+            this.groupPanel5.Size = new System.Drawing.Size(932, 210);
             // 
             // 
             // 
@@ -554,9 +556,20 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(829, 148);
+            this.dataGridView1.Size = new System.Drawing.Size(893, 148);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // button5
+            // 
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(242, 26);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(78, 74);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Generador";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Empleado
             // 
@@ -623,5 +636,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Button button5;
     }
 }

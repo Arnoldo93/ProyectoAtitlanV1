@@ -23,7 +23,8 @@ namespace PROYECTO_PROATITLAN
             InitializeComponent();
         }
 
-        string puesto="", centro="";
+        string puesto = "", centro = "";
+        public string nombre;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -320,6 +321,24 @@ namespace PROYECTO_PROATITLAN
             dataGridView1.DataSource = NEmpleado.BuscarEmpleado(bus);
             dataGridView1.Refresh();
 
+        }
+        //formulario para user y password
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GenerarUserYPass form = new GenerarUserYPass();
+            form.MdiParent = this.MdiParent;
+            form.FuncionAEecutar += new GenerarUserYPass.Delegado1(FuncionAVincularParagenerador);
+            form.nombre = textBox2.Text;
+            form.Show();
+            
+        }
+
+        //funcion para user y password
+        public void FuncionAVincularParagenerador(string usu, string pa,string nombre)
+        {
+            textBox7.Text = usu;
+            textBox8.Text = pa;
+            textBox2.Text = nombre;
         }
 
         private void Empleado_Load(object sender, EventArgs e)

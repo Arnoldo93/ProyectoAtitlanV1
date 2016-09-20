@@ -139,6 +139,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenerarUserYPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerarUserYPass.Designer.cs">
+      <DependentUpon>GenerarUserYPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="IngresoDesechos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerarUserYPass.resx">
+      <DependentUpon>GenerarUserYPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresoDesechos.resx">
       <DependentUpon>IngresoDesechos.cs</DependentUpon>
