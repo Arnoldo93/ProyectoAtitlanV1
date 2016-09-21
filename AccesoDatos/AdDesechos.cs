@@ -21,12 +21,7 @@ namespace AccesoDatos
             e.Id_familia = Convert.ToInt32(entidad["Id_Familia"]);
             e.Id_categoria = Convert.ToInt32(entidad["Id_Categoria"]);
             e.Id_subcategoria = Convert.ToInt32(entidad["Id_SubCategoria"]);
-            e.Cantida_peso = Convert.ToDecimal(entidad["Cantidad_Peso"]);
             e.Id_medida = Convert.ToInt32(entidad["Id_Medida"]);
-            e.Volumen = Convert.ToInt32(entidad["Volumen"]);
-            e.Precio_costo = Convert.ToDouble(entidad["Precio_Costo"]);
-            e.PrecioVenta = Convert.ToDouble(entidad["Precio_Venta"]);
-            e.Estado_desecho = Convert.ToByte(entidad["Estado_desechos"]);
             return e;
         }
 
@@ -66,12 +61,7 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@idfam", c.Id_familia);
                 cmd.Parameters.AddWithValue("@idcat", c.Id_categoria);
                 cmd.Parameters.AddWithValue("@idsubcat", c.Id_subcategoria);
-                cmd.Parameters.AddWithValue("@cant", c.Cantida_peso);
                 cmd.Parameters.AddWithValue("@idmedi", c.Id_medida);
-                cmd.Parameters.AddWithValue("@vol", c.Volumen);
-                cmd.Parameters.AddWithValue("@precos", c.Precio_costo);
-                cmd.Parameters.AddWithValue("@preven", c.PrecioVenta);
-                cmd.Parameters.AddWithValue("@est", c.Estado_desecho);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
@@ -97,12 +87,7 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@idfam", c.Id_familia);
                 cmd.Parameters.AddWithValue("@idcat", c.Id_categoria);
                 cmd.Parameters.AddWithValue("@idsubcat", c.Id_subcategoria);
-                cmd.Parameters.AddWithValue("@cant", c.Cantida_peso);
                 cmd.Parameters.AddWithValue("@idmedi", c.Id_medida);
-                cmd.Parameters.AddWithValue("@vol", c.Volumen);
-                cmd.Parameters.AddWithValue("@precos", c.Precio_costo);
-                cmd.Parameters.AddWithValue("@preven", c.PrecioVenta);
-                cmd.Parameters.AddWithValue("@est", c.Estado_desecho);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
@@ -121,7 +106,6 @@ namespace AccesoDatos
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
-                cmd.Parameters.AddWithValue("@cant", c.Cantida_peso);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
@@ -162,7 +146,6 @@ namespace AccesoDatos
                 var cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@nom", c.Nombre);
                 cmd.Parameters.AddWithValue("@id", c.Id_desecho);
-                cmd.Parameters.AddWithValue("@vol", c.Volumen);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }

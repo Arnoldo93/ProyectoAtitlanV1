@@ -30,31 +30,8 @@ namespace Entidades
         {
             get; set;
         }
-        public decimal Cantida_peso
-        {
-            get; set;
-        }
+        
         public int Id_medida
-        {
-            get; set;
-        }
-
-        public int Volumen
-        {
-            get; set;
-        }
-
-        public double Precio_costo
-        {
-            get; set;
-        }
-
-        public double PrecioVenta
-        {
-            get; set;
-        }
-
-        public byte Estado_desecho
         {
             get; set;
         }

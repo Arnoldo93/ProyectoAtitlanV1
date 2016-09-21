@@ -51,20 +51,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -380,20 +370,10 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.label12);
-            this.groupPanel1.Controls.Add(this.textBox6);
-            this.groupPanel1.Controls.Add(this.label11);
-            this.groupPanel1.Controls.Add(this.textBox5);
             this.groupPanel1.Controls.Add(this.label2);
             this.groupPanel1.Controls.Add(this.textBox1);
             this.groupPanel1.Controls.Add(this.label3);
             this.groupPanel1.Controls.Add(this.textBox2);
-            this.groupPanel1.Controls.Add(this.label4);
-            this.groupPanel1.Controls.Add(this.textBox3);
-            this.groupPanel1.Controls.Add(this.label5);
-            this.groupPanel1.Controls.Add(this.textBox4);
-            this.groupPanel1.Controls.Add(this.label6);
-            this.groupPanel1.Controls.Add(this.checkBox1);
             this.groupPanel1.Location = new System.Drawing.Point(12, 92);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(383, 270);
@@ -431,38 +411,6 @@
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Datos Generales";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(34, 202);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 13);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "Precio Venta";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(129, 195);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(99, 20);
-            this.textBox6.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(33, 168);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Precio Costo";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(128, 161);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(99, 20);
-            this.textBox5.TabIndex = 4;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -495,57 +443,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(150, 20);
             this.textBox2.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Cantidad / Peso";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(128, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 130);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Volumen";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(128, 123);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(99, 20);
-            this.textBox4.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 229);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Estado";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(140, 229);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(99, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Activo/Inactivo";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -608,20 +505,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label1;
     }
 }
