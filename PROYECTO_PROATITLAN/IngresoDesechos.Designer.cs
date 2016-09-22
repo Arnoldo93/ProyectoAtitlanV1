@@ -72,6 +72,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,7 +104,7 @@
             this.groupPanel1.Controls.Add(this.dateTimePicker1);
             this.groupPanel1.Controls.Add(this.textBox1);
             this.groupPanel1.Controls.Add(this.label1);
-            this.groupPanel1.Location = new System.Drawing.Point(124, 35);
+            this.groupPanel1.Location = new System.Drawing.Point(124, 33);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(494, 139);
             // 
@@ -218,7 +220,7 @@
             this.groupPanel2.Controls.Add(this.textBox5);
             this.groupPanel2.Controls.Add(this.dataGridView1);
             this.groupPanel2.Enabled = false;
-            this.groupPanel2.Location = new System.Drawing.Point(21, 195);
+            this.groupPanel2.Location = new System.Drawing.Point(21, 193);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(687, 305);
             // 
@@ -446,7 +448,7 @@
             this.groupPanel3.Controls.Add(this.button6);
             this.groupPanel3.Controls.Add(this.button2);
             this.groupPanel3.Enabled = false;
-            this.groupPanel3.Location = new System.Drawing.Point(730, 209);
+            this.groupPanel3.Location = new System.Drawing.Point(730, 207);
             this.groupPanel3.Name = "groupPanel3";
             this.groupPanel3.Size = new System.Drawing.Size(111, 114);
             // 
@@ -509,7 +511,7 @@
             this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel4.Controls.Add(this.button1);
             this.groupPanel4.Controls.Add(this.button3);
-            this.groupPanel4.Location = new System.Drawing.Point(730, 56);
+            this.groupPanel4.Location = new System.Drawing.Point(730, 54);
             this.groupPanel4.Name = "groupPanel4";
             this.groupPanel4.Size = new System.Drawing.Size(111, 115);
             // 
@@ -600,11 +602,19 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // IngresoDesechos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 512);
+            this.ClientSize = new System.Drawing.Size(858, 631);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupPanel4);
             this.Controls.Add(this.groupPanel3);
@@ -671,5 +681,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

@@ -26,6 +26,8 @@ namespace PROYECTO_PROATITLAN
 
         private void IngresoDesechos_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            timer2.Start();
             textBox2.Text = Program.usuario;
             comboBox2.Focus();
             listadocentros();
@@ -260,6 +262,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             //boton guardar encabezado
             try
             {
@@ -293,6 +296,7 @@ namespace PROYECTO_PROATITLAN
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            timer2.Stop();
             textBox3.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             comboBox1.SelectedValue = dataGridView1[1, e.RowIndex].Value;
             textBox5.Text = dataGridView1[3, e.RowIndex].Value.ToString();
@@ -439,8 +443,19 @@ namespace PROYECTO_PROATITLAN
             #endregion
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            idencabezado();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            iddetalle();
+        }
+
         private void button3_Click_1(object sender, EventArgs e)
         {
+            timer1.Start();
             //nuevo encabezado
             idencabezado();
             groupPanel1.Enabled = true;

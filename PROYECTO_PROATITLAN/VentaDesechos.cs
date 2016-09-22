@@ -25,6 +25,8 @@ namespace PROYECTO_PROATITLAN
         private List<DDetalleVenta> lista;
         private void VentaDesechos_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            timer2.Start();
             limpiar();
             idencabezado();
             iddetalle();
@@ -100,6 +102,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             try
             {
                 textBox8.Text = 0.ToString();
@@ -239,6 +242,7 @@ namespace PROYECTO_PROATITLAN
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            timer2.Stop();
             textBox4.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             textBox5.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             comboBox4.SelectedValue = dataGridView1[2, e.RowIndex].Value;
@@ -248,6 +252,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button2_Click(object sender, EventArgs e)
         {
+            timer1.Start();
             limpiar();
             idencabezado();
             cliente();
@@ -357,6 +362,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            timer2.Start();
             try
             {
                 var upex = new DExistencias();
@@ -376,6 +382,11 @@ namespace PROYECTO_PROATITLAN
                     {
                         dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
                         MessageBox.Show("Se elimino Correctamente el detalle", "Aviso");
+                        textBox5.Clear();
+                        textBox6.Clear();
+                        textBox7.Clear();
+                        desechos();
+
                     }
                     else
                     {
@@ -411,6 +422,11 @@ namespace PROYECTO_PROATITLAN
             }
 
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            idencabezado();
         }
 
         private void button5_Click(object sender, EventArgs e)
