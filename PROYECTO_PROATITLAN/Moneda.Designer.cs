@@ -523,6 +523,7 @@
             this.Controls.Add(this.ribbonControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Moneda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Moneda";
             this.Load += new System.EventHandler(this.Moneda_Load);
             this.groupPanel3.ResumeLayout(false);

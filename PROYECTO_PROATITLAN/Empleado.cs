@@ -25,6 +25,7 @@ namespace PROYECTO_PROATITLAN
 
         string puesto = "", centro = "";
         public string nombre;
+        Form generaruserypas;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -330,7 +331,6 @@ namespace PROYECTO_PROATITLAN
             form.FuncionAEecutar += new GenerarUserYPass.Delegado1(FuncionAVincularParagenerador);
             form.nombre = textBox2.Text;
             form.Show();
-            
         }
 
         //funcion para user y password
