@@ -327,6 +327,7 @@ namespace PROYECTO_PROATITLAN
         private void button5_Click(object sender, EventArgs e)
         {
             GenerarUserYPass form = new GenerarUserYPass();
+            form.MdiParent = this.MdiParent;
             form.FuncionAEecutar += new GenerarUserYPass.Delegado1(FuncionAVincularParagenerador);
             form.nombre = textBox2.Text;
             form.Show();
