@@ -61,7 +61,7 @@ namespace PROYECTO_PROATITLAN
             {
                 var c = new Dpuesto();
                 c.Id_puesto = Convert.ToInt32(textBox1.Text);
-                c.Nombre_puesto = textBox2.Text;
+                c.Nombre_puesto = textBox2.Text.ToUpper();
                 if (Npuesto.Actualizar(c))
                 {
                     MessageBox.Show("Se actualizo correctamento");

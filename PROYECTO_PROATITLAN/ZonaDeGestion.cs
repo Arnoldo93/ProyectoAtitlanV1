@@ -31,7 +31,7 @@ namespace PROYECTO_PROATITLAN
                 {
                     var c = new DZona();
                     c.Id_zona = Convert.ToInt32(textBox1.Text);
-                    c.Nombrezona = textBox2.Text;
+                    c.Nombrezona = textBox2.Text.ToUpper();
 
                     if (NZona.Agregar(c))
                     {

@@ -62,7 +62,7 @@ namespace PROYECTO_PROATITLAN
             {
                 var c = new DCategoriaDesecho();
                 c.Id_Categoria = Convert.ToInt32(textBox1.Text);
-                c.Nombre = textBox2.Text;
+                c.Nombre = textBox2.Text.ToUpper();
                 c.Id_Familia = Convert.ToInt32(comboBox1.SelectedValue);
 
                 if (NCategoriaDesecho.Actualizar(c))

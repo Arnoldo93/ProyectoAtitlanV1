@@ -80,7 +80,7 @@
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(326, 481);
+            this.textBox2.Location = new System.Drawing.Point(326, 482);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(175, 31);
@@ -123,7 +123,7 @@
             this.label1.Location = new System.Drawing.Point(135, 357);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 18);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 1;
             this.label1.Text = "HORA";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -142,7 +142,7 @@
             this.label2.Location = new System.Drawing.Point(135, 327);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 18);
-            this.label2.TabIndex = 8;
+            this.label2.TabIndex = 0;
             this.label2.Text = "FECHA";
             // 
             // Login

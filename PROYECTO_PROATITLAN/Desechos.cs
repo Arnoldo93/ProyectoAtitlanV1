@@ -84,7 +84,7 @@ namespace PROYECTO_PROATITLAN
             {
                     var c = new DDesechos();
                     c.Id_desecho = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
+                    c.Nombre = textBox2.Text.ToUpper();
                     c.Id_familia = Convert.ToInt32(comboBox1.SelectedValue);
                     c.Id_categoria = Convert.ToInt32(comboBox2.SelectedValue);
                     c.Id_subcategoria = Convert.ToInt32(comboBox4.SelectedValue);
@@ -124,11 +124,6 @@ namespace PROYECTO_PROATITLAN
             {
                     var c = new DDesechos();
                     c.Id_desecho = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
-                    c.Id_familia = int.Parse(familia);
-                    c.Id_categoria = int.Parse(categoria);
-                    c.Id_subcategoria = int.Parse(subcategoria);
-                    c.Id_medida = Convert.ToInt32(medida);
 
                 if (NDesechos.Eliminar(c))
                 {
@@ -308,7 +303,7 @@ namespace PROYECTO_PROATITLAN
             comboBox1.SelectedValue = dataGridView1[2, e.RowIndex].Value;
             comboBox2.SelectedValue = dataGridView1[4, e.RowIndex].Value;
             comboBox4.SelectedValue = dataGridView1[6, e.RowIndex].Value;
-            comboBox3.SelectedValue = dataGridView1[9, e.RowIndex].Value;
+            comboBox3.SelectedValue = dataGridView1[8, e.RowIndex].Value;
             button1.Enabled = false;
             button2.Enabled = true;
             button3.Enabled = true;

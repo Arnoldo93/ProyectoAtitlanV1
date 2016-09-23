@@ -86,7 +86,7 @@ namespace PROYECTO_PROATITLAN
                 }
                 var c = new DDatosCentro();
                 c.Id_Centro = Convert.ToInt32(textBox1.Text);
-                c.Nombre = textBox5.Text;
+                c.Nombre = textBox5.Text.ToUpper();
                 c.Id_Municipio = Convert.ToInt32(comboBox2.SelectedValue);
                 c.Id_tipo = Convert.ToInt32(comboBox1.SelectedValue);
                 c.Telefono = int.Parse(textBox6.Text);

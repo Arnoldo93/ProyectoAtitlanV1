@@ -68,7 +68,7 @@ namespace PROYECTO_PROATITLAN
                 
                     var c = new DMunicipio();
                     c.Id_Municipio = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
+                    c.Nombre = textBox2.Text.ToUpper();
                     c.Id_zona = Convert.ToInt32(comboBox1.SelectedValue);
                 if (NMunicipio.Actualizar(c))
                 {

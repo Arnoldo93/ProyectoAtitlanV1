@@ -65,7 +65,7 @@ namespace PROYECTO_PROATITLAN
                 
                     var c = new DTipoCentro();
                     c.Id_Tipocentro = Convert.ToInt32(textBox1.Text);
-                    c.Nombre = textBox2.Text;
+                    c.Nombre = textBox2.Text.ToUpper();
 
                 if (NTipoCentro.Actualizar(c))
                 {
