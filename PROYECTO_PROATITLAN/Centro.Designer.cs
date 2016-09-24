@@ -56,13 +56,13 @@
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.button7 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.ribbonControl1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -449,6 +449,15 @@
             this.groupPanel2.TabIndex = 0;
             this.groupPanel2.Text = "Datos Generales";
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(119, 109);
+            this.maskedTextBox1.Mask = "99999999";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(84, 26);
+            this.maskedTextBox1.TabIndex = 2;
+            // 
             // groupPanel3
             // 
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
@@ -500,7 +509,7 @@
             // 
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(17, 96);
+            this.comboBox2.Location = new System.Drawing.Point(17, 105);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(254, 28);
             this.comboBox2.TabIndex = 1;
@@ -583,15 +592,6 @@
             this.button7.Text = "Nuevo";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(119, 109);
-            this.maskedTextBox1.Mask = "99999999";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(84, 26);
-            this.maskedTextBox1.TabIndex = 50;
             // 
             // Centro
             // 

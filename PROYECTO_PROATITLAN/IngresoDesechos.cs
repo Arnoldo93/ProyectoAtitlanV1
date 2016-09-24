@@ -105,104 +105,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button6_Click(object sender, EventArgs e)
         {
-            // boton agregar
-            #region desechos
-            //try
-            //{
-            //    button1.Enabled = false;
-            //    button3.Enabled = true;
-
-            //    lista = new List<DDetalleIngreso>();
-            //    d = new DDetalleIngreso();
-            //    d.idencabezado = Convert.ToInt32(textBox1.Text);
-            //    d.iddetalle = Convert.ToInt32(textBox3.Text);
-            //    d.iddesecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //    d.cantidad = Convert.ToInt32(textBox5.Text);
-            //    d.idVehiculo = Convert.ToInt32(comboBox3.SelectedValue);
-            //    lista.Add(d);
-
-            //    var i = new DEncabezadoDesecho();
-            //    i.listardetalle = lista;
-            //    //Actualizar volumen
-            //    if (comboBox1.Text == "ORGANICO")
-            //    {
-
-            //        var cantidadvolumen = NDesechos.Volumen(comboBox1.Text);
-            //        int tot = Convert.ToInt32(cantidadvolumen) + Convert.ToInt32(textBox5.Text);
-
-            //        var actualizarvolumen = new DDesechos();
-            //        actualizarvolumen.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //        actualizarvolumen.Nombre = comboBox1.Text;
-            //        actualizarvolumen.Volumen = tot;
-
-            //        if (NDesechos.ActualizarVolumen(actualizarvolumen))
-            //        {
-            //            MessageBox.Show("Se actualizo volumen");
-
-            //            if (NEncabezadoDesechos.DetalleEncabezado(i))
-            //            {
-            //                MessageBox.Show("Se agrego");
-            //                dataGridView1.Columns["Column5"].Visible = false;
-            //                dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Error");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error no se actualizo volumen");
-            //        }
-
-            //    }
-            //    else
-            //    {
-
-            //        //actualizar cantidad peso
-            //        var cantidadpeso = NDesechos.CantidadProductoPeso((comboBox1.Text));
-
-            //        int total = Convert.ToInt32(cantidadpeso) + Convert.ToInt32(textBox5.Text);
-
-            //        var actualizarcantidad = new DDesechos();
-            //        actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //        actualizarcantidad.Nombre = comboBox1.Text;
-            //        actualizarcantidad.Cantida_peso =Convert.ToDecimal(total);
-
-            //        if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
-            //        {
-            //            MessageBox.Show("Se actualizo cantidad peso");
-            //            if (NEncabezadoDesechos.DetalleEncabezado(i))
-            //            {
-
-            //                MessageBox.Show("Se agrego");
-            //                dataGridView1.Columns["Column5"].Visible = false;
-            //                dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad, comboBox3.Text);
-            //                iddetalle();
-
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Error al agregar cantidad peso");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error al actualizar cantidad peso");
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //    MessageBox.Show("Error, no se agrego verifique sus datos", "Aviso");
-
-            //}
-            //iddetalle();
-            //desechos();
-            //vehiculo();
-            //textBox5.Clear();
-            #endregion
 
             #region existencias   
             //existencias
@@ -309,81 +211,7 @@ namespace PROYECTO_PROATITLAN
         private void button2_Click_1(object sender, EventArgs e)
         {
             //eliminar desecho
-            #region eliminardesecho
-
-            //try
-            //{
-            //    if (comboBox1.Text == "ORGANICO")
-            //    {
-
-            //        var cantidadvolumen = NDesechos.Volumen(comboBox1.Text);
-            //        int tot = Convert.ToInt32(cantidadvolumen) - Convert.ToInt32(textBox5.Text);
-
-            //        var actualizarvolumen = new DDesechos();
-            //        actualizarvolumen.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //        actualizarvolumen.Nombre = comboBox1.Text;
-            //        actualizarvolumen.Volumen = tot;
-
-            //        if (NDesechos.ActualizarVolumen(actualizarvolumen))
-            //        {
-            //            MessageBox.Show("Se actualizo volumen");
-            //            //eliminar desecho
-            //            if (NEncabezadoDesechos.EliminarDetalleEncabezado(Convert.ToInt32(textBox3.Text)))
-            //            {
-            //                MessageBox.Show("Se Elimino correctamente");
-            //                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Error");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("No se actualizo volumen");
-            //        }
-
-            //    }//fin if organico
-            //    else
-            //    {
-
-            //        //actualizar cantidad peso
-            //        var cantidadpeso = NDesechos.CantidadProductoPeso((comboBox1.Text));
-
-            //        int total = Convert.ToInt32(cantidadpeso) - Convert.ToInt32(textBox5.Text);
-
-            //        var actualizarcantidad = new DDesechos();
-            //        actualizarcantidad.Id_desecho = Convert.ToInt32(comboBox1.SelectedValue);
-            //        actualizarcantidad.Nombre = comboBox1.Text;
-            //        actualizarcantidad.Cantida_peso = Convert.ToDecimal(total);
-
-            //        if (NDesechos.ActualizarCantidadPeso(actualizarcantidad))
-            //        {
-            //            MessageBox.Show("Se actualizo cantidad peso");
-
-            //            //eliminar desecho
-            //            if (NEncabezadoDesechos.EliminarDetalleEncabezado(Convert.ToInt32(textBox3.Text)))
-            //            {
-            //                MessageBox.Show("Se Elimino correctamente");
-            //                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Error");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Error al actualizar cantidad peso");
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-#endregion
+           
             
             
             #region eliminarexistencia
@@ -509,10 +337,10 @@ namespace PROYECTO_PROATITLAN
                     pv.idcentro = Convert.ToInt32(comboBox2.SelectedValue);
                     pv.iddesecho = Convert.ToInt32(comboBox1.SelectedValue);
                     datos = NExistencias.pesoyvolumen(pv);
-                    peso = datos.Rows[0][0].ToString();
+                    //peso = datos.Rows[0][0].ToString();
                     volumen = datos.Rows[0][1].ToString();
-                    preciocompra = datos.Rows[0][2].ToString();
-                    precioventa = datos.Rows[0][3].ToString();
+                    //preciocompra = datos.Rows[0][2].ToString();
+                    //precioventa = datos.Rows[0][3].ToString();
                 }
                 else
                 {
@@ -524,9 +352,9 @@ namespace PROYECTO_PROATITLAN
                     pv.iddesecho = Convert.ToInt32(comboBox1.SelectedValue);
                     datos = NExistencias.pesoyvolumen(pv);
                     peso = datos.Rows[0][0].ToString();
-                    volumen = datos.Rows[0][1].ToString();
-                    preciocompra = datos.Rows[0][2].ToString();
-                    precioventa = datos.Rows[0][3].ToString();
+                    //volumen = datos.Rows[0][1].ToString();
+                    //preciocompra = datos.Rows[0][2].ToString();
+                    //precioventa = datos.Rows[0][3].ToString();
                 }
             }
             catch(Exception)
