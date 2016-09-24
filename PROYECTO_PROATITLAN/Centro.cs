@@ -41,7 +41,7 @@ namespace PROYECTO_PROATITLAN
                     c.Nombre = textBox5.Text.ToUpper();
                     c.Id_Municipio =Convert.ToInt32(municipio);
                     c.Id_tipo =Convert.ToInt32 (tipo_centro);
-                    c.Telefono =Convert.ToInt32 ( textBox6.Text);
+                    c.Telefono =Convert.ToInt32 (maskedTextBox1.Text);
                     c.Direccion = textBox7.Text;
                     c.Estado = Convert.ToByte(checkBox1.Checked);
 
@@ -89,7 +89,7 @@ namespace PROYECTO_PROATITLAN
                 c.Nombre = textBox5.Text.ToUpper();
                 c.Id_Municipio = Convert.ToInt32(comboBox2.SelectedValue);
                 c.Id_tipo = Convert.ToInt32(comboBox1.SelectedValue);
-                c.Telefono = int.Parse(textBox6.Text);
+                c.Telefono = int.Parse(maskedTextBox1.Text);
                 c.Direccion = textBox7.Text;
                 c.Estado = Convert.ToByte(checkBox1.Checked);
 
@@ -187,7 +187,7 @@ namespace PROYECTO_PROATITLAN
         {
             id_centro();
             textBox5.Clear();
-            textBox6.Clear();
+            maskedTextBox1.Clear();
             textBox7.Clear();
             checkBox1.Checked = false;
             ListaCentros();
@@ -218,7 +218,7 @@ namespace PROYECTO_PROATITLAN
             textBox5.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             comboBox2.SelectedValue = dataGridView1[2, e.RowIndex].Value;
             comboBox1.SelectedValue = dataGridView1[4, e.RowIndex].Value;
-            textBox6.Text = dataGridView1[6, e.RowIndex].Value.ToString();
+            maskedTextBox1.Text = dataGridView1[6, e.RowIndex].Value.ToString();
             textBox7.Text = dataGridView1[7, e.RowIndex].Value.ToString();
             checkBox1.Checked =Convert.ToBoolean(dataGridView1[8, e.RowIndex].Value);
             button1.Enabled = false;
@@ -280,7 +280,7 @@ namespace PROYECTO_PROATITLAN
         private void limpiar()
         {
             textBox5.Clear();
-            textBox6.Clear();
+            maskedTextBox1.Clear();
             textBox7.Clear();
             checkBox1.Checked = false;
             textBox5.Focus();
