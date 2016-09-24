@@ -114,8 +114,18 @@ namespace PROYECTO_PROATITLAN
             upex.preciocosto = Convert.ToDouble(textBox4.Text);
             upex.precioventa = Convert.ToDouble(textBox6.Text);
             //se suma la cantidad y el peso a lo que ya esta en la base de datos
-            upex.cantidadpeso = Convert.ToDouble(textBox5.Text) + Convert.ToDouble(peso);
-            upex.cantidadvolumen = Convert.ToDouble(textBox7.Text) + Convert.ToDouble(volumen);
+            if (comboBox1.Text == "ORGANICO")
+            { 
+                upex.cantidadvolumen = Convert.ToDouble(textBox7.Text) + Convert.ToDouble(volumen);
+                upex.cantidadpeso = Convert.ToDouble(0);
+            }
+            else
+            {
+                upex.cantidadvolumen = Convert.ToDouble(0);
+                upex.cantidadpeso = Convert.ToDouble(textBox5.Text) + Convert.ToDouble(peso);
+            }
+            
+           
 
             if (NExistencias.Agregar(upex))
             {
@@ -127,7 +137,17 @@ namespace PROYECTO_PROATITLAN
                 d.idencabezado = Convert.ToInt32(textBox1.Text);
                 d.iddetalle = Convert.ToInt32(textBox3.Text);
                 d.iddesecho = Convert.ToInt32(comboBox1.SelectedValue);
-                d.cantidad = Convert.ToInt32(textBox5.Text);
+                //CANTIDAD DE DETALLE (ORGANICO U OTROS)
+                int can=0;
+                if (comboBox1.Text == "ORGANICO")
+                {
+                    can = Convert.ToInt32(textBox7.Text);
+                }
+                else
+                {
+                    can = Convert.ToInt32(textBox5.Text);
+                }
+                d.cantidad = Convert.ToInt32(can);
                 d.idVehiculo = Convert.ToInt32(comboBox3.SelectedValue);
                 lista.Add(d);
 
@@ -138,11 +158,24 @@ namespace PROYECTO_PROATITLAN
 
                     MessageBox.Show("Se agrego");
                     dataGridView1.Columns["Column5"].Visible = false;
-                    dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad,textBox7.Text,comboBox3.Text,textBox4.Text,textBox6.Text);
+                    //
+                    if (comboBox1.Text == "ORGANICO")
+                    {
+                        dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, 0,textBox7.Text,comboBox3.Text,textBox4.Text,textBox6.Text);
                     iddetalle();
                     button3.Enabled = true;
                     textBox4.Clear();
                     textBox6.Clear();
+                    }
+                    else
+                    {
+                        dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad , 0, comboBox3.Text, textBox4.Text, textBox6.Text);
+                        iddetalle();
+                        button3.Enabled = true;
+                        textBox4.Clear();
+                        textBox6.Clear();
+                    }
+                    
 
                 }
                 else
