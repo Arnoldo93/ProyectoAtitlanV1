@@ -269,6 +269,7 @@ namespace PROYECTO_PROATITLAN
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            timer2.Start();
             button2.Enabled = true;
             try
             {
@@ -427,6 +428,11 @@ namespace PROYECTO_PROATITLAN
         private void timer1_Tick(object sender, EventArgs e)
         {
             idencabezado();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            iddetalle();
         }
 
         private void button5_Click(object sender, EventArgs e)
