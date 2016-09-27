@@ -31,5 +31,10 @@ namespace Negocio
         {
             return AdExistencias.pesoyvolumen(e);
         }
+
+        public static DataTable listadoexistencia(DExistencias e)
+        {
+            return AdExistencias.listadodeexistencias(e);
+        }
     }
 }

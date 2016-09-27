@@ -114,5 +114,20 @@ namespace AccesoDatos
 
             }
         }
+
+        public static DataTable listadodeexistencias(DExistencias c)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                string consulta = "Select existencias.Id_Existencias,centro.Nombre_centro,desechos.Nombre as Desecho,existencias.Peso,existencias.Volumen,existencias.Precio_Costo,existencias.Precio_Venta From existencias,centro,desechos where existencias.centro_Id_Centro=centro.Id_Centro and existencias.desechos_Id_Desecho=desechos.Id_Desecho and existencias.centro_Id_Centro=@idcen";
+                MySqlCommand cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@idcen", c.idcentro);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmd);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
     }
 }
