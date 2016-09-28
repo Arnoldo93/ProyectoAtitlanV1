@@ -155,21 +155,6 @@ namespace PROYECTO_PROATITLAN
             //}
         }
 
-        private void buttonItem28_Click(object sender, EventArgs e)
-        {
-            if (!this.MdiChildren.Contains(cliente))
-            {
-                cliente = new Clientes();
-                cliente.MdiParent = this;
-                cliente.Show();
-            }
-            else
-            {
-                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cliente.Focus();
-            }
-        }
-
         private void buttonItem29_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(venta))
@@ -242,6 +227,36 @@ namespace PROYECTO_PROATITLAN
             }
         }
 
+        private void buttonItem34_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(tipocliente))
+            {
+                tipocliente = new TipoDeCliente();
+                tipocliente.MdiParent = this;
+                tipocliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tipocliente.Focus();
+            }
+        }
+
+        private void buttonItem35_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(cliente))
+            {
+                cliente = new Clientes();
+                cliente.MdiParent = this;
+                cliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cliente.Focus();
+            }
+        }
+
         private void buttonItem30_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(moneda))
@@ -268,21 +283,6 @@ namespace PROYECTO_PROATITLAN
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void buttonItem27_Click(object sender, EventArgs e)
-        {
-            if (!this.MdiChildren.Contains(tipocliente))
-            {
-                tipocliente = new TipoDeCliente();
-                tipocliente.MdiParent = this;
-                tipocliente.Show();
-            }
-            else
-            {
-                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tipocliente.Focus();
-            }
         }
 
         private void imagendefondo()
