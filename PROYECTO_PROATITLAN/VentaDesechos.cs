@@ -109,7 +109,7 @@ namespace PROYECTO_PROATITLAN
                 var inser = new DEncabezadoVentas();
                 inser.idventa = Convert.ToInt32(textBox1.Text);
                 inser.total = Convert.ToDecimal(textBox8.Text);
-                inser.fecharealizado = DateTime.Now;
+                inser.fecharealizado = dateTimePicker1.Value;
                 inser.idempleado = Convert.ToInt32(Program.idempleado);
                 inser.idmoneda = Convert.ToInt32(comboBox1.SelectedValue);
                 inser.idcliente = Convert.ToInt32(comboBox3.SelectedValue);
@@ -300,7 +300,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (NExistencias.Actualizarexistenciaventa(upex))
                     {
-                        MessageBox.Show("Se actualizo con exito", "Aviso");
+                       // MessageBox.Show("Se actualizo con exito", "Aviso");
 
                         decimal TOT = Convert.ToInt32(textBox6.Text) * Convert.ToInt32(textBox5.Text);
                         textBox7.Text = TOT.ToString();
@@ -324,14 +324,15 @@ namespace PROYECTO_PROATITLAN
                             dataGridView1.Rows.Add(d.iddetalleventa, d.cantidad, d.iddesecho, comboBox4.Text, d.precio, d.subtotal);
                             int result = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToInt32(x.Cells["Column5"].Value));
                             textBox8.Text = result.ToString();
-                            MessageBox.Show("Se agrego correctamente");
+                            //MessageBox.Show("Se agrego correctamente");
 
                             var actuatotal = new DEncabezadoVentas();
                             actuatotal.idventa = Convert.ToInt32(textBox1.Text);
                             actuatotal.total = Convert.ToDecimal(textBox8.Text);
                             if (NEncabezadoVenta.ActualizarTotalVenta(actuatotal))
                             {
-                                MessageBox.Show("Se actualizo Correctamente el Total", "Aviso");
+                                // MessageBox.Show("Se actualizo Correctamente el Total", "Aviso");
+                                MessageBox.Show("Se agrego correctamente","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
                                 textBox5.Clear();
                                 textBox6.Clear();
                                 textBox7.Clear();
@@ -339,18 +340,18 @@ namespace PROYECTO_PROATITLAN
                             }
                             else
                             {
-                                MessageBox.Show("Verifique sus datos", "Error");
+                                MessageBox.Show("Verifique sus datos", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             }
 
                         }
                         else
                         {
-                            MessageBox.Show("No se agrego", "Error");
+                            MessageBox.Show("No se agrego", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se realizo la actualizacion, verifique sus datos", "Error");
+                        MessageBox.Show("No se realizo la actualizacion, verifique sus datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -363,7 +364,6 @@ namespace PROYECTO_PROATITLAN
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            timer2.Start();
             try
             {
                 var upex = new DExistencias();
@@ -373,7 +373,7 @@ namespace PROYECTO_PROATITLAN
                 //upex.precioventa = Convert.ToDouble(textBox6.Text);
                 //se suma la cantidad y el peso a lo que ya esta en la base de datos
                 upex.cantidadpeso = Convert.ToDouble(textBox5.Text) + Convert.ToDouble(peso);
-                upex.cantidadvolumen = Convert.ToDouble(textBox7.Text) + Convert.ToDouble(0);
+                upex.cantidadvolumen = Convert.ToDouble(0);
 
                 if (NExistencias.Actualizarexistenciaventa(upex))
                 {
@@ -381,12 +381,28 @@ namespace PROYECTO_PROATITLAN
 
                     if (NEncabezadoVenta.EliminarDetalleEncabezado(Convert.ToInt32(textBox4.Text)))
                     {
+                        MessageBox.Show("se elimino encabezado", "Aviso");
                         dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-                        MessageBox.Show("Se elimino Correctamente el detalle", "Aviso");
-                        textBox5.Clear();
-                        textBox6.Clear();
-                        textBox7.Clear();
-                        desechos();
+                        //actualizar total
+                        decimal resul=0;
+                        var actuatotal = new DEncabezadoVentas();
+                        actuatotal.idventa = Convert.ToInt32(textBox1.Text);
+                        actuatotal.total = Convert.ToDecimal(resul);
+                        resul = Convert.ToDecimal(textBox8.Text) - Convert.ToDecimal(textBox7.Text);
+
+                        if (NEncabezadoVenta.ActualizarTotalVenta(actuatotal))
+                        {
+                            MessageBox.Show("Se elimino Correctamente el detalle", "Aviso");
+                            desechos();
+                            textBox5.Clear();
+                            textBox6.Clear();
+                            textBox7.Clear();
+                            timer2.Start();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error", "Aviso");
+                        }
 
                     }
                     else

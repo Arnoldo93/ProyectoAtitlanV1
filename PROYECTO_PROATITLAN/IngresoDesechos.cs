@@ -129,7 +129,7 @@ namespace PROYECTO_PROATITLAN
 
             if (NExistencias.Agregar(upex))
             {
-                MessageBox.Show("Se agrego a la existencia", "Aviso");
+                //MessageBox.Show("Se agrego a la existencia", "Aviso");
 
                 //ingreso detalle
                 lista = new List<DDetalleIngreso>();
@@ -156,38 +156,44 @@ namespace PROYECTO_PROATITLAN
                 if (NEncabezadoDesechos.DetalleEncabezado(i))
                 {
 
-                    MessageBox.Show("Se agrego");
+                    MessageBox.Show("Se agrego correctamente","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     dataGridView1.Columns["Column5"].Visible = false;
                     //
                     if (comboBox1.Text == "ORGANICO")
                     {
                         dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, 0,textBox7.Text,comboBox3.Text,textBox4.Text,textBox6.Text);
-                    iddetalle();
-                    button3.Enabled = true;
-                    textBox4.Clear();
-                    textBox6.Clear();
+                        iddetalle();
+                        desechos();
+                        button3.Enabled = true;
+                        textBox4.Clear();
+                        textBox6.Clear();
+                        textBox5.Clear();
+                        textBox7.Clear();
                     }
                     else
                     {
                         dataGridView1.Rows.Add(d.iddetalle, d.iddesecho, comboBox1.Text, d.cantidad , 0, comboBox3.Text, textBox4.Text, textBox6.Text);
                         iddetalle();
+                        desechos();
                         button3.Enabled = true;
                         textBox4.Clear();
                         textBox6.Clear();
+                        textBox5.Clear();
+                        textBox7.Clear();
                     }
                     
 
                 }
                 else
                 {
-                    MessageBox.Show("Error al agregar cantidad peso");
+                    MessageBox.Show("Error al agregar cantidad peso","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //fin ingresodetalle
             }
             else
             {
-                MessageBox.Show("Verifique sus datos", "Error");
+                MessageBox.Show("Verifique sus datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -242,11 +248,7 @@ namespace PROYECTO_PROATITLAN
         }
 
         private void button2_Click_1(object sender, EventArgs e)
-        {
-            //eliminar desecho
-           
-            
-            
+        { 
             #region eliminarexistencia
             try
             {
@@ -279,6 +281,11 @@ namespace PROYECTO_PROATITLAN
                     {
                         MessageBox.Show("Se Elimino correctamente");
                         dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+                        desechos();
+                        textBox5.Clear();
+                        textBox7.Clear();
+                        textBox4.Clear();
+                        textBox6.Clear();
                     }
                     else
                     {

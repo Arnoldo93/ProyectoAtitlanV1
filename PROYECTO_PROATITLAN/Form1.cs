@@ -33,7 +33,7 @@ namespace PROYECTO_PROATITLAN
                 }
         }
         Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos,
-            tipocliente,cliente,venta,moneda;
+            tipocliente,cliente,venta,moneda,reportesexistencias;
         string opcion;
 
         protected override CreateParams CreateParams
@@ -239,6 +239,21 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tipocliente.Focus();
+            }
+        }
+
+        private void buttonItem27_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(reportesexistencias))
+            {
+                reportesexistencias = new ReporteExistencias();
+                reportesexistencias.MdiParent = this;
+                reportesexistencias.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reportesexistencias.Focus();
             }
         }
 

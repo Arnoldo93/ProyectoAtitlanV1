@@ -30,10 +30,10 @@ namespace PROYECTO_PROATITLAN
         public void listadocentros()
         {
             DataTable datos = new DataTable();
-            datos = NTipoCentro.ListadoTipoCentro();
+            datos = NDatosCentro.ListaDatosCentro();
             comboBox1.DataSource = datos;
-            comboBox1.DisplayMember = "Nombre";
-            comboBox1.ValueMember = "Id_Tipo";
+            comboBox1.DisplayMember = "Nombre_centro";
+            comboBox1.ValueMember = "Id_Centro";
         }
 
         public void listadoexistencias()
@@ -42,6 +42,13 @@ namespace PROYECTO_PROATITLAN
             ex.idcentro =Convert.ToInt32(comboBox1.SelectedValue);
             DataTable datos = new DataTable();
             datos = NExistencias.listadoexistencia(ex);
+            dataGridViewX1.DataSource = datos;
+            dataGridViewX1.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listadoexistencias();
         }
     }
 }

@@ -110,13 +110,13 @@ namespace AccesoDatos
             }
         }
 
-        public static bool eliminardetalleVenta(int id)
+        public static bool eliminardetalleVenta(int iddeta)
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
                 string consulta = "DELETE FROM detalle_venta WHERE Id_Detalle=@id";
                 MySqlCommand cmd = new MySqlCommand(consulta, cn);
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@id", iddeta);
                 cn.Open();
                 return Convert.ToBoolean(cmd.ExecuteNonQuery());
             }
