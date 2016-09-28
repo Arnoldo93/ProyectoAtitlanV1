@@ -189,6 +189,12 @@
     <Compile Include="ReporteExistencias.Designer.cs">
       <DependentUpon>ReporteExistencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteVentasPorFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteVentasPorFechas.Designer.cs">
+      <DependentUpon>ReporteVentasPorFechas.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubCategoria_Desechos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteExistencias.resx">
       <DependentUpon>ReporteExistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVentasPorFechas.resx">
+      <DependentUpon>ReporteVentasPorFechas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubCategoria_Desechos.resx">
       <DependentUpon>SubCategoria_Desechos.cs</DependentUpon>

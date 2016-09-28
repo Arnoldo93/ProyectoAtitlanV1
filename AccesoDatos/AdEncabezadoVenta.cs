@@ -136,6 +136,23 @@ namespace AccesoDatos
 
         }
 
+        //reporte ventas por fecha
+        public static DataTable BuscarVentasPorFecha(DateTime fech,DateTime fech1)
+        {
+            using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
+            {
+                string consulta = "select encabezado_venta.Id_Venta,centro.Nombre_centro,empleado.Nombre_Empleado,cliente.Nombre,encabezado_venta.Total,moneda.Nombre from encabezado_venta,empleado,moneda,cliente,centro where encabezado_venta.Id_Empleado=empleado.Id_Empleado and encabezado_venta.Id_Moneda=moneda.Id_Moneda and encabezado_venta.Id_Cliente=cliente.Id_Cliente and  encabezado_venta.Id_Centro=centro.Id_Centro and encabezado_venta.FechaRealizado between @val and @val1 ";
+                MySqlCommand cmd = new MySqlCommand(consulta, cn);
+                cmd.Parameters.AddWithValue("@val", fech);
+                cmd.Parameters.AddWithValue("@val1", fech1);
+                MySqlDataAdapter mdatos = new MySqlDataAdapter(cmd);
+                DataTable dtDatos = new DataTable();
+                cn.Open();
+                mdatos.Fill(dtDatos);
+                return dtDatos;
+            }
+        }
+
 
     }
 }

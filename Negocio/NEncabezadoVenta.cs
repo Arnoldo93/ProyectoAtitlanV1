@@ -45,5 +45,10 @@ namespace Negocio
         {
             return AdEncabezadoVenta.ActualizarTotalEncabezado(e);
         }
+
+        public static DataTable BusquedaVentasPorFechas(DateTime fec,DateTime fec1)
+        {
+            return AdEncabezadoVenta.BuscarVentasPorFecha(fec,fec1);
+        }
     }
 }
