@@ -32,6 +32,9 @@ namespace PROYECTO_PROATITLAN
 
                 }
         }
+
+        Form ingresodesechos, ventadesechos, cliente, tipocliente, reportesexistencias, reporteBuscaFacturasPorFecha;
+
         //codigo para que no parpadeen los formularios
         protected override CreateParams CreateParams
         {
@@ -48,6 +51,81 @@ namespace PROYECTO_PROATITLAN
             Login l = new Login();
             toolStripStatusLabel1.Text = Program.puesto + ": ";
             toolStripStatusLabel3.Text = Program.usuario;
+        }
+
+        private void buttonItem56_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(ventadesechos))
+            {
+                ventadesechos = new VentaDesechos();
+                ventadesechos.MdiParent = this;
+                ventadesechos.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ventadesechos.Focus();
+            }
+        }
+
+        private void buttonItem55_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(tipocliente))
+            {
+                tipocliente = new TipoDeCliente();
+                tipocliente.MdiParent = this;
+                tipocliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tipocliente.Focus();
+            }
+        }
+
+        private void buttonItem54_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(cliente))
+            {
+                cliente = new Clientes();
+                cliente.MdiParent = this;
+                cliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cliente.Focus();
+            }
+        }
+
+        private void buttonItem53_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(reportesexistencias))
+            {
+                reportesexistencias = new ReporteExistencias();
+                reportesexistencias.MdiParent = this;
+                reportesexistencias.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reportesexistencias.Focus();
+            }
+        }
+
+        private void buttonItem52_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(reporteBuscaFacturasPorFecha))
+            {
+                reporteBuscaFacturasPorFecha = new ReporteVentasPorFechas();
+                reporteBuscaFacturasPorFecha.MdiParent = this;
+                reporteBuscaFacturasPorFecha.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reporteBuscaFacturasPorFecha.Focus();
+            }
         }
 
         private void MENU_OPERARIO_Load(object sender, EventArgs e)
@@ -125,6 +203,21 @@ namespace PROYECTO_PROATITLAN
                 this.Hide();
                 Login l = new Login();
                 l.Show();
+            }
+        }
+
+        private void buttonItem65_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(ingresodesechos))
+            {
+                ingresodesechos = new IngresoDesechos();
+                ingresodesechos.MdiParent = this;
+                ingresodesechos.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ingresodesechos.Focus();
             }
         }
     }

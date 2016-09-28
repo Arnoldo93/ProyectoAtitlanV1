@@ -83,7 +83,7 @@ namespace PROYECTO_PROATITLAN
 
                     if (puesto == "ADMINISTRADOR")
                     {
-                        MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                        MessageBox.Show("Bienvenido al Sistema", "Aviso.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Form1 f = new Form1();
                         textBox1.Clear();
                         textBox2.Clear();
@@ -94,9 +94,9 @@ namespace PROYECTO_PROATITLAN
                         f.Show();
 
                     }
-                    else if (puesto=="OPERARIO")
+                    else if (puesto== "OPERARIO")
                     {
-                        MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                        MessageBox.Show("Bienvenido al Sistema", "Aviso.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MENU_OPERARIO op = new MENU_OPERARIO();
                         textBox1.Clear();
                         textBox2.Clear();
@@ -179,7 +179,7 @@ namespace PROYECTO_PROATITLAN
 
                         if (puesto == "ADMINISTRADOR")
                         {
-                            MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                            MessageBox.Show("Bienvenido al Sistema", "Aviso.",MessageBoxButtons.OK,MessageBoxIcon.Information);
                             Form1 f = new Form1();
                             textBox1.Clear();
                             textBox2.Clear();
@@ -189,15 +189,27 @@ namespace PROYECTO_PROATITLAN
                             this.Hide();
                             f.Show();
                         }
+                        else if (puesto == "OPERARIO")
+                        {
+                            MessageBox.Show("Bienvenido al Sistema", "Aviso.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MENU_OPERARIO op = new MENU_OPERARIO();
+                            textBox1.Clear();
+                            textBox2.Clear();
+                            Program.idempleado = Id;
+                            Program.puesto = puesto;
+                            Program.usuario = nombre;
+                            this.Hide();
+                            op.Show();
+                        }
                         else
                         {
-                            MessageBox.Show("Error, verifique sus datos", "Aviso");
+                            MessageBox.Show("Error, verifique sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso");
+                    MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
