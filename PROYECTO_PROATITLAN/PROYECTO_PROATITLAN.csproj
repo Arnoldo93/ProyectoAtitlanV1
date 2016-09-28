@@ -163,6 +163,12 @@
     <Compile Include="Medida.Designer.cs">
       <DependentUpon>Medida.cs</DependentUpon>
     </Compile>
+    <Compile Include="MENU OPERARIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU OPERARIO.Designer.cs">
+      <DependentUpon>MENU OPERARIO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Moneda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Medida.resx">
       <DependentUpon>Medida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU OPERARIO.resx">
+      <DependentUpon>MENU OPERARIO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moneda.resx">
       <DependentUpon>Moneda.cs</DependentUpon>

@@ -94,15 +94,27 @@ namespace PROYECTO_PROATITLAN
                         f.Show();
 
                     }
+                    else if (puesto=="OPERARIO")
+                    {
+                        MessageBox.Show("Bienvenido al Sistema", "Aviso.");
+                        MENU_OPERARIO op = new MENU_OPERARIO();
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        Program.idempleado = Id;
+                        Program.puesto = puesto;
+                        Program.usuario = nombre;
+                        this.Hide();
+                        op.Show();
+                    }
                     else
                     {
-                        MessageBox.Show("Error, verifique sus datos", "Aviso");
+                        MessageBox.Show("Error, verifique sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso");
+                MessageBox.Show("Error, verifique sus datos.\nIngrese usuario y pasword valido.", "Aviso",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
