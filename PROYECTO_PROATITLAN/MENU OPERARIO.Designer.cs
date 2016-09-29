@@ -433,10 +433,10 @@
             this.ribbonControl1.BackgroundStyle.Class = "";
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
+            this.ribbonControl1.Controls.Add(this.ribbonPanel5);
             this.ribbonControl1.Controls.Add(this.ribbonPanel9);
             this.ribbonControl1.Controls.Add(this.ribbonPanel8);
             this.ribbonControl1.Controls.Add(this.ribbonPanel6);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel5);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem4,
@@ -481,6 +481,7 @@
             this.ribbonPanel9.StyleMouseOver.Class = "";
             this.ribbonPanel9.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel9.TabIndex = 9;
+            this.ribbonPanel9.Visible = false;
             // 
             // ribbonBar15
             // 
@@ -775,7 +776,6 @@
             this.ribbonPanel5.StyleMouseOver.Class = "";
             this.ribbonPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel5.TabIndex = 5;
-            this.ribbonPanel5.Visible = false;
             // 
             // ribbonBar13
             // 
@@ -822,6 +822,7 @@
             // 
             // ribbonTabItem4
             // 
+            this.ribbonTabItem4.Checked = true;
             this.ribbonTabItem4.Name = "ribbonTabItem4";
             this.ribbonTabItem4.Panel = this.ribbonPanel5;
             this.ribbonTabItem4.Text = "INGRESOS";
@@ -840,7 +841,6 @@
             // 
             // ribbonTabItem8
             // 
-            this.ribbonTabItem8.Checked = true;
             this.ribbonTabItem8.Name = "ribbonTabItem8";
             this.ribbonTabItem8.Panel = this.ribbonPanel9;
             this.ribbonTabItem8.Text = "REPORTES";
