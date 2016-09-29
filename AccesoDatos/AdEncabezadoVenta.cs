@@ -141,7 +141,7 @@ namespace AccesoDatos
         {
             using (MySqlConnection cn = new MySqlConnection(Conexion.Cadena))
             {
-                string consulta = "select encabezado_venta.Id_Venta,centro.Nombre_centro,empleado.Nombre_Empleado,cliente.Nombre,encabezado_venta.Total,moneda.Nombre from encabezado_venta,empleado,moneda,cliente,centro where encabezado_venta.Id_Empleado=empleado.Id_Empleado and encabezado_venta.Id_Moneda=moneda.Id_Moneda and encabezado_venta.Id_Cliente=cliente.Id_Cliente and  encabezado_venta.Id_Centro=centro.Id_Centro and encabezado_venta.FechaRealizado between @val and @val1 ";
+                string consulta = "select encabezado_venta.Id_Venta,centro.Nombre_centro,empleado.Nombre_Empleado,cliente.Nombre,encabezado_venta.Total,moneda.Nombre from encabezado_venta,empleado,moneda,cliente,centro where encabezado_venta.Id_Empleado=empleado.Id_Empleado and encabezado_venta.Id_Moneda=moneda.Id_Moneda and encabezado_venta.Id_Cliente=cliente.Id_Cliente and  encabezado_venta.Id_Centro=centro.Id_Centro and encabezado_venta.FechaRealizado between @val and @val1";
                 MySqlCommand cmd = new MySqlCommand(consulta, cn);
                 cmd.Parameters.AddWithValue("@val", fech);
                 cmd.Parameters.AddWithValue("@val1", fech1);
