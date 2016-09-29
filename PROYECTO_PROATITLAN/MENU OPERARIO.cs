@@ -59,6 +59,7 @@ namespace PROYECTO_PROATITLAN
             {
                 ventadesechos = new VentaDesechos();
                 ventadesechos.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
                 ventadesechos.Show();
             }
             else
@@ -74,6 +75,7 @@ namespace PROYECTO_PROATITLAN
             {
                 tipocliente = new TipoDeCliente();
                 tipocliente.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
                 tipocliente.Show();
             }
             else
@@ -89,6 +91,7 @@ namespace PROYECTO_PROATITLAN
             {
                 cliente = new Clientes();
                 cliente.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
                 cliente.Show();
             }
             else
@@ -104,6 +107,7 @@ namespace PROYECTO_PROATITLAN
             {
                 reportesexistencias = new ReporteExistencias();
                 reportesexistencias.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
                 reportesexistencias.Show();
             }
             else
@@ -119,6 +123,7 @@ namespace PROYECTO_PROATITLAN
             {
                 reporteBuscaFacturasPorFecha = new ReporteVentasPorFechas();
                 reporteBuscaFacturasPorFecha.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
                 reporteBuscaFacturasPorFecha.Show();
             }
             else
@@ -212,6 +217,7 @@ namespace PROYECTO_PROATITLAN
             {
                 ingresodesechos = new IngresoDesechos();
                 ingresodesechos.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
                 ingresodesechos.Show();
             }
             else
