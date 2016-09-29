@@ -29,11 +29,22 @@ namespace PROYECTO_PROATITLAN
 
         public void listadocentros()
         {
-            DataTable datos = new DataTable();
-            datos = NDatosCentro.ListaDatosCentro();
-            comboBox1.DataSource = datos;
-            comboBox1.DisplayMember = "Nombre_centro";
-            comboBox1.ValueMember = "Id_Centro";
+            if (Program.puesto == "ADMINISTRADOR")
+            {
+                DataTable datos = new DataTable();
+                datos = NDatosCentro.ListaDatosCentro();
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre_centro";
+                comboBox1.ValueMember = "Id_Centro";
+            }
+            else
+            {
+                DataTable datos = new DataTable();
+                datos = NDatosCentro.CentroEmpleado(Convert.ToInt32(Program.idempleado));
+                comboBox1.DataSource = datos;
+                comboBox1.DisplayMember = "Nombre_centro";
+                comboBox1.ValueMember = "Id_Centro";
+            }
         }
 
         public void listadoexistencias()
