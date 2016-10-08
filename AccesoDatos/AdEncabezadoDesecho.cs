@@ -154,5 +154,28 @@ namespace AccesoDatos
             }
 
         }
+
+        //reporte Produccion por Zona De Gestion
+
+        public static DataTable ProduccionPorZonaDeGestion(int zonagestion,DateTime fecha, DateTime fecha1)
+        {
+          
+                MySqlConnection cn = new MySqlConnection(Conexion.Cadena);
+                var cmd = new MySqlCommand();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                cmd.CommandText = "ProduccionPorZonaGestionDetalleIngreso";
+
+                cmd.Parameters.AddWithValue("@zonagestion", zonagestion);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@fecha1", fecha1);
+                cn.Open();
+            MySqlDataAdapter mdatos = new MySqlDataAdapter(cmd);
+            DataTable dtdatos = new DataTable();
+            mdatos.Fill(dtdatos);
+            return dtdatos;
+           
+        }
     }
 }

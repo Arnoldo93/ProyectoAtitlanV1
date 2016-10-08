@@ -51,5 +51,10 @@ namespace Negocio
         {
             return AdEncabezadoDesecho.ListaDeDechosDetalle();
         }
+
+        public static DataTable ProduccionPorZonaDeGestion(int zona,DateTime fecha,DateTime fecha1)
+        {
+            return AdEncabezadoDesecho.ProduccionPorZonaDeGestion(zona, fecha, fecha1);
+        }
     }
 }

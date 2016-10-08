@@ -33,7 +33,7 @@ namespace PROYECTO_PROATITLAN
                 }
         }
 
-        Form ingresodesechos, ventadesechos, cliente, tipocliente, reportesexistencias, reporteBuscaFacturasPorFecha;
+        Form ingresodesechos, ventadesechos, cliente, tipocliente, reportesexistencias, reporteBuscaFacturasPorFecha,reportezonagestiondetalle;
 
         //codigo para que no parpadeen los formularios
         protected override CreateParams CreateParams
@@ -130,6 +130,23 @@ namespace PROYECTO_PROATITLAN
             {
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reporteBuscaFacturasPorFecha.Focus();
+            }
+        }
+
+        private void buttonItem1_Click(object sender, EventArgs e)
+        {
+            /////////////////////////////////////////
+            if (!this.MdiChildren.Contains(reportezonagestiondetalle))
+            {
+                reportezonagestiondetalle = new ReportePorZonaDeGestion();
+                reportezonagestiondetalle.MdiParent = this;
+                styleManager1.ManagerColorTint = Color.MediumSeaGreen;
+                reportezonagestiondetalle.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reportezonagestiondetalle.Focus();
             }
         }
 
