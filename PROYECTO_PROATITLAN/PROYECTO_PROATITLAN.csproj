@@ -278,6 +278,12 @@
     <Compile Include="ReporteExistencias.Designer.cs">
       <DependentUpon>ReporteExistencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportePorZonaDeGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportePorZonaDeGestion.Designer.cs">
+      <DependentUpon>ReportePorZonaDeGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteVentasPorFechas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteExistencias.resx">
       <DependentUpon>ReporteExistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportePorZonaDeGestion.resx">
+      <DependentUpon>ReportePorZonaDeGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteVentasPorFechas.resx">
       <DependentUpon>ReporteVentasPorFechas.cs</DependentUpon>
