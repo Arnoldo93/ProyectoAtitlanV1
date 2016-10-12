@@ -243,6 +243,7 @@
             this.ribbonControl1.TabGroupHeight = 14;
             this.ribbonControl1.TabIndex = 52;
             this.ribbonControl1.Text = "ribbonControl1";
+            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // ribbonPanel1
             // 

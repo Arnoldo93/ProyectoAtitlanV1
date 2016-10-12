@@ -291,6 +291,11 @@ namespace PROYECTO_PROATITLAN
             municipio = comboBox2.SelectedValue.ToString();
         }
 
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void id_centro()
         {
             try

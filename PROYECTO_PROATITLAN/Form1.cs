@@ -33,7 +33,8 @@ namespace PROYECTO_PROATITLAN
                 }
         }
         Form Empleado,Tipoempleado,centro,municipio,tipocentro,zona,familia,categoria,subcategoria,medida,desechos,vehiculo,ingresodesechos,
-            tipocliente,cliente,venta,moneda,reportesexistencias,reporteVentasPorFecha;
+            tipocliente,cliente,venta,moneda,ingresocentro,reportecentros,reportepormunicipio,produccionporzona,movimientoporzona,existenciaporcentro
+            ,existenciapormunicipio;
         string opcion;
 
         protected override CreateParams CreateParams
@@ -206,6 +207,22 @@ namespace PROYECTO_PROATITLAN
             f.Refresh();
         }
 
+        private void buttonItem36_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(tipocliente))
+            {
+                
+                ingresocentro = new FormIngresoPorCentro();
+                ingresocentro.MdiParent = this;
+                ingresocentro.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ingresocentro.Focus();
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -227,6 +244,68 @@ namespace PROYECTO_PROATITLAN
             }
         }
 
+        private void buttonItem40_Click(object sender, EventArgs e)
+        {
+
+            if (!this.MdiChildren.Contains(existenciapormunicipio))
+            {
+                existenciapormunicipio = new RepExistenciaPorMunicipio();
+                existenciapormunicipio.MdiParent = this;
+                existenciapormunicipio.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                existenciapormunicipio.Focus();
+            }
+
+        }
+
+        private void buttonItem39_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(existenciaporcentro))
+            {
+                existenciaporcentro = new RepExistenciaPorCentros();
+                existenciaporcentro.MdiParent = this;
+                existenciaporcentro.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                existenciaporcentro.Focus();
+            }
+        }
+
+        private void buttonItem38_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(movimientoporzona))
+            {
+                movimientoporzona = new RepMovimientoPorZona();
+                movimientoporzona.MdiParent = this;
+                movimientoporzona.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                movimientoporzona.Focus();
+            }
+        }
+
+        private void buttonItem37_Click(object sender, EventArgs e)
+        {
+            if (!this.MdiChildren.Contains(produccionporzona))
+            {
+                produccionporzona = new RepProduccionPorZona();
+                produccionporzona.MdiParent = this;
+                produccionporzona.Show();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                produccionporzona.Focus();
+            }
+        }
+
         private void buttonItem34_Click(object sender, EventArgs e)
         {
             if (!this.MdiChildren.Contains(tipocliente))
@@ -244,31 +323,34 @@ namespace PROYECTO_PROATITLAN
 
         private void buttonItem28_Click(object sender, EventArgs e)
         {
-            if (!this.MdiChildren.Contains(reporteVentasPorFecha))
+            if (!this.MdiChildren.Contains(reportepormunicipio))
             {
-                reporteVentasPorFecha = new ReporteVentasPorFechas();
-                reporteVentasPorFecha.MdiParent = this;
-                reporteVentasPorFecha.Show();
+                reportepormunicipio = new FormRepPorMunicipio();
+                reportepormunicipio.MdiParent = this;
+                reportepormunicipio.Show();
             }
             else
             {
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reporteVentasPorFecha.Focus();
+                reportepormunicipio.Focus();
             }
         }
 
         private void buttonItem27_Click(object sender, EventArgs e)
         {
-            if (!this.MdiChildren.Contains(reportesexistencias))
+            if (!this.MdiChildren.Contains(reportecentros))
             {
-                reportesexistencias = new ReporteExistencias();
-                reportesexistencias.MdiParent = this;
-                reportesexistencias.Show();
+                
+                reportecentros = new FormRepCentros();
+                reportecentros.MdiParent = this;
+                reportecentros.Show();     
+
+
             }
             else
             {
                 MessageBox.Show("Actualmente tiene el Formulario activa.", "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reportesexistencias.Focus();
+                reportecentros.Focus();
             }
         }
 

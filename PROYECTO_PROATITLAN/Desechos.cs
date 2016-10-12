@@ -286,6 +286,11 @@ namespace PROYECTO_PROATITLAN
             categoria = comboBox2.SelectedValue.ToString();
         }
 
+        private void groupPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             subcategoria = comboBox4.SelectedValue.ToString();

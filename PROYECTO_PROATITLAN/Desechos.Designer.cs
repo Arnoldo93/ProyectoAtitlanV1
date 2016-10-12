@@ -291,6 +291,7 @@
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 1;
             this.groupPanel2.Text = "Datos Especificos";
+            this.groupPanel2.Click += new System.EventHandler(this.groupPanel2_Click);
             // 
             // comboBox3
             // 
